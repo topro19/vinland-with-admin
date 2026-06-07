@@ -1,0 +1,54 @@
+import { prisma } from '@/lib/prisma'
+
+export default async function AuditLogsPage() {
+  const logs = await prisma.activityLog.findMany({
+    orderBy: { createdAt: 'desc' },
+    include: { admin: { select: { email: true } } }
+  })
+
+  return (
+    <div className="space-y-6">
+      <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+        <div className="px-8 py-6 border-b border-gray-100 bg-gray-50/50">
+          <h2 className="text-xl font-bold text-gray-900">Audit Logs</h2>
+          <p className="mt-1 text-sm text-gray-500">
+            Immutable log of all administrative actions performed within the CMS.
+          </p>
+        </div>
+
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm text-left">
+            <thead className="bg-gray-50 text-gray-600 font-medium border-b border-gray-200">
+              <tr>
+                <th className="px-6 py-3">Timestamp</th>
+                <th className="px-6 py-3">Admin User</th>
+                <th className="px-6 py-3">Action</th>
+                <th className="px-6 py-3">Details</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-gray-100 text-gray-800">
+              {logs.length === 0 ? (
+                <tr>
+                  <td colSpan={4} className="px-6 py-8 text-center text-gray-500">No activity logs found.</td>
+                </tr>
+              ) : (
+                logs.map(log => (
+                  <tr key={log.id} className="hover:bg-gray-50">
+                    <td className="px-6 py-4 whitespace-nowrap text-gray-500">{new Date(log.createdAt).toLocaleString()}</td>
+                    <td className="px-6 py-4 font-medium">{log.admin.email}</td>
+                    <td className="px-6 py-4">
+                      <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-blue-100 text-blue-800">
+                        {log.action}
+                      </span>
+                    </td>
+                    <td className="px-6 py-4 text-gray-600">{log.details}</td>
+                  </tr>
+                ))
+              )}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  )
+}

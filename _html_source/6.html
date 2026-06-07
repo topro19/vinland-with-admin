@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html class="light" lang="nl">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Ambachtelijk Boerderij-ijs | De Westplaat</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&amp;family=Nunito:ital,wght@0,200..1000;1,200..1000&amp;display=swap"
+        rel="stylesheet">
+    <link 
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <link 
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="premium-motion.css">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed": "#241a00",
+                        "surface-container-high": "#ece8dc",
+                        "primary": "#00461a",
+                        "primary-fixed": "#aff3b4",
+                        "on-primary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed-variant": "#584400",
+                        "on-primary-fixed": "#002108",
+                        "text-charcoal": "#2F2F2F",
+                        "secondary-fixed": "#ffdf90",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed-variant": "#105223",
+                        "tertiary-fixed-dim": "#e6c366",
+                        "error-container": "#ffdad6",
+                        "primary-container": "#1f5e2e",
+                        "on-secondary": "#ffffff",
+                        "outline": "#71796f",
+                        "on-tertiary-container": "#503d00",
+                        "tertiary": "#755b00",
+                        "outline-sage": "#71796F",
+                        "surface-container-low": "#f7f3e7",
+                        "outline-variant": "#c0c9bd",
+                        "surface-cream": "#FAF6EA",
+                        "background": "#fdf9ed",
+                        "primary-fixed-dim": "#94d699",
+                        "inverse-surface": "#323129",
+                        "secondary-container": "#fccc38",
+                        "surface-dim": "#dddace",
+                        "on-tertiary": "#ffffff",
+                        "surface-bright": "#fdf9ed",
+                        "secondary": "#755b00",
+                        "on-background": "#1c1c15",
+                        "surface-variant": "#e6e2d7",
+                        "secondary-fixed-dim": "#f0c12c",
+                        "surface-tint": "#2c6b39",
+                        "on-secondary-container": "#6f5600",
+                        "on-error": "#ffffff",
+                        "surface-container-highest": "#e6e2d7",
+                        "tertiary-container": "#c9a84e",
+                        "inverse-on-surface": "#f4f1e5",
+                        "on-secondary-fixed-variant": "#584400",
+                        "surface-container": "#f2eee2",
+                        "on-primary-container": "#94d699",
+                        "on-surface": "#1c1c15",
+                        "on-surface-variant": "#414940",
+                        "inverse-primary": "#94d699",
+                        "tertiary-fixed": "#ffdf90",
+                        "on-tertiary-fixed": "#241a00",
+                        "heading-green": "#16451F",
+                        "accent-brown": "#A8753B",
+                        "surface": "#fdf9ed",
+                        "on-error-container": "#93000a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xl": "80px",
+                        "sm": "12px",
+                        "md": "24px",
+                        "lg": "48px",
+                        "margin-desktop": "64px",
+                        "gutter": "24px",
+                        "xs": "4px",
+                        "margin-mobile": "20px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "headline-xl": ["Nunito", "sans-serif"],
+                        "body-md": ["'Nunito Sans'", "sans-serif"],
+                        "label-lg": ["'Nunito Sans'", "sans-serif"],
+                        "headline-md": ["Nunito", "sans-serif"],
+                        "label-sm": ["'Nunito Sans'", "sans-serif"],
+                        "headline-lg": ["Nunito", "sans-serif"],
+                        "display-lg-mobile": ["Nunito", "sans-serif"],
+                        "body-lg": ["'Nunito Sans'", "sans-serif"],
+                        "display-lg": ["Nunito", "sans-serif"]
+                    },
+                    "fontSize": {
+                        "headline-xl": ["40px", { "lineHeight": "1.2", "fontWeight": "800" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "label-lg": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "1.4", "fontWeight": "700" }],
+                        "label-sm": ["12px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.3", "fontWeight": "800" }],
+                        "display-lg-mobile": ["40px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "800" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "display-lg": ["56px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800" }]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .topographic-pattern {
+            background-image: url("https://www.transparenttextures.com/patterns/topography.png");
+            background-repeat: repeat;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, #FAF6EA 0%, #F7F3E7 100%);
+        }
+
+        .ice-cream-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .ice-cream-card img {
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+    </style>
+
+    
+</head>
+
+<body class="bg-surface-container-low text-on-surface font-body-md overflow-x-hidden">
+
+    <nav class="bg-surface/90 backdrop-blur-md sticky top-0 z-50 border-b border-outline-variant/20 shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-4 flex justify-between items-center">
+            <a href="2.html" class="flex items-center gap-2" data-cms-id="auto-6-a-68">
+                <span class="font-headline-md text-headline-md font-extrabold text-primary" data-cms-id="auto-6-span-96">De Westplaat</span>
+            </a>
+            <div class="hidden lg:flex gap-6 items-center">
+                <a href="2.html" class="text-on-surface hover:text-primary font-label-lg transition-colors" data-cms-id="auto-6-a-69">Home</a>
+                <a href="3.html" class="text-on-surface hover:text-primary font-label-lg transition-colors" data-cms-id="auto-6-a-70">Over Ons</a>
+                <a href="4.html" class="text-on-surface hover:text-primary font-label-lg transition-colors" data-cms-id="auto-6-a-71">Kaas</a>
+                <a href="5.html" class="text-on-surface hover:text-primary font-label-lg transition-colors" data-cms-id="auto-6-a-72">Zuivel</a>
+                <a href="6.html" class="text-on-surface hover:text-primary font-label-lg transition-colors" data-cms-id="auto-6-a-73">IJs</a>
+                <a href="7.html" class="text-on-surface hover:text-primary font-label-lg transition-colors" data-cms-id="auto-6-a-74">Vlees</a>
+                <a href="8.html" class="text-on-surface hover:text-primary font-label-lg transition-colors" data-cms-id="auto-6-a-75">Verkooppunten</a>
+                <a href="9.html" class="bg-primary text-on-primary px-4 py-2 rounded-lg font-label-lg hover:bg-primary-container transition-colors shadow-sm btn-hover-effect" data-cms-id="auto-6-a-76">Contact</a>
+            </div>
+            <button id="mobile-menu-btn" class="lg:hidden text-on-surface p-2 rounded-md hover:bg-surface-container transition-colors" data-cms-id="auto-6-button-64">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden lg:hidden bg-surface border-t border-outline-variant/20 flex flex-col absolute w-full shadow-lg">
+            <a href="2.html" class="px-margin-mobile py-4 text-on-surface hover:bg-surface-container font-label-lg border-b border-outline-variant/10" data-cms-id="auto-6-a-77">Home</a>
+            <a href="3.html" class="px-margin-mobile py-4 text-on-surface hover:bg-surface-container font-label-lg border-b border-outline-variant/10" data-cms-id="auto-6-a-78">Over Ons</a>
+            <a href="4.html" class="px-margin-mobile py-4 text-on-surface hover:bg-surface-container font-label-lg border-b border-outline-variant/10" data-cms-id="auto-6-a-79">Kaas</a>
+            <a href="5.html" class="px-margin-mobile py-4 text-on-surface hover:bg-surface-container font-label-lg border-b border-outline-variant/10" data-cms-id="auto-6-a-80">Zuivel</a>
+            <a href="6.html" class="px-margin-mobile py-4 text-on-surface hover:bg-surface-container font-label-lg border-b border-outline-variant/10" data-cms-id="auto-6-a-81">IJs</a>
+            <a href="7.html" class="px-margin-mobile py-4 text-on-surface hover:bg-surface-container font-label-lg border-b border-outline-variant/10" data-cms-id="auto-6-a-82">Vlees</a>
+            <a href="8.html" class="px-margin-mobile py-4 text-on-surface hover:bg-surface-container font-label-lg border-b border-outline-variant/10" data-cms-id="auto-6-a-83">Verkooppunten</a>
+            <a href="9.html" class="px-margin-mobile py-4 text-primary bg-primary/5 hover:bg-primary/10 font-label-lg" data-cms-id="auto-6-a-84">Contact</a>
+        </div>
+    </nav>
+
+    
+    <section 
+        class="hero-gradient relative min-h-[80vh] flex items-center pt-xl pb-xl px-margin-mobile md:px-margin-desktop transition-all duration-700 opacity-100 translate-y-0">
+        <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-lg items-center">
+            <div class="space-y-md">
+                <span class="font-label-lg text-label-lg text-accent-brown uppercase tracking-widest" data-cms-id="auto-6-span-97">Sinds 2019</span>
+                <h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-heading-green leading-tight" data-cms-id="auto-6-h1-1">
+                    Ambachtelijk <br><span class="text-secondary" data-cms-id="auto-6-span-98">Boerderij-ijs</span>
+                </h1>
+                <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl" data-cms-id="auto-6-p-25">
+                    Onze passie voor zuivel vertaalt zich sinds 2019 in het allerlekkerste ambachtelijke ijs. Bereid met
+                    dagverse melk van onze eigen koeien en de beste natuurlijke ingrediënten.
+                </p>
+                <div class="pt-sm">
+                    <a class="inline-flex items-center justify-center px-lg py-md bg-primary text-on-primary rounded-lg font-label-lg transition-all hover:bg-heading-green shadow-sm hover:shadow-md" href="#assortiment" data-cms-id="auto-6-a-85">
+                        Bekijk ons assortiment
+                    </a>
+                </div>
+            </div>
+            <div class="relative">
+                <div class="absolute -inset-4 bg-secondary-container/20 blur-3xl rounded-full"></div>
+                <img alt="Ambachtelijk IJs" class="relative z-10 w-full h-[500px] object-cover rounded-xl shadow-lg border-8 border-white" data-alt="A premium close-up shot of three beautifully styled scoops of artisanal farm-fresh ice cream in a ceramic bowl. The lighting is warm and natural, highlighting the creamy texture and rich colors. The background is a rustic Dutch farmhouse kitchen with soft cream tones and natural wood elements, reflecting a high-end and artisanal aesthetic." src="./images/img_016.jpg" data-cms-id="auto-6-img-46">
+            </div>
+        </div>
+    </section>
+    
+    <section 
+        class="py-xl px-margin-mobile md:px-margin-desktop bg-white transition-all duration-700 opacity-100 translate-y-0">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-xl items-center">
+            <div class="order-2 md:order-1">
+                <img alt="Verse melk" class="w-full h-[600px] object-cover rounded-xl shadow-sm" data-alt="A high-fidelity photograph showing fresh, creamy milk being poured into a traditional metal dairy canister. The scene is set outdoors in a lush green Dutch pasture during the golden hour, creating a warm and authentic farm atmosphere. The visual style is clean, organic, and meticulously polished to communicate quality and heritage." src="./images/img_017.jpg" data-cms-id="auto-6-img-47">
+            </div>
+            <div class="order-1 md:order-2 space-y-md">
+                <h2 class="font-headline-xl text-headline-xl text-heading-green" data-cms-id="auto-6-h2-2">Gemaakt van Verse Melk en Room</h2>
+                <div class="w-16 h-1 bg-secondary rounded-full"></div>
+                <p class="font-body-lg text-body-lg text-on-surface-variant" data-cms-id="auto-6-p-26">
+                    Het geheim van ons ijs? Dat begint bij de bron. Elke ochtend verwerken we de verse melk van onze
+                    eigen kudde direct tot een romige ijsbasis. Geen concessies, alleen pure ingrediënten voor een
+                    ongekende smaakbeleving.
+                </p>
+                <div class="p-lg bg-surface-container-low rounded-xl border-l-4 border-secondary mt-lg">
+                    <p class="font-headline-md text-headline-md text-heading-green italic" data-cms-id="auto-6-p-27">"Vers van de boerderij, puur
+                        van smaak."</p>
+                    <p class="font-label-sm text-label-sm text-on-surface-variant mt-sm" data-cms-id="auto-6-p-28">— Familie van der Voort</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section 
+        class="py-xl px-margin-mobile md:px-margin-desktop bg-surface-container-low transition-all duration-700 opacity-100 translate-y-0"
+        id="assortiment">
+        <div class="max-w-7xl mx-auto text-center mb-lg">
+            <h2 class="font-headline-xl text-headline-xl text-heading-green mb-sm" data-cms-id="auto-6-h2-3">Onze Standaard Smaken</h2>
+            <p class="font-body-lg text-body-lg text-on-surface-variant" data-cms-id="auto-6-p-29">Ontdek onze tijdloze klassiekers, elke dag vers
+                bereid.</p>
+        </div>
+        <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-md">
+            
+            <script>
+                const flavors = [
+                    { name: 'Vanille', img: 'https://images.unsplash.com/photo-1570197788417-0e82375c9371?auto=format&fit=crop&q=80&w=600' },
+                    { name: 'Chocolade', img: 'https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&q=80&w=600' },
+                    { name: 'Aardbei', img: 'https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?auto=format&fit=crop&q=80&w=600' },
+                    { name: 'Stracciatella', img: 'https://images.unsplash.com/photo-1533930250856-724392c65330?auto=format&fit=crop&q=80&w=600' },
+                    { name: 'Hazelnoot', img: 'https://images.unsplash.com/photo-1603533871195-afc753177d6f?auto=format&fit=crop&q=80&w=600' },
+                    { name: 'Advocaat', img: 'https://images.unsplash.com/photo-1601648764658-cf37e8c89b70?auto=format&fit=crop&q=80&w=600' },
+                    { name: 'Karamel zeezout', img: 'https://images.unsplash.com/photo-1590085012920-d9a712ddca7c?auto=format&fit=crop&q=80&w=600' },
+                    { name: 'Room', img: 'https://images.unsplash.com/photo-1579954115545-a95591f28be0?auto=format&fit=crop&q=80&w=600' },
+                    { name: 'Stroopwafel', img: 'https://images.unsplash.com/photo-1530331191116-59c9227d8481?auto=format&fit=crop&q=80&w=600' },
+                    { name: 'Witte chocolade', img: 'https://images.unsplash.com/photo-1604152135912-04a022e23696?auto=format&fit=crop&q=80&w=600' },
+                    { name: 'Yoghurt kers', img: 'https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&q=80&w=600' }
+                ];
+
+                document.write(flavors.map(f => `
+                    <div class="ice-cream-card bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 group">
+                        <div class="h-48 overflow-hidden">
+                            <img src="${f.img}" 
+                                 data-alt="A premium close-up of ${f.name} ice cream, showcasing its rich texture and natural ingredients. The lighting is soft and flattering, highlighting the creamy swirls and artisan quality. The color palette aligns with our farm-fresh luxury brand, using natural and organic tones."
+                                 alt="${f.name}" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-md text-center">
+                            <h3 class="font-headline-md text-headline-md text-heading-green">${f.name}</h3>
+                            <div class="mt-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                <span class="px-sm py-1 bg-secondary-fixed text-on-secondary-fixed text-label-sm rounded-full">Proef de boerderij</span>
+                            </div>
+                        </div>
+                    </div>
+                `).join(''));
+            </script>
+            <div 
+                class="ice-cream-card bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 group">
+                <div class="h-48 overflow-hidden">
+                    <img src="./images/img_018.jpg" data-alt="A premium close-up of Vanille ice cream, showcasing its rich texture and natural ingredients. The lighting is soft and flattering, highlighting the creamy swirls and artisan quality. The color palette aligns with our farm-fresh luxury brand, using natural and organic tones." alt="Vanille" class="w-full h-full object-cover" data-cms-id="auto-6-img-48">
+                </div>
+                <div class="p-md text-center">
+                    <h3 class="font-headline-md text-headline-md text-heading-green" data-cms-id="auto-6-h3-7">Vanille</h3>
+                    <div class="mt-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <span class="px-sm py-1 bg-secondary-fixed text-on-secondary-fixed text-label-sm rounded-full" data-cms-id="auto-6-span-99">Proef
+                            de boerderij</span>
+                    </div>
+                </div>
+            </div>
+
+            <div 
+                class="ice-cream-card bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 group">
+                <div class="h-48 overflow-hidden">
+                    <img src="./images/img_019.jpg" data-alt="A premium close-up of Chocolade ice cream, showcasing its rich texture and natural ingredients. The lighting is soft and flattering, highlighting the creamy swirls and artisan quality. The color palette aligns with our farm-fresh luxury brand, using natural and organic tones." alt="Chocolade" class="w-full h-full object-cover" data-cms-id="auto-6-img-49">
+                </div>
+                <div class="p-md text-center">
+                    <h3 class="font-headline-md text-headline-md text-heading-green" data-cms-id="auto-6-h3-8">Chocolade</h3>
+                    <div class="mt-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <span class="px-sm py-1 bg-secondary-fixed text-on-secondary-fixed text-label-sm rounded-full" data-cms-id="auto-6-span-100">Proef
+                            de boerderij</span>
+                    </div>
+                </div>
+            </div>
+
+            <div 
+                class="ice-cream-card bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 group">
+                <div class="h-48 overflow-hidden">
+                    <img src="./images/img_020.jpg" data-alt="A premium close-up of Aardbei ice cream, showcasing its rich texture and natural ingredients. The lighting is soft and flattering, highlighting the creamy swirls and artisan quality. The color palette aligns with our farm-fresh luxury brand, using natural and organic tones." alt="Aardbei" class="w-full h-full object-cover" data-cms-id="auto-6-img-50">
+                </div>
+                <div class="p-md text-center">
+                    <h3 class="font-headline-md text-headline-md text-heading-green" data-cms-id="auto-6-h3-9">Aardbei</h3>
+                    <div class="mt-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <span class="px-sm py-1 bg-secondary-fixed text-on-secondary-fixed text-label-sm rounded-full" data-cms-id="auto-6-span-101">Proef
+                            de boerderij</span>
+                    </div>
+                </div>
+            </div>
+
+            <div 
+                class="ice-cream-card bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 group">
+                <div class="h-48 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1533930250856-724392c65330?auto=format&fit=crop&q=80&w=600" data-alt="A premium close-up of Stracciatella ice cream, showcasing its rich texture and natural ingredients. The lighting is soft and flattering, highlighting the creamy swirls and artisan quality. The color palette aligns with our farm-fresh luxury brand, using natural and organic tones." alt="Stracciatella" class="w-full h-full object-cover" data-cms-id="auto-6-img-51">
+                </div>
+                <div class="p-md text-center">
+                    <h3 class="font-headline-md text-headline-md text-heading-green" data-cms-id="auto-6-h3-10">Stracciatella</h3>
+                    <div class="mt-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <span class="px-sm py-1 bg-secondary-fixed text-on-secondary-fixed text-label-sm rounded-full" data-cms-id="auto-6-span-102">Proef
+                            de boerderij</span>
+                    </div>
+                </div>
+            </div>
+
+            <div 
+                class="ice-cream-card bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 group">
+                <div class="h-48 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1603533871195-afc753177d6f?auto=format&fit=crop&q=80&w=600" data-alt="A premium close-up of Hazelnoot ice cream, showcasing its rich texture and natural ingredients. The lighting is soft and flattering, highlighting the creamy swirls and artisan quality. The color palette aligns with our farm-fresh luxury brand, using natural and organic tones." alt="Hazelnoot" class="w-full h-full object-cover" data-cms-id="auto-6-img-52">
+                </div>
+                <div class="p-md text-center">
+                    <h3 class="font-headline-md text-headline-md text-heading-green" data-cms-id="auto-6-h3-11">Hazelnoot</h3>
+                    <div class="mt-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <span class="px-sm py-1 bg-secondary-fixed text-on-secondary-fixed text-label-sm rounded-full" data-cms-id="auto-6-span-103">Proef
+                            de boerderij</span>
+                    </div>
+                </div>
+            </div>
+
+            <div 
+                class="ice-cream-card bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 group">
+                <div class="h-48 overflow-hidden">
+                    <img src="./images/img_021.jpg" data-alt="A premium close-up of Advocaat ice cream, showcasing its rich texture and natural ingredients. The lighting is soft and flattering, highlighting the creamy swirls and artisan quality. The color palette aligns with our farm-fresh luxury brand, using natural and organic tones." alt="Advocaat" class="w-full h-full object-cover" data-cms-id="auto-6-img-53">
+                </div>
+                <div class="p-md text-center">
+                    <h3 class="font-headline-md text-headline-md text-heading-green" data-cms-id="auto-6-h3-12">Advocaat</h3>
+                    <div class="mt-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <span class="px-sm py-1 bg-secondary-fixed text-on-secondary-fixed text-label-sm rounded-full" data-cms-id="auto-6-span-104">Proef
+                            de boerderij</span>
+                    </div>
+                </div>
+            </div>
+
+            <div 
+                class="ice-cream-card bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 group">
+                <div class="h-48 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1590085012920-d9a712ddca7c?auto=format&fit=crop&q=80&w=600" data-alt="A premium close-up of Karamel zeezout ice cream, showcasing its rich texture and natural ingredients. The lighting is soft and flattering, highlighting the creamy swirls and artisan quality. The color palette aligns with our farm-fresh luxury brand, using natural and organic tones." alt="Karamel zeezout" class="w-full h-full object-cover" data-cms-id="auto-6-img-54">
+                </div>
+                <div class="p-md text-center">
+                    <h3 class="font-headline-md text-headline-md text-heading-green" data-cms-id="auto-6-h3-13">Karamel zeezout</h3>
+                    <div class="mt-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <span class="px-sm py-1 bg-secondary-fixed text-on-secondary-fixed text-label-sm rounded-full" data-cms-id="auto-6-span-105">Proef
+                            de boerderij</span>
+                    </div>
+                </div>
+            </div>
+
+            <div 
+                class="ice-cream-card bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 group">
+                <div class="h-48 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1579954115545-a95591f28be0?auto=format&fit=crop&q=80&w=600" data-alt="A premium close-up of Room ice cream, showcasing its rich texture and natural ingredients. The lighting is soft and flattering, highlighting the creamy swirls and artisan quality. The color palette aligns with our farm-fresh luxury brand, using natural and organic tones." alt="Room" class="w-full h-full object-cover" data-cms-id="auto-6-img-55">
+                </div>
+                <div class="p-md text-center">
+                    <h3 class="font-headline-md text-headline-md text-heading-green" data-cms-id="auto-6-h3-14">Room</h3>
+                    <div class="mt-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <span class="px-sm py-1 bg-secondary-fixed text-on-secondary-fixed text-label-sm rounded-full" data-cms-id="auto-6-span-106">Proef
+                            de boerderij</span>
+                    </div>
+                </div>
+            </div>
+
+            <div 
+                class="ice-cream-card bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 group">
+                <div class="h-48 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1530331191116-59c9227d8481?auto=format&fit=crop&q=80&w=600" data-alt="A premium close-up of Stroopwafel ice cream, showcasing its rich texture and natural ingredients. The lighting is soft and flattering, highlighting the creamy swirls and artisan quality. The color palette aligns with our farm-fresh luxury brand, using natural and organic tones." alt="Stroopwafel" class="w-full h-full object-cover" data-cms-id="auto-6-img-56">
+                </div>
+                <div class="p-md text-center">
+                    <h3 class="font-headline-md text-headline-md text-heading-green" data-cms-id="auto-6-h3-15">Stroopwafel</h3>
+                    <div class="mt-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <span class="px-sm py-1 bg-secondary-fixed text-on-secondary-fixed text-label-sm rounded-full" data-cms-id="auto-6-span-107">Proef
+                            de boerderij</span>
+                    </div>
+                </div>
+            </div>
+
+            <div 
+                class="ice-cream-card bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 group">
+                <div class="h-48 overflow-hidden">
+                    <img src="./images/img_022.jpg" data-alt="A premium close-up of Witte chocolade ice cream, showcasing its rich texture and natural ingredients. The lighting is soft and flattering, highlighting the creamy swirls and artisan quality. The color palette aligns with our farm-fresh luxury brand, using natural and organic tones." alt="Witte chocolade" class="w-full h-full object-cover" data-cms-id="auto-6-img-57">
+                </div>
+                <div class="p-md text-center">
+                    <h3 class="font-headline-md text-headline-md text-heading-green" data-cms-id="auto-6-h3-16">Witte chocolade</h3>
+                    <div class="mt-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <span class="px-sm py-1 bg-secondary-fixed text-on-secondary-fixed text-label-sm rounded-full" data-cms-id="auto-6-span-108">Proef
+                            de boerderij</span>
+                    </div>
+                </div>
+            </div>
+
+            <div 
+                class="ice-cream-card bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 group">
+                <div class="h-48 overflow-hidden">
+                    <img src="./images/img_023.jpg" data-alt="A premium close-up of Yoghurt kers ice cream, showcasing its rich texture and natural ingredients. The lighting is soft and flattering, highlighting the creamy swirls and artisan quality. The color palette aligns with our farm-fresh luxury brand, using natural and organic tones." alt="Yoghurt kers" class="w-full h-full object-cover" data-cms-id="auto-6-img-58">
+                </div>
+                <div class="p-md text-center">
+                    <h3 class="font-headline-md text-headline-md text-heading-green" data-cms-id="auto-6-h3-17">Yoghurt kers</h3>
+                    <div class="mt-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <span class="px-sm py-1 bg-secondary-fixed text-on-secondary-fixed text-label-sm rounded-full" data-cms-id="auto-6-span-109">Proef
+                            de boerderij</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    
+    <section 
+        class="py-xl px-margin-mobile md:px-margin-desktop bg-primary topographic-pattern text-white transition-all duration-700 opacity-100 translate-y-0">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-lg">
+                <h2 class="font-headline-xl text-headline-xl mb-sm" data-cms-id="auto-6-h2-4">Seizoenssmaken</h2>
+                <p class="font-body-lg text-body-lg opacity-90" data-cms-id="auto-6-p-30">De kracht van de seizoenen, gevangen in een ijsje.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+                
+                <div 
+                    class="bg-surface/10 backdrop-blur-md rounded-xl p-md border border-white/10 group cursor-pointer transition-all hover:bg-surface/20">
+                    <div class="h-64 rounded-lg overflow-hidden mb-md">
+                        <img alt="Zomer IJs" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A vibrant and refreshing close-up of summer fruit ice cream, featuring fresh berries and bright citrus notes. The lighting is sunny and high-key, evoking a cheerful summer day in the Dutch countryside. The presentation is elegant and artisanal, with a focus on natural, high-quality ingredients." src="./images/img_024.jpg" data-cms-id="auto-6-img-59">
+                    </div>
+                    <h3 class="font-headline-lg text-headline-lg mb-sm" data-cms-id="auto-6-h3-18">De Zomerse Oogst</h3>
+                    <p class="font-body-md text-body-md opacity-80 mb-md" data-cms-id="auto-6-p-31">Fris sorbetijs met fruit direct van het land.
+                        Denk aan vlierbloesem, rabarber en zonrijpe aardbeien.</p>
+                    <span class="inline-flex items-center text-secondary-fixed font-label-lg group-hover:gap-2 transition-all" data-cms-id="auto-6-span-110">
+                        Ontdek meer <span class="material-symbols-outlined ml-base">arrow_forward</span>
+                    </span>
+                </div>
+                
+                <div 
+                    class="bg-surface/10 backdrop-blur-md rounded-xl p-md border border-white/10 group cursor-pointer transition-all hover:bg-surface/20">
+                    <div class="h-64 rounded-lg overflow-hidden mb-md">
+                        <img alt="Winter IJs" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A cozy and comforting winter dessert scene featuring rich, decadent ice cream paired with warm spices and dark chocolate. The lighting is low and atmospheric, with warm golden highlights. The visual style is premium and evocative of a cold winter evening by a farmhouse fireplace." src="./images/img_025.jpg" data-cms-id="auto-6-img-60">
+                    </div>
+                    <h3 class="font-headline-lg text-headline-lg mb-sm" data-cms-id="auto-6-h3-19">Winterse Warmte</h3>
+                    <p class="font-body-md text-body-md opacity-80 mb-md" data-cms-id="auto-6-p-32">Rijke, volle smaken zoals kaneel, pure
+                        chocolade en gekruide appel. Perfect voor bij het haardvuur.</p>
+                    <span class="inline-flex items-center text-secondary-fixed font-label-lg group-hover:gap-2 transition-all" data-cms-id="auto-6-span-111">
+                        Ontdek meer <span class="material-symbols-outlined ml-base">arrow_forward</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section 
+        class="py-xl px-margin-mobile md:px-margin-desktop bg-white transition-all duration-700 opacity-100 translate-y-0">
+        <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-xl">
+            <div class="lg:w-1/2 space-y-md">
+                <span class="font-label-lg text-label-lg text-accent-brown uppercase tracking-widest" data-cms-id="auto-6-span-112">Maatwerk</span>
+                <h2 class="font-headline-xl text-headline-xl text-heading-green" data-cms-id="auto-6-h2-5">IJstaarten en Op Bestelling</h2>
+                <p class="font-body-lg text-body-lg text-on-surface-variant" data-cms-id="auto-6-p-33">
+                    Iets te vieren? Onze ambachtelijke ijstaarten zijn de eyecatcher op elk feest. Volledig naar wens
+                    samen te stellen met uw favoriete smaken en decoraties. Ook voor horeca en evenementen denken wij
+                    graag mee.
+                </p>
+                <div class="pt-sm">
+                    <button class="inline-flex items-center px-lg py-md border-2 border-primary text-primary hover:bg-primary hover:text-on-primary rounded-lg font-label-lg transition-all" data-cms-id="auto-6-button-65">
+                        Neem contact op voor bestelling
+                    </button>
+                </div>
+            </div>
+            <div class="lg:w-1/2 grid grid-cols-2 gap-md">
+                <img alt="IJstaart 1" class="w-full h-64 object-cover rounded-xl shadow-sm" data-alt="A stunning, multi-layered artisanal ice cream cake decorated with fresh berries, edible flowers, and white chocolate shavings. The cake is presented on a minimalist marble stand in a bright, modern studio setting. The lighting is soft and commercial-grade, emphasizing the precision and beauty of the artisanal craftsmanship." src="./images/img_026.jpg" data-cms-id="auto-6-img-61">
+                <img alt="IJstaart 2" class="w-full h-64 object-cover rounded-xl shadow-sm mt-lg" data-alt="A sophisticated close-up of gourmet ice cream being expertly plated for a high-end dessert experience. The scene features delicate chocolate decorations and fruit coulis, reflecting a premium culinary approach. The color palette is composed of soft creams, deep greens, and vibrant fruit colors." src="./images/img_027.jpg" data-cms-id="auto-6-img-62">
+            </div>
+        </div>
+    </section>
+    
+    <section 
+        class="py-xl px-margin-mobile md:px-margin-desktop bg-surface-container-low transition-all duration-700 opacity-100 translate-y-0">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-lg">
+                
+                <div 
+                    class="bg-white p-lg rounded-xl shadow-sm text-center space-y-sm hover:translate-y-[-8px] transition-all duration-300">
+                    <div 
+                        class="w-16 h-16 bg-primary-fixed/30 rounded-full flex items-center justify-center mx-auto mb-md">
+                        <span class="material-symbols-outlined text-primary text-3xl">water_drop</span>
+                    </div>
+                    <h3 class="font-headline-md text-headline-md text-heading-green" data-cms-id="auto-6-h3-20">Verse Melk</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant" data-cms-id="auto-6-p-34">Rechtstreeks van onze eigen koeien naar
+                        de ijsmachine. Verser kan niet.</p>
+                </div>
+                
+                <div 
+                    class="bg-white p-lg rounded-xl shadow-sm text-center space-y-sm hover:translate-y-[-8px] transition-all duration-300">
+                    <div 
+                        class="w-16 h-16 bg-secondary-container/30 rounded-full flex items-center justify-center mx-auto mb-md">
+                        <span class="material-symbols-outlined text-tertiary text-3xl">nature</span>
+                    </div>
+                    <h3 class="font-headline-md text-headline-md text-heading-green" data-cms-id="auto-6-h3-21">Natuurlijk</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant" data-cms-id="auto-6-p-35">Geen kunstmatige geur- of kleurstoffen.
+                        Alleen wat de natuur ons geeft.</p>
+                </div>
+                
+                <div 
+                    class="bg-white p-lg rounded-xl shadow-sm text-center space-y-sm hover:translate-y-[-8px] transition-all duration-300">
+                    <div 
+                        class="w-16 h-16 bg-primary-fixed/30 rounded-full flex items-center justify-center mx-auto mb-md">
+                        <span class="material-symbols-outlined text-primary text-3xl">auto_awesome</span>
+                    </div>
+                    <h3 class="font-headline-md text-headline-md text-heading-green" data-cms-id="auto-6-h3-22">Romige Smaak</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant" data-cms-id="auto-6-p-36">Een unieke textuur die smelt op de
+                        tong, dankzij ons authentieke recept.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section 
+        class="py-xl px-margin-mobile md:px-margin-desktop bg-heading-green topographic-pattern text-white text-center transition-all duration-700 opacity-100 translate-y-0">
+        <div class="max-w-3xl mx-auto space-y-lg">
+            <h2 class="font-display-lg text-display-lg-mobile md:text-display-lg" data-cms-id="auto-6-h2-6">Kom ons ijs proeven</h2>
+            <p class="font-body-lg text-body-lg opacity-90" data-cms-id="auto-6-p-37">Bezoek onze boerderijwinkel voor een hoorntje, een bakje of
+                een literbox voor thuis. We verwelkomen u graag!</p>
+            <div class="flex flex-col sm:flex-row gap-md justify-center pt-sm">
+                <button class="px-lg py-md bg-secondary text-on-secondary-fixed rounded-lg font-label-lg transition-all hover:scale-105 shadow-lg" data-cms-id="auto-6-button-66">
+                    Bezoek onze winkel
+                </button>
+                <button class="px-lg py-md bg-white/10 backdrop-blur-md text-white border border-white/20 rounded-lg font-label-lg transition-all hover:bg-white/20" data-cms-id="auto-6-button-67">
+                    Bekijk openingstijden
+                </button>
+            </div>
+        </div>
+    </section>
+    
+                <footer class="bg-black text-white relative py-4">
+        <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-md">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-lg">
+                
+                <div class="lg:col-span-4 space-y-md">
+                    <div class="flex items-center gap-sm">
+                        <img alt="Logo" class="h-12 w-12 object-contain" src="./images/img_002.jpg" data-cms-id="auto-6-img-63">
+                        <span class="font-headline-md text-headline-md font-extrabold text-white" data-cms-id="auto-6-span-113">De Westplaat</span>
+                    </div>
+                    <p class="font-body-md text-body-md max-w-sm text-white" data-cms-id="auto-6-p-38">Ambachtelijke producten van eigen land. Met passie gemaakt op onze familieboerderij in Sommelsdijk.</p>
+                    <div class="flex gap-md pt-sm">
+                        <a class="w-10 h-10 flex items-center justify-center bg-white text-primary-container rounded-full hover:bg-white/90 transition-all hover:scale-110" href="https://facebook.com" target="_blank" data-cms-id="auto-6-a-86">
+                            <span class="material-symbols-outlined">face_nod</span>
+                        </a>
+                        <a class="w-10 h-10 flex items-center justify-center bg-white text-primary-container rounded-full hover:bg-white/90 transition-all hover:scale-110" href="https://instagram.com" target="_blank" data-cms-id="auto-6-a-87">
+                            <span class="material-symbols-outlined">camera_alt</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="lg:col-span-4 space-y-md">
+                    <h4 class="font-headline-sm text-headline-sm text-on-primary" data-cms-id="auto-6-h4-23">Navigatie &amp; Service</h4>
+                    <div class="space-y-xs">
+                        <a class="block px-md py-sm rounded-lg hover:bg-white/10 transition-colors text-white" href="2.html" data-cms-id="auto-6-a-88">Home</a>
+                        <a class="block px-md py-sm rounded-lg hover:bg-white/10 transition-colors text-white" href="3.html" data-cms-id="auto-6-a-89">Over Ons</a>
+                        <a class="block px-md py-sm rounded-lg hover:bg-white/10 transition-colors text-white" href="4.html" data-cms-id="auto-6-a-90">Kaas</a>
+                        <a class="block px-md py-sm rounded-lg hover:bg-white/10 transition-colors text-white" href="5.html" data-cms-id="auto-6-a-91">Zuivel</a>
+                        <a class="block px-md py-sm rounded-lg hover:bg-white/10 transition-colors text-white" href="6.html" data-cms-id="auto-6-a-92">IJs</a>
+                        <a class="block px-md py-sm rounded-lg hover:bg-white/10 transition-colors text-white" href="7.html" data-cms-id="auto-6-a-93">Vlees</a>
+                        <a class="block px-md py-sm rounded-lg hover:bg-white/10 transition-colors text-white" href="8.html" data-cms-id="auto-6-a-94">Verkooppunten</a>
+                        <a class="block px-md py-sm rounded-lg hover:bg-white/10 transition-colors text-white" href="9.html" data-cms-id="auto-6-a-95">Contact &amp; Route</a>
+                    </div>
+                </div>
+                
+                <div class="lg:col-span-4 space-y-md">
+                    <h4 class="font-headline-sm text-headline-sm text-on-primary" data-cms-id="auto-6-h4-24">Contact &amp; Openingstijden</h4>
+                    <div class="space-y-sm text-body-md text-white">
+                        <p class="flex items-start gap-xs" data-cms-id="auto-6-p-39">
+                            <span class="material-symbols-outlined text-on-primary text-sm">location_on</span>Heuvelweg 15, Sommelsdijk
+                        </p>
+                        <p class="flex items-center gap-xs" data-cms-id="auto-6-p-40">
+                            <span class="material-symbols-outlined text-on-primary text-sm">phone</span>0187 482 321
+                        </p>
+                        <p class="flex items-center gap-xs" data-cms-id="auto-6-p-41">
+                            <span class="material-symbols-outlined text-on-primary text-sm">mail</span>info@westplaat.nl
+                        </p>
+                        <div class="mt-md pt-md border-t border-white/10">
+                            <p class="font-bold text-on-primary" data-cms-id="auto-6-p-42">Openingstijden:</p>
+                            <p class data-cms-id="auto-6-p-43">Di - Za: 09:00 - 17:00</p>
+                            <p class="text-error-container" data-cms-id="auto-6-p-44">Zo &amp; Ma: Gesloten</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/10 text-center mt-md pt-md">
+                <p class="text-white/60 text-sm font-medium" data-cms-id="auto-6-p-45">&copy; 2024 Kaasboerderij De Westplaat. Eerlijk en heerlijk van Goeree-Overflakkee.</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Simple animation on scroll
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-10');
+            observer.observe(section);
+        });
+    </script>
+
+
+
+    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+    <script src="premium-motion.js"></script>
+    <script src="background-audio.js"></script>
+</body>
+
+</html>

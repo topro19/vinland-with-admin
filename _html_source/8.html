@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="nl" style="">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Verkooppunten - Kaasboerderij De Westplaat</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&amp;family=Nunito:ital,wght@0,200..1000;1,200..1000&amp;display=swap"
+        rel="stylesheet">
+    <link 
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <link 
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="premium-motion.css">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-dim": "#dddace",
+                        "on-primary-fixed-variant": "#105223",
+                        "inverse-primary": "#94d699",
+                        "surface-container-high": "#ece8dc",
+                        "on-error": "#ffffff",
+                        "inverse-on-surface": "#f4f1e5",
+                        "background": "#fdf9ed",
+                        "heading-green": "#16451F",
+                        "outline-sage": "#71796F",
+                        "on-primary-fixed": "#002108",
+                        "surface-variant": "#e6e2d7",
+                        "on-tertiary-container": "#503d00",
+                        "primary-fixed": "#aff3b4",
+                        "accent-brown": "#A8753B",
+                        "on-secondary": "#ffffff",
+                        "surface-container-highest": "#e6e2d7",
+                        "surface-container-low": "#f7f3e7",
+                        "outline-variant": "#c0c9bd",
+                        "secondary-fixed": "#ffdf90",
+                        "surface-tint": "#2c6b39",
+                        "surface-container": "#f2eee2",
+                        "on-primary": "#ffffff",
+                        "on-surface": "#1c1c15",
+                        "tertiary-container": "#c9a84e",
+                        "secondary-fixed-dim": "#f0c12c",
+                        "secondary": "#755b00",
+                        "outline": "#71796f",
+                        "tertiary": "#755b00",
+                        "error-container": "#ffdad6",
+                        "surface-bright": "#fdf9ed",
+                        "primary-container": "#1f5e2e",
+                        "on-background": "#1c1c15",
+                        "text-charcoal": "#2F2F2F",
+                        "surface-cream": "#FAF6EA",
+                        "tertiary-fixed-dim": "#e6c366",
+                        "secondary-container": "#fccc38",
+                        "on-secondary-fixed-variant": "#584400",
+                        "inverse-surface": "#323129",
+                        "on-secondary-fixed": "#241a00",
+                        "on-secondary-container": "#6f5600",
+                        "surface": "#fdf9ed",
+                        "on-error-container": "#93000a",
+                        "on-surface-variant": "#414940",
+                        "primary-fixed-dim": "#94d699",
+                        "surface-container-lowest": "#ffffff",
+                        "primary": "#00461a",
+                        "on-tertiary-fixed": "#241a00",
+                        "on-tertiary-fixed-variant": "#584400",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-container": "#94d699",
+                        "tertiary-fixed": "#ffdf90",
+                        "error": "#ba1a1a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "20px",
+                        "margin-desktop": "64px",
+                        "gutter": "24px",
+                        "base": "8px",
+                        "xs": "4px",
+                        "xl": "80px",
+                        "sm": "12px",
+                        "md": "24px",
+                        "lg": "48px"
+                    },
+                    "fontFamily": {
+                        "headline-xl": ["Nunito", "sans-serif"],
+                        "label-lg": ["'Nunito Sans'", "sans-serif"],
+                        "label-sm": ["'Nunito Sans'", "sans-serif"],
+                        "headline-lg": ["Nunito", "sans-serif"],
+                        "headline-md": ["Nunito", "sans-serif"],
+                        "display-lg-mobile": ["Nunito", "sans-serif"],
+                        "display-lg": ["Nunito", "sans-serif"],
+                        "body-md": ["'Nunito Sans'", "sans-serif"],
+                        "body-lg": ["'Nunito Sans'", "sans-serif"]
+                    },
+                    "fontSize": {
+                        "headline-xl": ["40px", { "lineHeight": "1.2", "fontWeight": "800" }],
+                        "label-lg": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "label-sm": ["12px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.3", "fontWeight": "800" }],
+                        "headline-md": ["24px", { "lineHeight": "1.4", "fontWeight": "700" }],
+                        "display-lg-mobile": ["40px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "800" }],
+                        "display-lg": ["56px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .topo-pattern {
+            background-image: url("https://www.transparenttextures.com/patterns/topography.png");
+            opacity: 0.1;
+        }
+
+        .organic-blob {
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+
+    
+</head>
+
+<body class="bg-surface font-body-md text-on-surface">
+
+    <nav class="bg-surface/90 backdrop-blur-md sticky top-0 z-50 border-b border-outline-variant/20 shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-4 flex justify-between items-center">
+            <a href="2.html" class="flex items-center gap-2" data-cms-id="auto-8-a-49">
+                <span class="font-headline-md text-headline-md font-extrabold text-primary" data-cms-id="auto-8-span-76">De Westplaat</span>
+            </a>
+            <div class="hidden lg:flex gap-6 items-center">
+                <a href="2.html" class="text-on-surface hover:text-primary font-label-lg transition-colors" data-cms-id="auto-8-a-50">Home</a>
+                <a href="3.html" class="text-on-surface hover:text-primary font-label-lg transition-colors" data-cms-id="auto-8-a-51">Over Ons</a>
+                <a href="4.html" class="text-on-surface hover:text-primary font-label-lg transition-colors" data-cms-id="auto-8-a-52">Kaas</a>
+                <a href="5.html" class="text-on-surface hover:text-primary font-label-lg transition-colors" data-cms-id="auto-8-a-53">Zuivel</a>
+                <a href="6.html" class="text-on-surface hover:text-primary font-label-lg transition-colors" data-cms-id="auto-8-a-54">IJs</a>
+                <a href="7.html" class="text-on-surface hover:text-primary font-label-lg transition-colors" data-cms-id="auto-8-a-55">Vlees</a>
+                <a href="8.html" class="text-on-surface hover:text-primary font-label-lg transition-colors" data-cms-id="auto-8-a-56">Verkooppunten</a>
+                <a href="9.html" class="bg-primary text-on-primary px-4 py-2 rounded-lg font-label-lg hover:bg-primary-container transition-colors shadow-sm btn-hover-effect" data-cms-id="auto-8-a-57">Contact</a>
+            </div>
+            <button id="mobile-menu-btn" class="lg:hidden text-on-surface p-2 rounded-md hover:bg-surface-container transition-colors" data-cms-id="auto-8-button-44">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden lg:hidden bg-surface border-t border-outline-variant/20 flex flex-col absolute w-full shadow-lg">
+            <a href="2.html" class="px-margin-mobile py-4 text-on-surface hover:bg-surface-container font-label-lg border-b border-outline-variant/10" data-cms-id="auto-8-a-58">Home</a>
+            <a href="3.html" class="px-margin-mobile py-4 text-on-surface hover:bg-surface-container font-label-lg border-b border-outline-variant/10" data-cms-id="auto-8-a-59">Over Ons</a>
+            <a href="4.html" class="px-margin-mobile py-4 text-on-surface hover:bg-surface-container font-label-lg border-b border-outline-variant/10" data-cms-id="auto-8-a-60">Kaas</a>
+            <a href="5.html" class="px-margin-mobile py-4 text-on-surface hover:bg-surface-container font-label-lg border-b border-outline-variant/10" data-cms-id="auto-8-a-61">Zuivel</a>
+            <a href="6.html" class="px-margin-mobile py-4 text-on-surface hover:bg-surface-container font-label-lg border-b border-outline-variant/10" data-cms-id="auto-8-a-62">IJs</a>
+            <a href="7.html" class="px-margin-mobile py-4 text-on-surface hover:bg-surface-container font-label-lg border-b border-outline-variant/10" data-cms-id="auto-8-a-63">Vlees</a>
+            <a href="8.html" class="px-margin-mobile py-4 text-on-surface hover:bg-surface-container font-label-lg border-b border-outline-variant/10" data-cms-id="auto-8-a-64">Verkooppunten</a>
+            <a href="9.html" class="px-margin-mobile py-4 text-primary bg-primary/5 hover:bg-primary/10 font-label-lg" data-cms-id="auto-8-a-65">Contact</a>
+        </div>
+    </nav>
+
+    
+    <section 
+        class="relative overflow-hidden pt-xl pb-lg px-margin-mobile md:px-margin-desktop bg-surface-container-low">
+        <div 
+            class="relative rounded-2xl overflow-hidden min-h-[500px] flex items-center px-margin-mobile md:px-margin-desktop">
+            <div class="absolute inset-0 z-0">
+                <img src="./images/img_035.jpg" alt="Background pattern" class="w-full h-full object-cover opacity-40" data-cms-id="auto-8-img-40">
+                <div 
+                    class="absolute inset-0 bg-gradient-to-r from-surface-container-low via-surface-container-low/80 to-transparent">
+                </div>
+            </div>
+            <div class="relative z-10 max-w-2xl space-y-md">
+                <span class="inline-block text-label-lg font-label-lg text-primary tracking-widest uppercase py-1 px-3 border border-primary/20 rounded-full bg-white/50 backdrop-blur-sm" data-cms-id="auto-8-span-77">VERKOOPPUNTEN</span>
+                <h1 class="text-display-lg-mobile md:text-display-lg font-display-lg text-heading-green" data-cms-id="auto-8-h1-1">Onze
+                    Verkooppunten</h1>
+                <p class="text-body-lg text-on-surface-variant" data-cms-id="auto-8-p-13">
+                    Onze producten zijn verkrijgbaar in onze eigen boerderijwinkel en bij diverse regionale
+                    boerderijwinkels. Daarnaast zijn wij regelmatig aanwezig op jaarmarkten en lokale evenementen met
+                    onze kaas en zuivelproducten.
+                </p>
+                <div class="pt-sm">
+                    <button class="bg-primary hover:bg-primary-container text-white px-lg py-md rounded-lg font-bold transition-all transform active:scale-95 shadow-md" data-cms-id="auto-8-button-45">
+                        Bekijk onze winkel
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="absolute -bottom-10 -left-10 w-64 h-64 bg-secondary/5 organic-blob"></div>
+    </section>
+    
+    <section class="py-xl px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-xl items-start">
+            <div class="relative">
+                <div class="rounded-2xl overflow-hidden shadow-lg border border-outline-variant/30">
+                    <img alt="Shop Interior" class="w-full h-auto" data-alt="Interior of a modern and sophisticated farm boutique in the Netherlands, showing clean wooden shelves stocked with artisan cheeses and local delicacies. The lighting is soft and airy, creating a professional yet welcoming atmosphere that blends traditional craft with contemporary luxury. A polished concrete floor reflects the warm interior glow." src="./images/img_036.jpg" data-cms-id="auto-8-img-41">
+                </div>
+                <div 
+                    class="absolute -bottom-8 -right-8 bg-surface-container-highest p-6 rounded-xl shadow-lg border border-outline-variant/20 max-w-xs hidden md:block">
+                    <div class="flex items-start gap-3">
+                        <span class="material-symbols-outlined text-primary" data-icon="location_on">location_on</span>
+                        <div>
+                            <p class="font-bold text-heading-green" data-cms-id="auto-8-p-14">Bezoek ons</p>
+                            <p class="text-body-md text-on-surface-variant" data-cms-id="auto-8-p-15">Heuvelweg 15,<br>3245 LN Sommelsdijk</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="space-y-md">
+                <h2 class="text-headline-xl font-headline-xl text-heading-green" data-cms-id="auto-8-h2-2">Boerderijwinkel aan huis</h2>
+                <p class="text-body-lg text-on-surface-variant" data-cms-id="auto-8-p-16">
+                    Onze boerderijwinkel in Sommelsdijk is geopend van dinsdag tot en met zaterdag van 09:00 tot 17:00
+                    uur. Hier vindt u ons volledige assortiment boerderijproducten.
+                </p>
+                <div class="grid grid-cols-2 gap-md pt-sm">
+                    <div 
+                        class="p-4 bg-white rounded-xl border border-outline-variant/20 shadow-sm flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-secondary-container/20 flex items-center justify-center">
+                            <span class="material-symbols-outlined text-secondary"
+                                data-icon="restaurant">restaurant</span>
+                        </div>
+                        <span class="font-bold text-heading-green" data-cms-id="auto-8-span-78">Kaas</span>
+                    </div>
+                    <div 
+                        class="p-4 bg-white rounded-xl border border-outline-variant/20 shadow-sm flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-secondary-container/20 flex items-center justify-center">
+                            <span class="material-symbols-outlined text-secondary"
+                                data-icon="water_drop">water_drop</span>
+                        </div>
+                        <span class="font-bold text-heading-green" data-cms-id="auto-8-span-79">Zuivel</span>
+                    </div>
+                    <div 
+                        class="p-4 bg-white rounded-xl border border-outline-variant/20 shadow-sm flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-secondary-container/20 flex items-center justify-center">
+                            <span class="material-symbols-outlined text-secondary" data-icon="icecream">icecream</span>
+                        </div>
+                        <span class="font-bold text-heading-green" data-cms-id="auto-8-span-80">IJs</span>
+                    </div>
+                    <div 
+                        class="p-4 bg-white rounded-xl border border-outline-variant/20 shadow-sm flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-secondary-container/20 flex items-center justify-center">
+                            <span class="material-symbols-outlined text-secondary" data-icon="flatware">flatware</span>
+                        </div>
+                        <span class="font-bold text-heading-green" data-cms-id="auto-8-span-81">Vlees</span>
+                    </div>
+                </div>
+                <div class="pt-md">
+                    <button class="flex items-center gap-2 border-2 border-primary text-primary hover:bg-primary hover:text-white px-lg py-md rounded-lg font-bold transition-all group" data-cms-id="auto-8-button-46">
+                        <span class="material-symbols-outlined" data-icon="directions">directions</span>
+                        Route plannen
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="bg-heading-green py-xl relative overflow-hidden"
+        style="background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuAOu7cemE6dQA4Pnv7kiIcvuHt4CPWmFijG1gwLrHuz9b1OycCrrUzbP9N6l1gMOZ4wZcnmY8Mk5ahRmzCwFiQWO4HrIR7pVXHJSr-eviDFNFjom1bPm575yAtVzGnF-Wtq6pMLvBWB6rCuRpY2SwhemE1g6J9mz_kZbCcx0AGWOHLc4W_TAD89nfL-yCsMTtg48A8nJol5orzRpXqShiDdMrry1J1v8bRpDvxqKF5vgFH_el3mWqvPUP-xyb2MfggPVriB7L0Mtqr8&quot;); background-size: cover; background-position: center center; background-blend-mode: overlay;">
+        <div class="absolute inset-0 topo-pattern"></div>
+        <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop relative z-10 text-center lg:text-left">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-xl items-center">
+                <div class="text-white space-y-md">
+                    <h2 class="text-headline-xl font-headline-xl" data-cms-id="auto-8-h2-3">Regionale verkooppunten</h2>
+                    <p class="text-body-lg text-primary-fixed-dim/90" data-cms-id="auto-8-p-17">
+                        Wij leveren onze kaas, zuivel en boerderij-ijs aan verschillende boerderijwinkels en
+                        streekwinkels in de regio. Hierdoor zijn onze producten ook buiten Sommelsdijk verkrijgbaar.
+                    </p>
+                    <div class="pt-sm flex flex-wrap justify-center lg:justify-start gap-4">
+                        <button class="bg-secondary hover:bg-secondary-fixed text-heading-green px-lg py-md rounded-lg font-bold transition-all shadow-md" data-cms-id="auto-8-button-47">
+                            Neem contact op
+                        </button>
+                    </div>
+                </div>
+                <div>
+                    <div 
+                        class="bg-surface-container-low p-8 rounded-2xl shadow-2xl border border-white/10 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 p-4">
+                            <span class="material-symbols-outlined text-secondary text-4xl" data-icon="verified"
+                                style="font-variation-settings: &quot;FILL&quot; 1;">verified</span>
+                        </div>
+                        <h3 class="text-headline-md font-headline-md text-heading-green mb-4" data-cms-id="auto-8-h3-6">Premium Verkooppunt</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <h4 class="font-bold text-on-surface" data-cms-id="auto-8-h4-10">Zuivelstalletje – Oud Alblas</h4>
+                                <p class="text-body-md text-on-surface-variant" data-cms-id="auto-8-p-18">Een van onze trotse partners in de
+                                    Alblasserwaard.</p>
+                            </div>
+                            <div class="bg-white/50 p-4 rounded-lg">
+                                <p class="font-bold text-primary text-sm uppercase tracking-wider mb-2" data-cms-id="auto-8-p-19">Openingstijden
+                                </p>
+                                <ul class="space-y-1 text-on-surface">
+                                    <li class="flex justify-between" data-cms-id="auto-8-li-89"><span class data-cms-id="auto-8-span-82">Donderdag</span> <span class data-cms-id="auto-8-span-83">Middag</span></li>
+                                    <li class="flex justify-between" data-cms-id="auto-8-li-90"><span class data-cms-id="auto-8-span-84">Vrijdag</span> <span class data-cms-id="auto-8-span-85">Middag</span></li>
+                                    <li class="flex justify-between" data-cms-id="auto-8-li-91"><span class data-cms-id="auto-8-span-86">Zaterdag</span> <span class data-cms-id="auto-8-span-87">Hele
+                                            dag</span></li>
+                                </ul>
+                            </div>
+                            <p class="text-sm italic text-on-surface-variant pt-2" data-cms-id="auto-8-p-20">
+                                Voor meer informatie over andere verkooppunten kunt u contact met ons opnemen.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="py-xl px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-xl items-center">
+            <div class="order-2 lg:order-1 space-y-md">
+                <h2 class="text-headline-xl font-headline-xl text-heading-green" data-cms-id="auto-8-h2-4">Markten en evenementen</h2>
+                <p class="text-body-lg text-on-surface-variant" data-cms-id="auto-8-p-21">
+                    Naast onze boerderijwinkel zijn wij regelmatig aanwezig op jaarmarkten, streekmarkten en lokale
+                    evenementen. Hier kunt u kennismaken met onze ambachtelijke producten en direct genieten van onze
+                    boerenkaas en zuivel.
+                </p>
+                <div class="space-y-4 pt-sm">
+                    <div class="flex items-center gap-4 p-3 hover:bg-surface-container transition-colors rounded-lg">
+                        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                            <span class="material-symbols-outlined text-primary" data-icon="store">store</span>
+                        </div>
+                        <div>
+                            <p class="font-bold text-on-surface" data-cms-id="auto-8-p-22">Jaarmarkten</p>
+                            <p class="text-sm text-on-surface-variant" data-cms-id="auto-8-p-23">Traditionele jaarmarkten in de regio.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4 p-3 hover:bg-surface-container transition-colors rounded-lg">
+                        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                            <span class="material-symbols-outlined text-primary"
+                                data-icon="local_mall">local_mall</span>
+                        </div>
+                        <div>
+                            <p class="font-bold text-on-surface" data-cms-id="auto-8-p-24">Streekmarkten</p>
+                            <p class="text-sm text-on-surface-variant" data-cms-id="auto-8-p-25">Gezellige markten met lokale producten.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4 p-3 hover:bg-surface-container transition-colors rounded-lg">
+                        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                            <span class="material-symbols-outlined text-primary" data-icon="event">event</span>
+                        </div>
+                        <div>
+                            <p class="font-bold text-on-surface" data-cms-id="auto-8-p-26">Lokale evenementen</p>
+                            <p class="text-sm text-on-surface-variant" data-cms-id="auto-8-p-27">Diverse festiviteiten in de buurt.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="pt-md">
+                    <button class="bg-surface-container-high text-heading-green hover:bg-surface-dim px-lg py-md rounded-lg font-bold transition-all" data-cms-id="auto-8-button-48">
+                        Bekijk aankomende markten
+                    </button>
+                </div>
+            </div>
+            <div class="order-1 lg:order-2">
+                <div class="relative rounded-2xl overflow-hidden shadow-xl aspect-square lg:aspect-auto lg:h-[600px]">
+                    <img alt="Market Stall" class="w-full h-full object-cover" data-alt="A charming and well-organized market stall featuring large wheels of Gouda-style farm cheese, traditional wicker baskets, and artisan signage. The stall is situated in a vibrant Dutch town square under a bright sky, with people in the background adding to the lively market atmosphere. The image emphasizes the tactile, high-quality nature of the cheese and the authentic craft legacy." src="./images/img_037.jpg" data-cms-id="auto-8-img-42">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="py-xl bg-surface-container-low"
+        style="background-image: linear-gradient(rgba(247, 243, 231, 0.95), rgba(247, 243, 231, 0.95)), url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuATVu4mZjLl53N4WEQQrO0aWy7th0rwNyFHwOiuCXLHxX14tue5dcQ1Urx2D9Ql-TOI463-P1hrhSIN6f339hVtfd2UGq7_3p8t9l9dZ7Obgt19Cu_I4lK7Q3C2PlC7t7SWb0LR-qr2wGJT-wkm9hVsmahpYnhgNEf6qIwNpm6iDKpYBXuZBxFKApfiAJHOqhm3FU8Yq-kxzseWSkKhpFQ7-d-Do_WiWu4MSsggLMLUl1a7P95NaztkaqOUd0ZR77HUDzZM52gaNuI5&quot;); background-size: cover; background-position: center center;">
+        <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop text-center space-y-lg">
+            <div class="max-w-3xl mx-auto space-y-sm">
+                <h2 class="text-headline-xl font-headline-xl text-heading-green" data-cms-id="auto-8-h2-5">Altijd dichtbij</h2>
+                <p class="text-body-lg text-on-surface-variant" data-cms-id="auto-8-p-28">
+                    Of u nu onze boerderijwinkel bezoekt, een regionale verkooppartner kiest of ons tegenkomt op een
+                    markt: onze ambachtelijke producten zijn op meerdere plekken verkrijgbaar.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-md">
+                <div 
+                    class="bg-white p-8 rounded-2xl shadow-sm border border-outline-variant/10 hover:shadow-md transition-shadow">
+                    <span class="material-symbols-outlined text-secondary text-5xl mb-6"
+                        data-icon="home_work">home_work</span>
+                    <h3 class="text-headline-md font-headline-md text-heading-green mb-4" data-cms-id="auto-8-h3-7">Boerderijwinkel</h3>
+                    <p class="text-on-surface-variant" data-cms-id="auto-8-p-29">Volledig assortiment direct van de boerderij in Sommelsdijk.</p>
+                </div>
+                <div 
+                    class="bg-white p-8 rounded-2xl shadow-sm border border-outline-variant/10 hover:shadow-md transition-shadow">
+                    <span class="material-symbols-outlined text-secondary text-5xl mb-6"
+                        data-icon="handshake">handshake</span>
+                    <h3 class="text-headline-md font-headline-md text-heading-green mb-4" data-cms-id="auto-8-h3-8">Regionale Verkooppunten</h3>
+                    <p class="text-on-surface-variant" data-cms-id="auto-8-p-30">Verkrijgbaar bij geselecteerde boerderijwinkels door de hele
+                        regio.</p>
+                </div>
+                <div 
+                    class="bg-white p-8 rounded-2xl shadow-sm border border-outline-variant/10 hover:shadow-md transition-shadow">
+                    <span class="material-symbols-outlined text-secondary text-5xl mb-6"
+                        data-icon="celebration">celebration</span>
+                    <h3 class="text-headline-md font-headline-md text-heading-green mb-4" data-cms-id="auto-8-h3-9">Markten &amp; Evenementen</h3>
+                    <p class="text-on-surface-variant" data-cms-id="auto-8-p-31">Regelmatig aanwezig op lokale evenementen en gezellige markten.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    
+                <footer class="bg-black text-white relative py-4">
+        <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-md">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-lg">
+                
+                <div class="lg:col-span-4 space-y-md">
+                    <div class="flex items-center gap-sm">
+                        <img alt="Logo" class="h-12 w-12 object-contain" src="./images/img_002.jpg" data-cms-id="auto-8-img-43">
+                        <span class="font-headline-md text-headline-md font-extrabold text-white" data-cms-id="auto-8-span-88">De Westplaat</span>
+                    </div>
+                    <p class="font-body-md text-body-md max-w-sm text-white" data-cms-id="auto-8-p-32">Ambachtelijke producten van eigen land. Met passie gemaakt op onze familieboerderij in Sommelsdijk.</p>
+                    <div class="flex gap-md pt-sm">
+                        <a class="w-10 h-10 flex items-center justify-center bg-white text-primary-container rounded-full hover:bg-white/90 transition-all hover:scale-110" href="https://facebook.com" target="_blank" data-cms-id="auto-8-a-66">
+                            <span class="material-symbols-outlined">face_nod</span>
+                        </a>
+                        <a class="w-10 h-10 flex items-center justify-center bg-white text-primary-container rounded-full hover:bg-white/90 transition-all hover:scale-110" href="https://instagram.com" target="_blank" data-cms-id="auto-8-a-67">
+                            <span class="material-symbols-outlined">camera_alt</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="lg:col-span-4 space-y-md">
+                    <h4 class="font-headline-sm text-headline-sm text-on-primary" data-cms-id="auto-8-h4-11">Navigatie &amp; Service</h4>
+                    <div class="space-y-xs">
+                        <a class="block px-md py-sm rounded-lg hover:bg-white/10 transition-colors text-white" href="2.html" data-cms-id="auto-8-a-68">Home</a>
+                        <a class="block px-md py-sm rounded-lg hover:bg-white/10 transition-colors text-white" href="3.html" data-cms-id="auto-8-a-69">Over Ons</a>
+                        <a class="block px-md py-sm rounded-lg hover:bg-white/10 transition-colors text-white" href="4.html" data-cms-id="auto-8-a-70">Kaas</a>
+                        <a class="block px-md py-sm rounded-lg hover:bg-white/10 transition-colors text-white" href="5.html" data-cms-id="auto-8-a-71">Zuivel</a>
+                        <a class="block px-md py-sm rounded-lg hover:bg-white/10 transition-colors text-white" href="6.html" data-cms-id="auto-8-a-72">IJs</a>
+                        <a class="block px-md py-sm rounded-lg hover:bg-white/10 transition-colors text-white" href="7.html" data-cms-id="auto-8-a-73">Vlees</a>
+                        <a class="block px-md py-sm rounded-lg hover:bg-white/10 transition-colors text-white" href="8.html" data-cms-id="auto-8-a-74">Verkooppunten</a>
+                        <a class="block px-md py-sm rounded-lg hover:bg-white/10 transition-colors text-white" href="9.html" data-cms-id="auto-8-a-75">Contact &amp; Route</a>
+                    </div>
+                </div>
+                
+                <div class="lg:col-span-4 space-y-md">
+                    <h4 class="font-headline-sm text-headline-sm text-on-primary" data-cms-id="auto-8-h4-12">Contact &amp; Openingstijden</h4>
+                    <div class="space-y-sm text-body-md text-white">
+                        <p class="flex items-start gap-xs" data-cms-id="auto-8-p-33">
+                            <span class="material-symbols-outlined text-on-primary text-sm">location_on</span>Heuvelweg 15, Sommelsdijk
+                        </p>
+                        <p class="flex items-center gap-xs" data-cms-id="auto-8-p-34">
+                            <span class="material-symbols-outlined text-on-primary text-sm">phone</span>0187 482 321
+                        </p>
+                        <p class="flex items-center gap-xs" data-cms-id="auto-8-p-35">
+                            <span class="material-symbols-outlined text-on-primary text-sm">mail</span>info@westplaat.nl
+                        </p>
+                        <div class="mt-md pt-md border-t border-white/10">
+                            <p class="font-bold text-on-primary" data-cms-id="auto-8-p-36">Openingstijden:</p>
+                            <p class data-cms-id="auto-8-p-37">Di - Za: 09:00 - 17:00</p>
+                            <p class="text-error-container" data-cms-id="auto-8-p-38">Zo &amp; Ma: Gesloten</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/10 text-center mt-md pt-md">
+                <p class="text-white/60 text-sm font-medium" data-cms-id="auto-8-p-39">&copy; 2024 Kaasboerderij De Westplaat. Eerlijk en heerlijk van Goeree-Overflakkee.</p>
+            </div>
+        </div>
+    </footer>
+
+
+
+    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+    <script src="premium-motion.js"></script>
+    <script src="background-audio.js"></script>
+</body>
+
+</html>

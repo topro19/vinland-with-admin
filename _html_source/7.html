@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="nl" style="">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Vlees | Kaasboerderij De Westplaat</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&amp;family=Nunito:ital,wght@0,200..1000;1,200..1000&amp;display=swap"
+        rel="stylesheet">
+    <link 
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <link 
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="premium-motion.css">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed-variant": "#584400",
+                        "surface": "#fdf9ed",
+                        "tertiary-container": "#c9a84e",
+                        "error-container": "#ffdad6",
+                        "surface-cream": "#FAF6EA",
+                        "outline": "#71796f",
+                        "primary-fixed-dim": "#94d699",
+                        "on-primary-fixed-variant": "#105223",
+                        "on-surface": "#1c1c15",
+                        "on-primary": "#ffffff",
+                        "background": "#fdf9ed",
+                        "surface-variant": "#e6e2d7",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-container": "#94d699",
+                        "secondary-fixed-dim": "#f0c12c",
+                        "surface-container-low": "#f7f3e7",
+                        "surface-bright": "#fdf9ed",
+                        "inverse-on-surface": "#f4f1e5",
+                        "secondary": "#755b00",
+                        "on-background": "#1c1c15",
+                        "text-charcoal": "#2F2F2F",
+                        "inverse-surface": "#323129",
+                        "on-error-container": "#93000a",
+                        "surface-dim": "#dddace",
+                        "outline-variant": "#c0c9bd",
+                        "tertiary-fixed-dim": "#e6c366",
+                        "tertiary": "#755b00",
+                        "surface-container-highest": "#e6e2d7",
+                        "on-error": "#ffffff",
+                        "primary-fixed": "#aff3b4",
+                        "heading-green": "#16451F",
+                        "on-secondary-container": "#6f5600",
+                        "on-tertiary-fixed-variant": "#584400",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#94d699",
+                        "accent-brown": "#A8753B",
+                        "surface-container": "#f2eee2",
+                        "primary": "#00461a",
+                        "primary-container": "#1f5e2e",
+                        "secondary-fixed": "#ffdf90",
+                        "on-secondary": "#ffffff",
+                        "surface-tint": "#2c6b39",
+                        "error": "#ba1a1a",
+                        "on-tertiary-container": "#503d00",
+                        "tertiary-fixed": "#ffdf90",
+                        "surface-container-high": "#ece8dc",
+                        "on-surface-variant": "#414940",
+                        "outline-sage": "#71796F",
+                        "secondary-container": "#fccc38",
+                        "on-secondary-fixed": "#241a00",
+                        "on-tertiary-fixed": "#241a00",
+                        "on-primary-fixed": "#002108"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sm": "12px",
+                        "md": "24px",
+                        "margin-mobile": "20px",
+                        "margin-desktop": "64px",
+                        "gutter": "24px",
+                        "lg": "48px",
+                        "base": "8px",
+                        "xs": "4px",
+                        "xl": "80px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Nunito", "sans-serif"],
+                        "label-lg": ["'Nunito Sans'", "sans-serif"],
+                        "headline-xl": ["Nunito", "sans-serif"],
+                        "body-md": ["'Nunito Sans'", "sans-serif"],
+                        "display-lg-mobile": ["Nunito", "sans-serif"],
+                        "headline-lg": ["Nunito", "sans-serif"],
+                        "display-lg": ["Nunito", "sans-serif"],
+                        "body-lg": ["'Nunito Sans'", "sans-serif"],
+                        "label-sm": ["'Nunito Sans'", "sans-serif"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "1.4", "fontWeight": "700" }],
+                        "label-lg": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "headline-xl": ["40px", { "lineHeight": "1.2", "fontWeight": "800" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "display-lg-mobile": ["40px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "800" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.3", "fontWeight": "800" }],
+                        "display-lg": ["56px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "1.2", "fontWeight": "600" }]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            background-color: #F7F3E7;
+            /* surface-container-low override as requested */
+            color: #1c1c15;
+            font-family: 'Nunito', sans-serif;
+        }
+
+        .topo-pattern {
+            background-image: radial-gradient(#ffffff15 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+    </style>
+
+
+</head>
+
+<body class="antialiased">
+
+    <nav 
+        class="bg-surface/90 backdrop-blur-md sticky top-0 z-50 border-b border-outline-variant/20 shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-4 flex justify-between items-center">
+            <a href="2.html" class="flex items-center gap-2" data-cms-id="auto-7-a-62">
+                <span class="font-headline-md text-headline-md font-extrabold text-primary" data-cms-id="auto-7-span-92">De Westplaat</span>
+            </a>
+            <div class="hidden lg:flex gap-6 items-center">
+                <a href="2.html" class="text-on-surface hover:text-primary font-label-lg transition-colors" data-cms-id="auto-7-a-63">Home</a>
+                <a href="3.html" class="text-on-surface hover:text-primary font-label-lg transition-colors" data-cms-id="auto-7-a-64">Over Ons</a>
+                <a href="4.html" class="text-on-surface hover:text-primary font-label-lg transition-colors" data-cms-id="auto-7-a-65">Kaas</a>
+                <a href="5.html" class="text-on-surface hover:text-primary font-label-lg transition-colors" data-cms-id="auto-7-a-66">Zuivel</a>
+                <a href="6.html" class="text-on-surface hover:text-primary font-label-lg transition-colors" data-cms-id="auto-7-a-67">IJs</a>
+                <a href="7.html" class="text-on-surface hover:text-primary font-label-lg transition-colors" data-cms-id="auto-7-a-68">Vlees</a>
+                <a href="8.html" class="text-on-surface hover:text-primary font-label-lg transition-colors" data-cms-id="auto-7-a-69">Verkooppunten</a>
+                <a href="9.html" class="bg-primary text-on-primary px-4 py-2 rounded-lg font-label-lg hover:bg-primary-container transition-colors shadow-sm btn-hover-effect" data-cms-id="auto-7-a-70">Contact</a>
+            </div>
+            <button id="mobile-menu-btn" class="lg:hidden text-on-surface p-2 rounded-md hover:bg-surface-container transition-colors" data-cms-id="auto-7-button-61">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+        </div>
+        <div id="mobile-menu"
+            class="hidden lg:hidden bg-surface border-t border-outline-variant/20 flex flex-col absolute w-full shadow-lg">
+            <a href="2.html" class="px-margin-mobile py-4 text-on-surface hover:bg-surface-container font-label-lg border-b border-outline-variant/10" data-cms-id="auto-7-a-71">Home</a>
+            <a href="3.html" class="px-margin-mobile py-4 text-on-surface hover:bg-surface-container font-label-lg border-b border-outline-variant/10" data-cms-id="auto-7-a-72">Over
+                Ons</a>
+            <a href="4.html" class="px-margin-mobile py-4 text-on-surface hover:bg-surface-container font-label-lg border-b border-outline-variant/10" data-cms-id="auto-7-a-73">Kaas</a>
+            <a href="5.html" class="px-margin-mobile py-4 text-on-surface hover:bg-surface-container font-label-lg border-b border-outline-variant/10" data-cms-id="auto-7-a-74">Zuivel</a>
+            <a href="6.html" class="px-margin-mobile py-4 text-on-surface hover:bg-surface-container font-label-lg border-b border-outline-variant/10" data-cms-id="auto-7-a-75">IJs</a>
+            <a href="7.html" class="px-margin-mobile py-4 text-on-surface hover:bg-surface-container font-label-lg border-b border-outline-variant/10" data-cms-id="auto-7-a-76">Vlees</a>
+            <a href="8.html" class="px-margin-mobile py-4 text-on-surface hover:bg-surface-container font-label-lg border-b border-outline-variant/10" data-cms-id="auto-7-a-77">Verkooppunten</a>
+            <a href="9.html" class="px-margin-mobile py-4 text-primary bg-primary/5 hover:bg-primary/10 font-label-lg" data-cms-id="auto-7-a-78">Contact</a>
+        </div>
+    </nav>
+
+    
+    <section class="relative overflow-hidden pt-xl pb-xl md:pt-[120px] md:pb-[120px]"
+        style="background-image: linear-gradient(rgba(253, 249, 237, 0.85), rgba(253, 249, 237, 0.85)), url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuBG-S49cK7KcDlIaKzB9ieumy3tJ8aRMoq2-iAqLRkSqcmHiomGTFifF33OpDRvOjn-ETpgWzDiW4iXMss8TvozwkcTzHhQlH-_1hXhZisyI-yPMhM9nvN4qLzNzvwRxMrZaVFp6FbI2QZ9HVIMyicXt-iFxLB_DBghaVojbSMKavZTJ5NALuOIhSGRJLs3KZ9j2842NG_u6UI6InmCKgiICQPmhlmLnNexRxKD-QKtp9uXucvbh0XgFo5yrNAHAwj7el4dVcvKPM_s&quot;); background-size: contain; background-position: center center; background-repeat: no-repeat;">
+        <div 
+            class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-2 items-center gap-xl">
+            <div class="z-10 order-2 md:order-1">
+                <span class="inline-block px-md py-xs bg-secondary-container text-on-secondary-container font-label-lg text-label-lg rounded-full mb-md" data-cms-id="auto-7-span-93">
+                    AMBACHTELIJK VLEES
+                </span>
+                <h1 data-cms-id="vlees-hero-title"
+                    class="font-display-lg text-display-lg-mobile md:text-display-lg text-heading-green mb-md leading-tight">
+                    Ambachtelijk Vlees van <span class="text-primary" data-cms-id="auto-7-span-94">Eigen Koeien</span>.
+                </h1>
+                <p data-cms-id="vlees-hero-text" class="font-body-lg text-body-lg text-on-surface-variant mb-lg max-w-lg">
+                    Wij verkopen vlees van onze eigen koeien. Puur, eerlijk en zonder kunstmatige toevoegingen. Onze
+                    koeien lopen zoveel mogelijk buiten, wat zorgt voor een rijke smaak en uitstekende kwaliteit.
+                </p>
+                <a class="inline-flex items-center justify-center px-xl py-md bg-primary text-on-primary font-label-lg text-label-lg rounded-xl hover:bg-primary-container transition-all duration-300 shadow-lg hover:shadow-xl" href="#assortiment" data-cms-id="auto-7-a-79">
+                    Bekijk ons assortiment
+                </a>
+            </div>
+            <div class="relative order-1 md:order-2">
+                <div class="aspect-[4/5] rounded-[32px] overflow-hidden shadow-2xl relative">
+                    <img alt="Premium beef cuts" class="w-full h-full object-cover" src="./images/img_028.jpg" data-cms-id="auto-7-img-41">
+                </div>
+                <div 
+                    class="absolute -bottom-base -left-base w-32 h-32 bg-secondary-container rounded-full -z-10 opacity-50 blur-2xl">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="py-xl bg-surface-container-lowest" id="assortiment">
+        <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop">
+            <div class="text-center mb-xl">
+                <h2 class="font-headline-xl text-headline-xl text-heading-green mb-md" data-cms-id="auto-7-h2-1">Ons assortiment</h2>
+                <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto" data-cms-id="auto-7-p-27">
+                    Het meeste vlees wordt diepgevroren verkocht en verpakt per 3–4 ons. Versheid en kwaliteit
+                    gegarandeerd.
+                </p>
+            </div>
+            <div class="mb-lg">
+                <h3 class="font-headline-md text-headline-md text-primary mb-md border-b border-outline-variant pb-xs" data-cms-id="auto-7-h3-5">
+                    Rauw Vlees</h3>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-md">
+                    
+                    <script>
+                        const rauwVlees = [
+                            "Gehakt", "Soepvlees", "Schenkels", "Tartaar", "Riblappen",
+                            "Braadlappen", "Bieflappen", "Sucade", "Entrecote",
+                            "Biefstuk", "Haasbiefstuk", "Bavette", "Picanha"
+                        ];
+                        document.write(rauwVlees.map(product => `
+                            <div class="group bg-white rounded-xl overflow-hidden border border-surface-variant hover:border-primary transition-all duration-300 hover:shadow-md">
+                                <div class="aspect-square bg-surface-container overflow-hidden">
+                                    <img src="./images/img_029.jpg" 
+                                         data-alt="Close-up high-fidelity professional food photography of raw ${product} beef, perfectly marbled and presented on a dark slate surface with a minimalist light-mode kitchen background. The lighting is soft and natural, emphasizing the rich red textures and white marbling of the meat."
+                                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                                </div>
+                                <div class="p-sm text-center">
+                                    <h4 class="font-label-lg text-label-lg text-heading-green uppercase tracking-wider">${product}</h4>
+                                </div>
+                            </div>
+                        `).join(''));
+                    </script>
+                    <div 
+                        class="group bg-white rounded-xl overflow-hidden border border-surface-variant hover:border-primary transition-all duration-300 hover:shadow-md">
+                        <div class="aspect-square bg-surface-container overflow-hidden">
+                            <img src="./images/img_030.jpg" data-alt="Close-up high-fidelity professional food photography of raw Gehakt beef, perfectly marbled and presented on a dark slate surface with a minimalist light-mode kitchen background. The lighting is soft and natural, emphasizing the rich red textures and white marbling of the meat." class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-cms-id="auto-7-img-42">
+                        </div>
+                        <div class="p-sm text-center">
+                            <h4 class="font-label-lg text-label-lg text-heading-green uppercase tracking-wider" data-cms-id="auto-7-h4-10">Gehakt
+                            </h4>
+                        </div>
+                    </div>
+
+                    <div 
+                        class="group bg-white rounded-xl overflow-hidden border border-surface-variant hover:border-primary transition-all duration-300 hover:shadow-md">
+                        <div class="aspect-square bg-surface-container overflow-hidden">
+                            <img src="./images/img_030.jpg" data-alt="Close-up high-fidelity professional food photography of raw Soepvlees beef, perfectly marbled and presented on a dark slate surface with a minimalist light-mode kitchen background. The lighting is soft and natural, emphasizing the rich red textures and white marbling of the meat." class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-cms-id="auto-7-img-43">
+                        </div>
+                        <div class="p-sm text-center">
+                            <h4 class="font-label-lg text-label-lg text-heading-green uppercase tracking-wider" data-cms-id="auto-7-h4-11">
+                                Soepvlees</h4>
+                        </div>
+                    </div>
+
+                    <div 
+                        class="group bg-white rounded-xl overflow-hidden border border-surface-variant hover:border-primary transition-all duration-300 hover:shadow-md">
+                        <div class="aspect-square bg-surface-container overflow-hidden">
+                            <img src="./images/img_030.jpg" data-alt="Close-up high-fidelity professional food photography of raw Schenkels beef, perfectly marbled and presented on a dark slate surface with a minimalist light-mode kitchen background. The lighting is soft and natural, emphasizing the rich red textures and white marbling of the meat." class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-cms-id="auto-7-img-44">
+                        </div>
+                        <div class="p-sm text-center">
+                            <h4 class="font-label-lg text-label-lg text-heading-green uppercase tracking-wider" data-cms-id="auto-7-h4-12">
+                                Schenkels</h4>
+                        </div>
+                    </div>
+
+                    <div 
+                        class="group bg-white rounded-xl overflow-hidden border border-surface-variant hover:border-primary transition-all duration-300 hover:shadow-md">
+                        <div class="aspect-square bg-surface-container overflow-hidden">
+                            <img src="./images/img_030.jpg" data-alt="Close-up high-fidelity professional food photography of raw Tartaar beef, perfectly marbled and presented on a dark slate surface with a minimalist light-mode kitchen background. The lighting is soft and natural, emphasizing the rich red textures and white marbling of the meat." class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-cms-id="auto-7-img-45">
+                        </div>
+                        <div class="p-sm text-center">
+                            <h4 class="font-label-lg text-label-lg text-heading-green uppercase tracking-wider" data-cms-id="auto-7-h4-13">Tartaar
+                            </h4>
+                        </div>
+                    </div>
+
+                    <div 
+                        class="group bg-white rounded-xl overflow-hidden border border-surface-variant hover:border-primary transition-all duration-300 hover:shadow-md">
+                        <div class="aspect-square bg-surface-container overflow-hidden">
+                            <img src="./images/img_030.jpg" data-alt="Close-up high-fidelity professional food photography of raw Riblappen beef, perfectly marbled and presented on a dark slate surface with a minimalist light-mode kitchen background. The lighting is soft and natural, emphasizing the rich red textures and white marbling of the meat." class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-cms-id="auto-7-img-46">
+                        </div>
+                        <div class="p-sm text-center">
+                            <h4 class="font-label-lg text-label-lg text-heading-green uppercase tracking-wider" data-cms-id="auto-7-h4-14">
+                                Riblappen</h4>
+                        </div>
+                    </div>
+
+                    <div 
+                        class="group bg-white rounded-xl overflow-hidden border border-surface-variant hover:border-primary transition-all duration-300 hover:shadow-md">
+                        <div class="aspect-square bg-surface-container overflow-hidden">
+                            <img src="./images/img_030.jpg" data-alt="Close-up high-fidelity professional food photography of raw Braadlappen beef, perfectly marbled and presented on a dark slate surface with a minimalist light-mode kitchen background. The lighting is soft and natural, emphasizing the rich red textures and white marbling of the meat." class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-cms-id="auto-7-img-47">
+                        </div>
+                        <div class="p-sm text-center">
+                            <h4 class="font-label-lg text-label-lg text-heading-green uppercase tracking-wider" data-cms-id="auto-7-h4-15">
+                                Braadlappen</h4>
+                        </div>
+                    </div>
+
+                    <div 
+                        class="group bg-white rounded-xl overflow-hidden border border-surface-variant hover:border-primary transition-all duration-300 hover:shadow-md">
+                        <div class="aspect-square bg-surface-container overflow-hidden">
+                            <img src="./images/img_030.jpg" data-alt="Close-up high-fidelity professional food photography of raw Bieflappen beef, perfectly marbled and presented on a dark slate surface with a minimalist light-mode kitchen background. The lighting is soft and natural, emphasizing the rich red textures and white marbling of the meat." class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-cms-id="auto-7-img-48">
+                        </div>
+                        <div class="p-sm text-center">
+                            <h4 class="font-label-lg text-label-lg text-heading-green uppercase tracking-wider" data-cms-id="auto-7-h4-16">
+                                Bieflappen</h4>
+                        </div>
+                    </div>
+
+                    <div 
+                        class="group bg-white rounded-xl overflow-hidden border border-surface-variant hover:border-primary transition-all duration-300 hover:shadow-md">
+                        <div class="aspect-square bg-surface-container overflow-hidden">
+                            <img src="./images/img_030.jpg" data-alt="Close-up high-fidelity professional food photography of raw Sucade beef, perfectly marbled and presented on a dark slate surface with a minimalist light-mode kitchen background. The lighting is soft and natural, emphasizing the rich red textures and white marbling of the meat." class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-cms-id="auto-7-img-49">
+                        </div>
+                        <div class="p-sm text-center">
+                            <h4 class="font-label-lg text-label-lg text-heading-green uppercase tracking-wider" data-cms-id="auto-7-h4-17">Sucade
+                            </h4>
+                        </div>
+                    </div>
+
+                    <div 
+                        class="group bg-white rounded-xl overflow-hidden border border-surface-variant hover:border-primary transition-all duration-300 hover:shadow-md">
+                        <div class="aspect-square bg-surface-container overflow-hidden">
+                            <img src="./images/img_030.jpg" data-alt="Close-up high-fidelity professional food photography of raw Entrecote beef, perfectly marbled and presented on a dark slate surface with a minimalist light-mode kitchen background. The lighting is soft and natural, emphasizing the rich red textures and white marbling of the meat." class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-cms-id="auto-7-img-50">
+                        </div>
+                        <div class="p-sm text-center">
+                            <h4 class="font-label-lg text-label-lg text-heading-green uppercase tracking-wider" data-cms-id="auto-7-h4-18">
+                                Entrecote</h4>
+                        </div>
+                    </div>
+
+                    <div 
+                        class="group bg-white rounded-xl overflow-hidden border border-surface-variant hover:border-primary transition-all duration-300 hover:shadow-md">
+                        <div class="aspect-square bg-surface-container overflow-hidden">
+                            <img src="./images/img_030.jpg" data-alt="Close-up high-fidelity professional food photography of raw Biefstuk beef, perfectly marbled and presented on a dark slate surface with a minimalist light-mode kitchen background. The lighting is soft and natural, emphasizing the rich red textures and white marbling of the meat." class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-cms-id="auto-7-img-51">
+                        </div>
+                        <div class="p-sm text-center">
+                            <h4 class="font-label-lg text-label-lg text-heading-green uppercase tracking-wider" data-cms-id="auto-7-h4-19">Biefstuk
+                            </h4>
+                        </div>
+                    </div>
+
+                    <div 
+                        class="group bg-white rounded-xl overflow-hidden border border-surface-variant hover:border-primary transition-all duration-300 hover:shadow-md">
+                        <div class="aspect-square bg-surface-container overflow-hidden">
+                            <img src="./images/img_030.jpg" data-alt="Close-up high-fidelity professional food photography of raw Haasbiefstuk beef, perfectly marbled and presented on a dark slate surface with a minimalist light-mode kitchen background. The lighting is soft and natural, emphasizing the rich red textures and white marbling of the meat." class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-cms-id="auto-7-img-52">
+                        </div>
+                        <div class="p-sm text-center">
+                            <h4 class="font-label-lg text-label-lg text-heading-green uppercase tracking-wider" data-cms-id="auto-7-h4-20">
+                                Haasbiefstuk</h4>
+                        </div>
+                    </div>
+
+                    <div 
+                        class="group bg-white rounded-xl overflow-hidden border border-surface-variant hover:border-primary transition-all duration-300 hover:shadow-md">
+                        <div class="aspect-square bg-surface-container overflow-hidden">
+                            <img src="./images/img_030.jpg" data-alt="Close-up high-fidelity professional food photography of raw Bavette beef, perfectly marbled and presented on a dark slate surface with a minimalist light-mode kitchen background. The lighting is soft and natural, emphasizing the rich red textures and white marbling of the meat." class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-cms-id="auto-7-img-53">
+                        </div>
+                        <div class="p-sm text-center">
+                            <h4 class="font-label-lg text-label-lg text-heading-green uppercase tracking-wider" data-cms-id="auto-7-h4-21">Bavette
+                            </h4>
+                        </div>
+                    </div>
+
+                    <div 
+                        class="group bg-white rounded-xl overflow-hidden border border-surface-variant hover:border-primary transition-all duration-300 hover:shadow-md">
+                        <div class="aspect-square bg-surface-container overflow-hidden">
+                            <img src="./images/img_030.jpg" data-alt="Close-up high-fidelity professional food photography of raw Picanha beef, perfectly marbled and presented on a dark slate surface with a minimalist light-mode kitchen background. The lighting is soft and natural, emphasizing the rich red textures and white marbling of the meat." class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-cms-id="auto-7-img-54">
+                        </div>
+                        <div class="p-sm text-center">
+                            <h4 class="font-label-lg text-label-lg text-heading-green uppercase tracking-wider" data-cms-id="auto-7-h4-22">Picanha
+                            </h4>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div>
+                <h3 class="font-headline-md text-headline-md text-primary mb-md border-b border-outline-variant pb-xs" data-cms-id="auto-7-h3-6">
+                    Bewerkt Vlees</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-md p-lg rounded-xl"
+                    style="background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuDpEa0V_zzlwgur2Rh-NgROWn71QwmVIv0IRag6FwPTwcf3nwkniVEAOtLPnIgvj5lkjsrPGOidRD5g2Ls6GjxSFki2hKbiEPBHFIvh8Kqa5sVMISFI8clzkgyif1tli2qaYnxj9R7fD--RyfbUGgvBDaaUfMabDHyxpaGMh_ZK8cJRNJl85GykMXziwX6QXPBlYHXLb_oro3suP_U0Z3vwlRZool1GMHuVPHvIKuwC2lCkpOWEU7xrz7n0dfJvv1EIg6RRR1pBWQhWPq4&quot;); background-size: cover; background-position: center center;">
+                    <div 
+                        class="group bg-white rounded-xl overflow-hidden border border-surface-variant hover:border-primary transition-all duration-300">
+                        <div class="aspect-square bg-surface-container overflow-hidden">
+                            <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A professional top-down shot of artisanal beef hamburgers seasoned with fresh herbs, sitting on greaseproof paper in a modern farmhouse kitchen. Warm, golden-hour natural light fills the scene, highlighting the organic textures of the meat and herbs. High-end lifestyle culinary photography style." src="./images/img_031.jpg" data-cms-id="auto-7-img-55">
+                        </div>
+                        <div class="p-sm text-center">
+                            <h4 class="font-label-lg text-label-lg uppercase tracking-wider text-white" data-cms-id="auto-7-h4-23">Hamburgers met
+                                kruiden</h4>
+                        </div>
+                    </div>
+                    <div 
+                        class="group bg-white rounded-xl overflow-hidden border border-surface-variant hover:border-primary transition-all duration-300">
+                        <div class="aspect-square bg-surface-container overflow-hidden">
+                            <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Artisanal fresh braadworsten sausages with herbs, presented in a minimalist, modern heritage style. The lighting is bright and clean, typical of a luxury Dutch farmhouse brand. Focus on the organic texture of the sausage casing and the vibrant green of the herbs." src="./images/img_032.jpg" data-cms-id="auto-7-img-56">
+                        </div>
+                        <div class="p-sm text-center">
+                            <h4 class="font-label-lg text-label-lg uppercase tracking-wider text-white" data-cms-id="auto-7-h4-24">Braadworsten met
+                                kruiden</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="py-xl relative overflow-hidden"
+        style="background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuD3VmLwZQTxVhMTesdhOGt5Y0Zd1Un2_3598kSf9HFKIbVLkezQTihr1AAeHyQd5D07aIDMunB-WPjEW50hwizpA4t87ihkPhoZqCPJdkCZU-16nXiJlfipqsqBvTgmfn_r8LqPYubBQLZLZXXknKzkVhjauEJr1K_oqrlxTW3iCcXB1j-bQwMgv6TD8-4FLWmnzSJVqUit-XH-jQ6tj5dwFVBrvbBFRU1R_VuBBMlqygpqfFZIIdyoROBesTtHmLnDPVuPGThJpqzAi_8&quot;); background-size: cover; background-position: center center;">
+
+        <div class="mx-auto relative z-10">
+            <div class="text-center mb-xl">
+                <h2 class="font-headline-xl text-headline-xl text-surface-bright mb-md" data-cms-id="auto-7-h2-2">Onze kwaliteitsgarantie</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-lg">
+                
+                <div class="glass-card rounded-[24px] p-lg flex flex-col items-center text-center">
+                    <div 
+                        class="w-16 h-16 bg-secondary-container rounded-full flex items-center justify-center mb-md text-on-secondary-container">
+                        <span class="material-symbols-outlined text-[32px]">pets</span>
+                    </div>
+                    <h3 class="font-headline-md text-headline-md text-heading-green mb-sm" data-cms-id="auto-7-h3-7">Eigen Koeien</h3>
+                    <p class="font-body-md text-body-md text-on-surface" data-cms-id="auto-7-p-28">We kennen elke koe bij naam. Ze groeien rustig
+                        op in onze eigen polderweiden voor het beste resultaat.</p>
+                </div>
+                
+                <div class="glass-card rounded-[24px] p-lg flex flex-col items-center text-center">
+                    <div 
+                        class="w-16 h-16 bg-secondary-container rounded-full flex items-center justify-center mb-md text-on-secondary-container">
+                        <span class="material-symbols-outlined text-[32px]">eco</span>
+                    </div>
+                    <h3 class="font-headline-md text-headline-md text-heading-green mb-sm" data-cms-id="auto-7-h3-8">Puur Natuur</h3>
+                    <p class="font-body-md text-body-md text-on-surface" data-cms-id="auto-7-p-29">Ons vlees bevat geen kunstmatige toevoegingen.
+                        Gewoon eerlijk vlees, zoals het bedoeld is.</p>
+                </div>
+                
+                <div class="glass-card rounded-[24px] p-lg flex flex-col items-center text-center">
+                    <div 
+                        class="w-16 h-16 bg-secondary-container rounded-full flex items-center justify-center mb-md text-on-secondary-container">
+                        <span class="material-symbols-outlined text-[32px]">precision_manufacturing</span>
+                    </div>
+                    <h3 class="font-headline-md text-headline-md text-heading-green mb-sm" data-cms-id="auto-7-h3-9">Ambacht</h3>
+                    <p class="font-body-md text-body-md text-on-surface" data-cms-id="auto-7-p-30">Elk stuk vlees wordt met zorg en vakmanschap
+                        verwerkt en verpakt voor optimale smaakbeleving.</p>
+                </div>
+            </div>
+            <div class="flex justify-center mt-lg">
+                <div class="w-full overflow-hidden h-[300px] shadow-2xl">
+                    <img class="w-full h-full object-cover" data-alt="Wide panoramic shot of a serene Dutch polder landscape with grazing cows at sunrise. The soft mist hangs over the green fields while the sun casts long shadows and a golden glow across the farmland. A modern heritage aesthetic that conveys peace, tradition, and transparency in food production." src="./images/cows.png" data-cms-id="auto-7-img-57">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="py-xl">
+        <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop">
+            <div class="flex flex-col md:flex-row items-center gap-xl">
+                <div class="w-full md:w-1/2">
+                    <div class="rounded-[40px] overflow-hidden aspect-video md:aspect-square">
+                        <img alt="Grazing cows in the field" class="w-full h-full object-cover" src="./images/img_033.jpg" data-cms-id="auto-7-img-58">
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2">
+                    <h2 class="font-headline-xl text-headline-xl text-heading-green mb-md leading-tight" data-cms-id="auto-7-h2-3">Van weide tot
+                        bord.</h2>
+                    <p class="font-body-lg text-body-lg text-on-surface-variant mb-lg" data-cms-id="auto-7-p-31">
+                        Onze koeien brengen zoveel mogelijk tijd buiten door in de weide. Ze grazen van het malse
+                        poldergras en genieten van de ruimte. Hierdoor ontstaat vlees met een volle smaak en een
+                        uitstekende kwaliteit die u direct proeft aan de eettafel.
+                    </p>
+                    <div class="space-y-sm">
+                        <div class="flex items-center gap-sm">
+                            <span class="material-symbols-outlined text-primary"
+                                style="font-variation-settings: &quot;FILL&quot; 1;">check_circle</span>
+                            <span class="font-label-lg text-label-lg text-on-surface" data-cms-id="auto-7-span-95">Eigen koeien</span>
+                        </div>
+                        <div class="flex items-center gap-sm">
+                            <span class="material-symbols-outlined text-primary"
+                                style="font-variation-settings: &quot;FILL&quot; 1;">check_circle</span>
+                            <span class="font-label-lg text-label-lg text-on-surface" data-cms-id="auto-7-span-96">Lokale productie</span>
+                        </div>
+                        <div class="flex items-center gap-sm">
+                            <span class="material-symbols-outlined text-primary"
+                                style="font-variation-settings: &quot;FILL&quot; 1;">check_circle</span>
+                            <span class="font-label-lg text-label-lg text-on-surface" data-cms-id="auto-7-span-97">Ambachtelijke verwerking</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="py-xl bg-heading-green text-surface-bright relative overflow-hidden">
+        <div class="absolute right-0 top-0 w-1/3 h-full opacity-10">
+            <img class="w-full h-full object-cover" data-alt="Dramatic, high-contrast close-up of a perfectly seared ribeye steak on a cast-iron pan. The lighting is moody and artistic, focusing on the texture of the crust and the juicy interior. Premium culinary photography for a luxury butcher brand." src="./images/img_034.jpg" data-cms-id="auto-7-img-59">
+        </div>
+        <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop relative z-10">
+            <div class="md:w-2/3">
+                <h2 class="font-display-lg text-display-lg-mobile md:text-display-lg mb-md leading-tight" data-cms-id="auto-7-h2-4">Proef of
+                    bestel ons vlees.</h2>
+                <p class="font-body-lg text-body-lg mb-xl text-surface-variant max-w-xl" data-cms-id="auto-7-p-32">
+                    Ontdek ons assortiment ambachtelijk vlees in onze boerderijwinkel. Heeft u specifieke wensen of wilt
+                    u een grotere bestelling plaatsen? Wij helpen u graag.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-md">
+                    <a class="px-xl py-md bg-secondary-container text-on-secondary-container font-label-lg text-label-lg rounded-xl text-center hover:opacity-90 transition-opacity" href="9.html" data-cms-id="auto-7-a-80">
+                        Bezoek onze winkel
+                    </a>
+                    <a class="px-xl py-md border border-surface-variant text-surface-bright font-label-lg text-label-lg rounded-xl text-center hover:bg-white/10 transition-colors" href="9.html" data-cms-id="auto-7-a-81">
+                        Neem contact op voor bestelling
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer class="bg-black text-white relative py-4">
+        <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-md">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-lg">
+                
+                <div class="lg:col-span-4 space-y-md">
+                    <div class="flex items-center gap-sm">
+                        <img alt="Logo" class="h-12 w-12 object-contain" src="./images/img_002.jpg" data-cms-id="auto-7-img-60">
+                        <span class="font-headline-md text-headline-md font-extrabold text-white" data-cms-id="auto-7-span-98">De Westplaat</span>
+                    </div>
+                    <p class="font-body-md text-body-md max-w-sm text-white" data-cms-id="auto-7-p-33">Ambachtelijke producten van eigen land. Met
+                        passie gemaakt op onze familieboerderij in Sommelsdijk.</p>
+                    <div class="flex gap-md pt-sm">
+                        <a class="w-10 h-10 flex items-center justify-center bg-white text-primary-container rounded-full hover:bg-white/90 transition-all hover:scale-110" href="https://facebook.com" target="_blank" data-cms-id="auto-7-a-82">
+                            <span class="material-symbols-outlined">face_nod</span>
+                        </a>
+                        <a class="w-10 h-10 flex items-center justify-center bg-white text-primary-container rounded-full hover:bg-white/90 transition-all hover:scale-110" href="https://instagram.com" target="_blank" data-cms-id="auto-7-a-83">
+                            <span class="material-symbols-outlined">camera_alt</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="lg:col-span-4 space-y-md">
+                    <h4 class="font-headline-sm text-headline-sm text-on-primary" data-cms-id="auto-7-h4-25">Navigatie &amp; Service</h4>
+                    <div class="space-y-xs">
+                        <a class="block px-md py-sm rounded-lg hover:bg-white/10 transition-colors text-white" href="2.html" data-cms-id="auto-7-a-84">Home</a>
+                        <a class="block px-md py-sm rounded-lg hover:bg-white/10 transition-colors text-white" href="3.html" data-cms-id="auto-7-a-85">Over Ons</a>
+                        <a class="block px-md py-sm rounded-lg hover:bg-white/10 transition-colors text-white" href="4.html" data-cms-id="auto-7-a-86">Kaas</a>
+                        <a class="block px-md py-sm rounded-lg hover:bg-white/10 transition-colors text-white" href="5.html" data-cms-id="auto-7-a-87">Zuivel</a>
+                        <a class="block px-md py-sm rounded-lg hover:bg-white/10 transition-colors text-white" href="6.html" data-cms-id="auto-7-a-88">IJs</a>
+                        <a class="block px-md py-sm rounded-lg hover:bg-white/10 transition-colors text-white" href="7.html" data-cms-id="auto-7-a-89">Vlees</a>
+                        <a class="block px-md py-sm rounded-lg hover:bg-white/10 transition-colors text-white" href="8.html" data-cms-id="auto-7-a-90">Verkooppunten</a>
+                        <a class="block px-md py-sm rounded-lg hover:bg-white/10 transition-colors text-white" href="9.html" data-cms-id="auto-7-a-91">Contact &amp; Route</a>
+                    </div>
+                </div>
+                
+                <div class="lg:col-span-4 space-y-md">
+                    <h4 class="font-headline-sm text-headline-sm text-on-primary" data-cms-id="auto-7-h4-26">Contact &amp; Openingstijden</h4>
+                    <div class="space-y-sm text-body-md text-white">
+                        <p class="flex items-start gap-xs" data-cms-id="auto-7-p-34">
+                            <span class="material-symbols-outlined text-on-primary text-sm">location_on</span>Heuvelweg
+                            15, Sommelsdijk
+                        </p>
+                        <p class="flex items-center gap-xs" data-cms-id="auto-7-p-35">
+                            <span class="material-symbols-outlined text-on-primary text-sm">phone</span>0187 482 321
+                        </p>
+                        <p class="flex items-center gap-xs" data-cms-id="auto-7-p-36">
+                            <span class="material-symbols-outlined text-on-primary text-sm">mail</span>info@westplaat.nl
+                        </p>
+                        <div class="mt-md pt-md border-t border-white/10">
+                            <p class="font-bold text-on-primary" data-cms-id="auto-7-p-37">Openingstijden:</p>
+                            <p class data-cms-id="auto-7-p-38">Di - Za: 09:00 - 17:00</p>
+                            <p class="text-error-container" data-cms-id="auto-7-p-39">Zo &amp; Ma: Gesloten</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/10 text-center mt-md pt-md">
+                <p class="text-white/60 text-sm font-medium" data-cms-id="auto-7-p-40">&copy; 2024 Kaasboerderij De Westplaat. Eerlijk en heerlijk
+                    van Goeree-Overflakkee.</p>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+    <script src="premium-motion.js"></script>
+    <script src="background-audio.js"></script>
+</body>
+
+</html>

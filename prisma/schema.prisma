@@ -1,0 +1,75 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Admin {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  role      String   @default("CONTENT_ADMIN") // SUPER_ADMIN, CONTENT_ADMIN
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  logs      ActivityLog[]
+}
+
+model ThemeSettings {
+  id              String   @id @default("global")
+  primaryColor    String   @default("#00461a")
+  secondaryColor  String   @default("#755b00")
+  accentColor     String   @default("#ffdad6")
+  backgroundColor String   @default("#fdf9ed")
+  textColor       String   @default("#1c1c15")
+  buttonColor     String   @default("#105223")
+  headingFont     String   @default("Nunito")
+  bodyFont        String   @default("Nunito Sans")
+  headingWeight   String   @default("800")
+  updatedAt       DateTime @updatedAt
+}
+
+model SiteContent {
+  id          String   @id // e.g. "hero.title"
+  content     String   @db.Text
+  description String?  // Optional context for admins
+  updatedAt   DateTime @updatedAt
+}
+
+model MediaLibrary {
+  id        String   @id @default(cuid())
+  url       String
+  filename  String
+  fileType  String
+  size      Int
+  altText   String?
+  createdAt DateTime @default(now())
+}
+
+model Collection {
+  id          String   @id // e.g. "testimonials"
+  name        String
+  maxItems    Int      @default(10)
+  items       CollectionItem[]
+}
+
+model CollectionItem {
+  id           String     @id @default(cuid())
+  collectionId String
+  collection   Collection @relation(fields: [collectionId], references: [id], onDelete: Cascade)
+  data         String     @db.Text // JSON string representing the item's content
+  order        Int        @default(0)
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+}
+
+model ActivityLog {
+  id        String   @id @default(cuid())
+  adminId   String
+  admin     Admin    @relation(fields: [adminId], references: [id])
+  action    String   // e.g., "LOGIN", "UPDATE_CONTENT", "UPLOAD_MEDIA"
+  details   String?  @db.Text
+  createdAt DateTime @default(now())
+}

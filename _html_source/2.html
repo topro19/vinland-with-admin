@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="nl" style="">
+
+<head>
+    
+</head>
+
+<body class="font-body-md text-body-md antialiased min-h-screen">
+    <nav 
+        class="bg-surface/90 backdrop-blur-md sticky top-0 z-50 border-b border-outline-variant/20 shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-4 flex justify-between items-center">
+            <a href="2.html" class="flex items-center gap-2" data-cms-id="auto-2-a-19">
+                <span class="font-headline-md text-headline-md font-extrabold text-primary" data-cms-id="auto-2-span-48">De Westplaat</span>
+            </a>
+            <div class="hidden lg:flex gap-6 items-center">
+                <a href="2.html" class="text-on-surface hover:text-primary font-label-lg transition-colors" data-cms-id="auto-2-a-20">Home</a>
+                <a href="3.html" class="text-on-surface hover:text-primary font-label-lg transition-colors" data-cms-id="auto-2-a-21">Over Ons</a>
+                <a href="4.html" class="text-on-surface hover:text-primary font-label-lg transition-colors" data-cms-id="auto-2-a-22">Kaas</a>
+                <a href="5.html" class="text-on-surface hover:text-primary font-label-lg transition-colors" data-cms-id="auto-2-a-23">Zuivel</a>
+                <a href="6.html" class="text-on-surface hover:text-primary font-label-lg transition-colors" data-cms-id="auto-2-a-24">IJs</a>
+                <a href="7.html" class="text-on-surface hover:text-primary font-label-lg transition-colors" data-cms-id="auto-2-a-25">Vlees</a>
+                <a href="8.html" class="text-on-surface hover:text-primary font-label-lg transition-colors" data-cms-id="auto-2-a-26">Verkooppunten</a>
+                <a href="9.html" class="bg-primary text-on-primary px-4 py-2 rounded-lg font-label-lg hover:bg-primary-container transition-colors shadow-sm btn-hover-effect" data-cms-id="auto-2-a-27">Contact</a>
+            </div>
+            <button id="mobile-menu-btn" class="lg:hidden text-on-surface p-2 rounded-md hover:bg-surface-container transition-colors" data-cms-id="auto-2-button-14">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+        </div>
+        <div id="mobile-menu"
+            class="hidden lg:hidden bg-surface border-t border-outline-variant/20 flex flex-col absolute w-full shadow-lg">
+            <a href="2.html" class="px-margin-mobile py-4 text-on-surface hover:bg-surface-container font-label-lg border-b border-outline-variant/10" data-cms-id="auto-2-a-28">Home</a>
+            <a href="3.html" class="px-margin-mobile py-4 text-on-surface hover:bg-surface-container font-label-lg border-b border-outline-variant/10" data-cms-id="auto-2-a-29">Over
+                Ons</a>
+            <a href="4.html" class="px-margin-mobile py-4 text-on-surface hover:bg-surface-container font-label-lg border-b border-outline-variant/10" data-cms-id="auto-2-a-30">Kaas</a>
+            <a href="5.html" class="px-margin-mobile py-4 text-on-surface hover:bg-surface-container font-label-lg border-b border-outline-variant/10" data-cms-id="auto-2-a-31">Zuivel</a>
+            <a href="6.html" class="px-margin-mobile py-4 text-on-surface hover:bg-surface-container font-label-lg border-b border-outline-variant/10" data-cms-id="auto-2-a-32">IJs</a>
+            <a href="7.html" class="px-margin-mobile py-4 text-on-surface hover:bg-surface-container font-label-lg border-b border-outline-variant/10" data-cms-id="auto-2-a-33">Vlees</a>
+            <a href="8.html" class="px-margin-mobile py-4 text-on-surface hover:bg-surface-container font-label-lg border-b border-outline-variant/10" data-cms-id="auto-2-a-34">Verkooppunten</a>
+            <a href="9.html" class="px-margin-mobile py-4 text-primary bg-primary/5 hover:bg-primary/10 font-label-lg" data-cms-id="auto-2-a-35">Contact</a>
+        </div>
+    </nav>
+
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Kaasboerderij De Westplaat | Ambachtelijke Kaas &amp; Zuivel</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link 
+        href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&amp;family=Nunito:ital,wght@0,200..1000;1,200..1000&amp;display=swap"
+        rel="stylesheet">
+    <link 
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="premium-motion.css">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed": "#002108",
+                        "outline-variant": "#c0c9bd",
+                        "on-secondary-fixed": "#241a00",
+                        "primary": "#00461a",
+                        "on-tertiary-fixed-variant": "#663d06",
+                        "inverse-on-surface": "#f3f0f0",
+                        "primary-fixed-dim": "#94d699",
+                        "surface-tint": "#2c6b39",
+                        "surface-dim": "#dcd9d9",
+                        "surface-container": "#f0eded",
+                        "tertiary": "#583300",
+                        "surface-container-highest": "#e4e2e1",
+                        "secondary-container": "#fccc38",
+                        "on-surface-variant": "#414940",
+                        "surface-bright": "#fbf9f8",
+                        "secondary-fixed-dim": "#f0c12c",
+                        "secondary-fixed": "#ffdf90",
+                        "secondary": "#755b00",
+                        "on-secondary-container": "#6f5600",
+                        "on-tertiary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed": "#2c1700",
+                        "on-primary-fixed-variant": "#105223",
+                        "surface": "#fbf9f8",
+                        "primary-fixed": "#aff3b4",
+                        "tertiary-container": "#744912",
+                        "on-error-container": "#93000a",
+                        "primary-container": "#1f5e2e",
+                        "on-secondary-fixed-variant": "#584400",
+                        "surface-variant": "#e4e2e1",
+                        "outline": "#71796f",
+                        "on-surface": "#1b1c1c",
+                        "tertiary-fixed-dim": "#f7bb7a",
+                        "on-secondary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-background": "#1b1c1c",
+                        "background": "#fbf9f8",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed": "#ffdcbc",
+                        "error-container": "#ffdad6",
+                        "surface-container-high": "#eae7e7",
+                        "inverse-surface": "#303030",
+                        "inverse-primary": "#94d699",
+                        "on-primary-container": "#94d699",
+                        "surface-container-low": "#f6f3f2",
+                        "on-tertiary-container": "#f7bb7a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "margin-mobile": "20px",
+                        "lg": "48px",
+                        "base": "8px",
+                        "sm": "12px",
+                        "xl": "80px",
+                        "md": "24px",
+                        "margin-desktop": "64px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["'Nunito Sans'", "sans-serif"],
+                        "display-lg": ["Nunito", "sans-serif"],
+                        "display-lg-mobile": ["Nunito", "sans-serif"],
+                        "body-lg": ["'Nunito Sans'", "sans-serif"],
+                        "headline-xl": ["Nunito", "sans-serif"],
+                        "headline-md": ["Nunito", "sans-serif"],
+                        "headline-lg": ["Nunito", "sans-serif"],
+                        "label-lg": ["'Nunito Sans'", "sans-serif"],
+                        "body-md": ["'Nunito Sans'", "sans-serif"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "display-lg": ["56px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "display-lg-mobile": ["40px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "800" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-xl": ["40px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "800" }],
+                        "headline-md": ["24px", { "lineHeight": "1.4", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.3", "fontWeight": "800" }],
+                        "label-lg": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes gentleFloat {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+        }
+
+        .delay-100 {
+            animation-delay: 100ms;
+        }
+
+        .delay-200 {
+            animation-delay: 200ms;
+        }
+
+        .delay-300 {
+            animation-delay: 300ms;
+        }
+
+        .gentle-float {
+            animation: gentleFloat 4s ease-in-out infinite;
+        }
+
+        .btn-hover-effect:hover {
+            transform: scale(1.02);
+            transition: transform 0.2s ease-in-out;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            .animate-fade-in-up,
+            .gentle-float {
+                animation: none !important;
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .premium-shadow {
+            box-shadow: 0 10px 30px -5px rgba(0, 70, 26, 0.1);
+        }
+
+        .artisanal-border {
+            border: 1px solid rgba(113, 121, 111, 0.2);
+        }
+
+        body {
+            background-color: #fbf9f8;
+            color: #1b1c1c;
+            scroll-behavior: smooth;
+        }
+
+        h1,
+        h2,
+        h3 {
+            letter-spacing: -0.01em;
+        }
+
+        .illustration-bg {
+            pointer-events: none;
+            user-select: none;
+        }
+    </style>
+    
+    <main>
+        
+        <section class="relative bg-background pt-xl pb-24 overflow-hidden">
+            <div 
+                class="relative z-10 max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 lg:grid-cols-12 gap-xl items-center">
+                <div class="lg:col-span-5 space-y-lg">
+                    <div>
+                        <span class="text-secondary font-label-lg tracking-widest uppercase mb-sm inline-block animate-fade-in-up" data-cms-id="auto-2-span-49">Ambacht
+                            uit Sommelsdijk</span>
+                        <h1 data-cms-id="home-hero-title"
+                            class="font-display-lg text-display-lg text-primary leading-[1.1] animate-fade-in-up delay-100">
+                            Kaasboerderij<br>De<br><span class style="color: rgb(117, 91, 0); letter-spacing: -0.02em;" data-cms-id="auto-2-span-50">Westplaat</span></h1>
+                    </div>
+                    <p data-cms-id="home-hero-text" class="font-body-lg text-body-lg text-on-surface-variant max-w-md animate-fade-in-up delay-200">
+                        Welkom bij onze familieboerderij. Wij maken de lekkerste kaas, zuivel, ijs en vlees met liefde
+                        voor de natuur en oog voor kwaliteit.
+                    </p>
+                    <div class="flex flex-wrap gap-md pt-md animate-fade-in-up delay-300">
+                        <button data-cms-id="home-hero-btn-1" onclick="window.location.href='4.html'"
+                            class="bg-primary text-on-primary px-lg py-md rounded-lg font-headline-md text-headline-md hover:bg-primary-container transition-all premium-shadow btn-hover-effect">Bekijk
+                            assortiment</button>
+                        <button data-cms-id="home-hero-btn-2" onclick="window.location.href='9.html'"
+                            class="border-2 border-primary text-primary px-lg py-md rounded-lg font-headline-md text-headline-md hover:bg-primary/5 transition-all btn-hover-effect">Onze
+                            winkel</button>
+                    </div>
+                </div>
+                <div class="lg:col-span-7 relative">
+                    <div class="aspect-[4/3] rounded-2xl overflow-hidden premium-shadow artisanal-border bg-white">
+                        <img data-cms-id="home-hero-image" alt="Boerderij landschap" class="w-full h-full object-cover"
+                            src="./images/img_040.jpg">
+                    </div>
+                    <div 
+                        class="absolute -bottom-8 -left-8 bg-white p-lg rounded-xl shadow-xl artisanal-border hidden lg:block max-w-xs gentle-float">
+                        <p data-cms-id="home-hero-quote" class="text-primary font-bold italic">"Van het land, door de familie, rechtstreeks naar u."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="py-xl bg-[#1b3d22] relative overflow-hidden mt-lg">
+            
+            <div class="absolute inset-0 opacity-[0.05]"
+                style="background-image: url('data:image/svg+xml,%3Csvg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath d=\'M11 18c13.866 0 25.362 10.24 26.816 23.633a27.14 27.14 0 0 0 23.368 23.368C74.638 66.453 84.877 77.949 84.877 91.815V100h2V91.815c0-14.864-11.196-27.185-25.568-28.775a25.14 25.14 0 0 1-21.64-21.64C38.196 27.026 25.864 15.83 11 15.83V18zm0 2c12.784 0 23.336 9.544 24.814 22.025a29.14 29.14 0 0 0 25.161 25.161C73.456 78.664 83 89.216 83 102h2c0-13.864-10.457-25.336-23.829-26.883a27.14 27.14 0 0 1-23.442-23.442C36.457 20.457 24.864 10 11 10v2zm0 2c11.702 0 21.31 8.848 22.812 20.417a31.14 31.14 0 0 0 26.954 26.954C72.275 80.875 81.123 90.483 81.123 102h2c0-12.784-9.718-23.336-22.045-24.814a29.14 29.14 0 0 1-25.244-25.244C34.718 20.457 24.166 10 11 10v2z\' fill=\'%23ffffff\' fill-opacity=\'1\' fill-rule=\'evenodd\'/%3E%3C/svg%3E');">
+            </div>
+
+            <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop relative z-10 text-center">
+                <span data-cms-id="home-sec1-subtitle" class="text-[#fccc38] font-label-lg tracking-widest uppercase mb-sm inline-block">VAN MELK TOT
+                    AMBACHTELIJKE PRODUCTEN</span>
+                <div class="w-8 h-1 bg-[#fccc38] mx-auto mb-md rounded-full"></div>
+                <h2 data-cms-id="home-sec1-title" class="font-headline-xl text-[40px] font-extrabold text-white mb-md"
+                    style="letter-spacing: -0.01em;">Van melk tot ambachtelijke producten</h2>
+                <p data-cms-id="home-sec1-desc" class="font-body-lg text-lg text-white/90 max-w-2xl mx-auto mb-xl leading-relaxed">
+                    Een groot deel van onze melk verwerken wij op de boerderij<br>tot hoogwaardige ambachtelijke
+                    producten.
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-lg pt-md">
+                    
+                    <div 
+                        class="bg-[#fbf9f8] text-on-surface rounded-2xl p-lg pt-xl relative mt-md text-left premium-shadow hover:-translate-y-2 transition-transform duration-300 group">
+                        <div 
+                            class="absolute -top-6 left-1/2 -translate-x-1/2 w-14 h-14 rounded-full bg-[#fccc38] text-[#1b3d22] font-headline-md font-bold flex items-center justify-center border-[6px] border-[#1b3d22] shadow-sm group-hover:scale-110 transition-transform duration-300">
+                            01
+                        </div>
+                        <h3 data-cms-id="home-sec1-card1-title" class="font-headline-md text-2xl font-bold text-[#1b3d22] mb-sm pt-sm">Ambachtelijke Kaas
+                        </h3>
+                        <div class="w-full border-b border-dashed border-outline-variant/60 mb-md"></div>
+                        <p data-cms-id="home-sec1-card1-desc" class="font-body-md text-on-surface-variant leading-relaxed min-h-[100px] max-w-[220px]">
+                            Met zorg en passie gemaakt volgens traditioneel recept van melk van onze eigen koeien.
+                        </p>
+                        <div 
+                            class="absolute bottom-4 right-4 opacity-90 group-hover:opacity-100 transition-all group-hover:scale-105 duration-300 origin-bottom-right">
+                            <svg width="100" height="100" viewBox="0 0 120 120" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                
+                                <path d="M10 100 Q 15 85 20 100 M25 100 Q 30 75 35 100 M15 100 Q 18 90 22 100"
+                                    stroke="#71796f" stroke-width="2" fill="none" stroke-linecap="round" ></path>
+                                
+                                <path d="M40 95 L 105 95 A 5 5 0 0 0 110 90 V 75 L 75 50 Z" fill="#fccc38"
+                                    stroke="#1b1c1c" stroke-width="2" stroke-linejoin="round" ></path>
+                                
+                                <circle cx="85" cy="80" r="5" fill="#ffdf90" stroke="#1b1c1c" stroke-width="1.5" ></circle>
+                                <circle cx="65" cy="70" r="7" fill="#ffdf90" stroke="#1b1c1c" stroke-width="1.5" ></circle>
+                                <circle cx="55" cy="85" r="4" fill="#ffdf90" stroke="#1b1c1c" stroke-width="1.5" ></circle>
+                                <circle cx="95" cy="65" r="3" fill="#ffdf90" stroke="#1b1c1c" stroke-width="1.5" ></circle>
+                                
+                                <path d="M40 95 L 75 50 L 55 45 L 30 75 Z" fill="#ffdf90" stroke="#1b1c1c"
+                                    stroke-width="2" stroke-linejoin="round" ></path>
+                            </svg>
+                        </div>
+                    </div>
+
+                    
+                    <div 
+                        class="bg-[#fbf9f8] text-on-surface rounded-2xl p-lg pt-xl relative mt-md text-left premium-shadow hover:-translate-y-2 transition-transform duration-300 group">
+                        <div 
+                            class="absolute -top-6 left-1/2 -translate-x-1/2 w-14 h-14 rounded-full bg-[#fccc38] text-[#1b3d22] font-headline-md font-bold flex items-center justify-center border-[6px] border-[#1b3d22] shadow-sm group-hover:scale-110 transition-transform duration-300">
+                            02
+                        </div>
+                        <h3 data-cms-id="home-sec1-card2-title" class="font-headline-md text-2xl font-bold text-[#1b3d22] mb-sm pt-sm">Verse Zuivel</h3>
+                        <div class="w-full border-b border-dashed border-outline-variant/60 mb-md"></div>
+                        <p data-cms-id="home-sec1-card2-desc" class="font-body-md text-on-surface-variant leading-relaxed min-h-[100px] max-w-[220px]">
+                            Dagelijks vers bereid op de boerderij, van yoghurt en kwark tot romige melkproducten.
+                        </p>
+                        <div 
+                            class="absolute bottom-4 right-4 opacity-90 group-hover:opacity-100 transition-all group-hover:scale-105 duration-300 origin-bottom-right">
+                            <svg width="100" height="100" viewBox="0 0 120 120" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                
+                                <path d="M10 100 Q 15 85 20 100 M25 100 Q 30 75 35 100 M15 100 Q 18 90 22 100"
+                                    stroke="#71796f" stroke-width="2" fill="none" stroke-linecap="round" ></path>
+                                
+                                <path d="M70 40 V 25 h 15 v 15 L 95 60 V 100 H 60 V 60 Z" fill="#ffffff"
+                                    stroke="#1b1c1c" stroke-width="2" stroke-linejoin="round" ></path>
+                                <path d="M60 80 H 95" stroke="#1b1c1c" stroke-width="2" ></path>
+                                
+                                <path d="M95 70 V 60 h 10 v 10 L 115 80 V 100 H 95 V 80 Z" fill="#fbf9f8"
+                                    stroke="#1b1c1c" stroke-width="2" stroke-linejoin="round" ></path>
+                                
+                                <path d="M30 90 Q 30 100 50 100 Q 70 100 70 90 Z" fill="#eae7e7" stroke="#1b1c1c"
+                                    stroke-width="2" stroke-linejoin="round" ></path>
+                                <path d="M30 90 H 70" stroke="#1b1c1c" stroke-width="2" ></path>
+                            </svg>
+                        </div>
+                    </div>
+
+                    
+                    <div 
+                        class="bg-[#fbf9f8] text-on-surface rounded-2xl p-lg pt-xl relative mt-md text-left premium-shadow hover:-translate-y-2 transition-transform duration-300 group">
+                        <div 
+                            class="absolute -top-6 left-1/2 -translate-x-1/2 w-14 h-14 rounded-full bg-[#fccc38] text-[#1b3d22] font-headline-md font-bold flex items-center justify-center border-[6px] border-[#1b3d22] shadow-sm group-hover:scale-110 transition-transform duration-300">
+                            03
+                        </div>
+                        <h3 data-cms-id="home-sec1-card3-title" class="font-headline-md text-2xl font-bold text-[#1b3d22] mb-sm pt-sm">Boerderij-ijs</h3>
+                        <div class="w-full border-b border-dashed border-outline-variant/60 mb-md"></div>
+                        <p data-cms-id="home-sec1-card3-desc" class="font-body-md text-on-surface-variant leading-relaxed min-h-[100px] max-w-[220px]">
+                            Romig ambachtelijk ijs gemaakt van verse melk en natuurlijke ingrediënten.
+                        </p>
+                        <div 
+                            class="absolute bottom-4 right-4 opacity-90 group-hover:opacity-100 transition-all group-hover:scale-105 duration-300 origin-bottom-right">
+                            <svg width="100" height="100" viewBox="0 0 120 120" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                
+                                <path 
+                                    d="M10 100 Q 15 85 20 100 M25 100 Q 30 75 35 100 M15 100 Q 18 90 22 100 M35 100 Q 40 85 45 100"
+                                    stroke="#71796f" stroke-width="2" fill="none" stroke-linecap="round" ></path>
+                                
+                                <path d="M50 100 L 40 75 H 100 L 90 100 Z" fill="#ffffff" stroke="#1b1c1c"
+                                    stroke-width="2" stroke-linejoin="round" ></path>
+                                <path d="M40 75 H 100" stroke="#1b1c1c" stroke-width="2" ></path>
+                                
+                                <circle cx="55" cy="65" r="14" fill="#eae7e7" stroke="#1b1c1c" stroke-width="2" ></circle>
+                                
+                                <circle cx="85" cy="65" r="14" fill="#fccc38" stroke="#1b1c1c" stroke-width="2" ></circle>
+                                
+                                <circle cx="70" cy="50" r="15" fill="#94d699" stroke="#1b1c1c" stroke-width="2" ></circle>
+                                
+                                <path d="M100 55 L 115 35" stroke="#fccc38" stroke-width="4" stroke-linecap="round" ></path>
+                                <circle cx="115" cy="35" r="4" fill="#fccc38" ></circle>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="bg-surface-container-low py-xl relative overflow-hidden">
+            
+            <div class="absolute top-0 right-0 w-1/2 h-full opacity-[0.03] illustration-bg hidden lg:block">
+                <svg class="w-full h-full" fill="#1f5e2e" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M100 300H300V200L200 150L100 200V300Z"></path>
+                    <rect height="40" width="40" x="180" y="240"></rect>
+                    <path d="M50 350C150 330 250 360 350 340V400H50V350Z"></path>
+                </svg>
+            </div>
+            <div 
+                class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-2 gap-xl items-center relative z-10">
+                <div class="order-2 md:order-1 relative">
+                    <div class="aspect-[5/6] rounded-2xl overflow-hidden premium-shadow artisanal-border bg-white">
+                        <img data-cms-id="home-about-img" alt="Interieur boerderijwinkel" class="w-full h-full object-cover"
+                            src="./images/img_041.jpg">
+                    </div>
+                </div>
+                <div class="order-1 md:order-2 space-y-md pl-0 lg:pl-xl">
+                    <h2 data-cms-id="home-about-title" class="font-headline-xl text-headline-xl text-primary">Generaties lang vakmanschap</h2>
+                    <div class="space-y-sm">
+                        <p data-cms-id="home-about-p1" class="font-body-lg text-body-lg text-on-surface">
+                            Onze boerderij is een echt familiebedrijf. Samen met RJ. van Schaik, J. van Schaik en de
+                            rest van de familie werken we elke dag aan de hoogste kwaliteit producten.
+                        </p>
+                        <p data-cms-id="home-about-p2" class="font-body-lg text-body-lg text-on-surface">
+                            In het polderlandschap van Sommelsdijk combineren we moderne technieken met de rijke
+                            tradities van het boerenleven. Authenticiteit en eerlijkheid staan bij ons centraal in alles
+                            wat we doen.
+                        </p>
+                    </div>
+                    <button data-cms-id="home-about-btn" onclick="window.location.href='3.html'"
+                        class="flex items-center gap-xs text-primary font-label-lg text-label-lg group pt-md border-b border-primary/20 pb-1 w-fit transition-transform hover:translate-x-1">
+                        Lees ons verhaal
+                        <span 
+                            class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+        <div class="w-full leading-none bg-surface-container-low" style="margin-top: -1px;"><svg 
+                class="w-full h-12 text-background fill-current" preserveAspectRatio="none" viewBox="0 0 1440 48">
+                <path d="M0 0c211.507 27.307 451.507 41 720 41s508.493-13.693 720-41v48H0V0z"></path>
+            </svg></div>
+
+        
+        <div class="w-full overflow-hidden bg-surface-container-low py-lg rounded-[2rem]">
+            <img alt="Onze producten illustratie" class="w-full h-auto object-cover" src="./images/farm.png" data-cms-id="auto-2-img-11">
+        </div>
+        
+        <section class="py-xl bg-background relative overflow-hidden">
+            
+            <div class="absolute -left-20 top-1/4 w-1/3 h-2/3 opacity-[0.04] illustration-bg">
+                <svg class="w-full h-full" fill="#755b00" viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 150C20 100 180 100 180 150V250C180 270 20 270 20 250V150Z"></path>
+                    <rect height="20" width="100" x="50" y="80"></rect>
+                </svg>
+            </div>
+            <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop relative z-10">
+                <div class="flex flex-col md:flex-row justify-between items-center md:items-end mb-xl gap-md text-center md:text-left">
+                    <div class="max-w-2xl">
+                        <div class="flex gap-md mb-sm opacity-40"></div>
+                        <span data-cms-id="home-sec3-subtitle"
+                            class="text-secondary font-label-lg tracking-widest uppercase mb-xs inline-block">Assortiment</span>
+                        <h2 data-cms-id="home-sec3-title" class="font-headline-xl text-headline-xl text-primary">Onze Boerderijproducten</h2>
+                        <p data-cms-id="home-sec3-desc" class="font-body-lg text-body-lg text-on-surface-variant mt-sm">Vers van eigen land, bereid
+                            met zorg en zonder onnodige toevoegingen.</p>
+                    </div>
+                    <button data-cms-id="home-sec3-btn" onclick="window.location.href='4.html'"
+                        class="bg-primary text-on-primary px-lg py-sm rounded-lg font-headline-md text-headline-md hover:bg-primary-container transition-all premium-shadow btn-hover-effect">Bekijk
+                        assortiment</button>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
+                    
+                    <div class="flex flex-col group relative">
+                        <div class="aspect-square rounded-xl overflow-hidden mb-md artisanal-border bg-white">
+                            <img data-cms-id="home-sec3-card1-img" alt="Ambachtelijke kaas"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                                src="./images/img_042.jpg">
+                        </div>
+                        <div class="space-y-sm">
+                            <div class="flex justify-between items-center">
+                                <span class="text-secondary font-label-sm uppercase tracking-wider" data-cms-id="auto-2-span-51">Specialiteit</span>
+                                <span class="material-symbols-outlined text-outline">verified</span>
+                            </div>
+                            <h3 data-cms-id="home-sec3-card1-title" class="font-headline-md text-headline-md text-primary">Boerenkaas</h3>
+                            <p data-cms-id="home-sec3-card1-desc" class="font-body-md text-body-md text-on-surface-variant line-clamp-2">Van jonge kaas tot
+                                overjarige polderkaas, bereid volgens geheim familierecept.</p>
+                            <button onclick="window.location.href='4.html'" class="bg-primary text-on-primary px-md py-xs rounded-lg font-label-lg text-label-lg hover:bg-primary-container transition-all w-fit" data-cms-id="auto-2-button-15">Bekijk
+                                assortiment</button>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-col group relative">
+                        <div class="aspect-square rounded-xl overflow-hidden mb-md artisanal-border bg-white">
+                            <img data-cms-id="home-sec3-card2-img" alt="Verse zuivel"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                                src="./images/img_043.jpg">
+                        </div>
+                        <div class="space-y-sm">
+                            <div class="flex justify-between items-center">
+                                <span class="text-secondary font-label-sm uppercase tracking-wider" data-cms-id="auto-2-span-52">Dagvers</span>
+                                <span class="material-symbols-outlined text-outline">water_drop</span>
+                            </div>
+                            <h3 data-cms-id="home-sec3-card2-title" class="font-headline-md text-headline-md text-primary">Verse Zuivel</h3>
+                            <p data-cms-id="home-sec3-card2-desc" class="font-body-md text-body-md text-on-surface-variant line-clamp-2">Volle melk, romige
+                                yoghurt en ambachtelijke kwark van onze eigen koeien.</p>
+                            <button onclick="window.location.href='5.html'" class="bg-primary text-on-primary px-md py-xs rounded-lg font-label-lg text-label-lg hover:bg-primary-container transition-all w-fit" data-cms-id="auto-2-button-16">Bekijk
+                                assortiment</button>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-col group relative">
+                        <div class="aspect-square rounded-xl overflow-hidden mb-md artisanal-border bg-white">
+                            <img data-cms-id="home-sec3-card3-img" alt="Boerderij ijs"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                                src="./images/img_044.jpg">
+                        </div>
+                        <div class="space-y-sm">
+                            <div class="flex justify-between items-center">
+                                <span class="text-secondary font-label-sm uppercase tracking-wider" data-cms-id="auto-2-span-53">Seizoen</span>
+                                <span class="material-symbols-outlined text-outline">icecream</span>
+                            </div>
+                            <h3 data-cms-id="home-sec3-card3-title" class="font-headline-md text-headline-md text-primary">Boerenijs</h3>
+                            <p data-cms-id="home-sec3-card3-desc" class="font-body-md text-body-md text-on-surface-variant line-clamp-2">Ambachtelijk
+                                bereid ijs in diverse smaken, gemaakt van dagverse melk.</p>
+                            <button onclick="window.location.href='6.html'" class="bg-primary text-on-primary px-md py-xs rounded-lg font-label-lg text-label-lg hover:bg-primary-container transition-all w-fit" data-cms-id="auto-2-button-17">Bekijk
+                                assortiment</button>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-col group relative">
+                        <div class="aspect-square rounded-xl overflow-hidden mb-md artisanal-border bg-white">
+                            <img data-cms-id="home-sec3-card4-img" alt="Kwaliteitsvlees"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                                src="./images/img_045.jpg">
+                        </div>
+                        <div class="space-y-sm">
+                            <div class="flex justify-between items-center">
+                                <span class="text-secondary font-label-sm uppercase tracking-wider" data-cms-id="auto-2-span-54">Lokaal</span>
+                                <span class="material-symbols-outlined text-outline">restaurant</span>
+                            </div>
+                            <h3 data-cms-id="home-sec3-card4-title" class="font-headline-md text-headline-md text-primary">Eerlijk Vlees</h3>
+                            <p data-cms-id="home-sec3-card4-desc" class="font-body-md text-body-md text-on-surface-variant line-clamp-2">Eerlijk rundvlees
+                                van onze eigen kudde, vakkundig voor u geselecteerd.</p>
+                            <button onclick="window.location.href='7.html'" class="bg-primary text-on-primary px-md py-xs rounded-lg font-label-lg text-label-lg hover:bg-primary-container transition-all w-fit" data-cms-id="auto-2-button-18">Bekijk
+                                assortiment</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <div class="w-full overflow-hidden bg-background py-lg rounded-[2rem]">
+            <img alt="Windmolen landschap illustratie" class="w-full h-auto object-cover" src="./images/img_001.jpg" data-cms-id="auto-2-img-12">
+        </div>
+        <section class="py-xl bg-primary text-on-primary relative overflow-hidden">
+            <div 
+                class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 lg:grid-cols-2 gap-xl items-center relative z-10">
+                <div class="space-y-md">
+                    <h2 data-cms-id="home-sec4-title" class="font-headline-xl text-headline-xl">Onze Boerderijwinkel</h2>
+                    <p data-cms-id="home-sec4-p1" class="font-body-lg text-body-lg opacity-90 leading-relaxed">
+                        In onze winkel vindt u niet alleen onze eigen producten, maar ook een zorgvuldig geselecteerd
+                        assortiment aan streekproducten. Van honing uit de polder tot ambachtelijke jam en
+                        cadeaupakketten.
+                    </p>
+                    <p data-cms-id="home-sec4-p2" class="font-body-lg text-body-lg opacity-90 leading-relaxed">
+                        U bent van harte welkom om de sfeer te proeven en onze ambachtelijke producten zelf te
+                        ontdekken. We adviseren u graag over de lekkerste combinaties.
+                    </p>
+                    <div class="pt-md">
+                        <button data-cms-id="home-sec4-btn" onclick="window.location.href='9.html'"
+                            class="bg-secondary-container text-on-secondary-container px-lg py-md rounded-lg font-headline-md text-headline-md hover:bg-secondary-fixed transition-all shadow-md btn-hover-effect">Bezoek
+                            de winkel</button>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="aspect-video rounded-2xl overflow-hidden shadow-2xl artisanal-border bg-white">
+                        <img data-cms-id="home-sec4-img" alt="Winkel sfeer" class="w-full h-full object-cover brightness-90"
+                            src="./images/img_046.jpg">
+                    </div>
+                    <div 
+                        class="absolute -bottom-6 -right-6 bg-white p-lg rounded-xl shadow-lg border border-outline-variant/30 hidden md:flex items-center gap-md">
+                        <div class="bg-primary/10 p-sm rounded-full">
+                            <span class="material-symbols-outlined text-primary text-3xl">eco</span>
+                        </div>
+                        <div>
+                            <p data-cms-id="home-sec4-badge-title" class="text-on-surface font-bold text-lg">100% Natuurlijk</p>
+                            <p data-cms-id="home-sec4-badge-desc" class="text-on-surface-variant text-sm">Zonder kunstmatige toevoegingen</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="py-xl bg-surface-container-low relative overflow-hidden">
+            <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-xl items-start">
+                    
+                    <div class="bg-white p-margin-mobile md:p-xl rounded-2xl premium-shadow artisanal-border space-y-lg">
+                        <div class="flex items-center gap-md">
+                            <span class="material-symbols-outlined text-primary text-4xl flex-shrink-0">schedule</span>
+                            <h2 data-cms-id="home-sec5-hours-title" class="font-headline-md text-headline-md md:font-headline-lg md:text-headline-lg text-primary">Openingstijden Boerderijwinkel</h2>
+                        </div>
+                        <div class="space-y-sm">
+                            <div class="flex justify-between items-center py-sm border-b border-outline-variant/20">
+                                <span class="font-body-lg text-on-surface-variant" data-cms-id="auto-2-span-55">Dinsdag</span><span class="font-headline-md text-primary" data-cms-id="auto-2-span-56">09:00 - 17:00</span>
+                            </div>
+                            <div class="flex justify-between items-center py-sm border-b border-outline-variant/20">
+                                <span class="font-body-lg text-on-surface-variant" data-cms-id="auto-2-span-57">Woensdag</span><span class="font-headline-md text-primary" data-cms-id="auto-2-span-58">09:00 - 17:00</span>
+                            </div>
+                            <div class="flex justify-between items-center py-sm border-b border-outline-variant/20">
+                                <span class="font-body-lg text-on-surface-variant" data-cms-id="auto-2-span-59">Donderdag</span><span class="font-headline-md text-primary" data-cms-id="auto-2-span-60">09:00 - 17:00</span>
+                            </div>
+                            <div class="flex justify-between items-center py-sm border-b border-outline-variant/20">
+                                <span class="font-body-lg text-on-surface-variant" data-cms-id="auto-2-span-61">Vrijdag</span><span class="font-headline-md text-primary" data-cms-id="auto-2-span-62">09:00 - 17:00</span>
+                            </div>
+                            <div class="flex justify-between items-center py-sm border-b border-outline-variant/20">
+                                <span class="font-body-lg text-on-surface-variant" data-cms-id="auto-2-span-63">Zaterdag</span><span class="font-headline-md text-primary" data-cms-id="auto-2-span-64">09:00 - 17:00</span>
+                            </div>
+                            <div class="flex justify-between items-center py-sm"><span class="font-body-lg text-on-surface-variant" data-cms-id="auto-2-span-65">Zondag &amp; maandag</span><span class="font-headline-md text-error" data-cms-id="auto-2-span-66">Gesloten</span></div>
+                        </div>
+                        <p data-cms-id="home-sec5-hours-desc" class="text-on-surface-variant italic text-center pt-md">Kom gezellig langs voor een
+                            proeverij of advies.</p>
+                    </div>
+                    
+                    <div class="space-y-lg">
+                        <div class="flex items-center gap-md">
+                            <span class="material-symbols-outlined text-primary text-4xl flex-shrink-0">location_on</span>
+                            <h2 data-cms-id="home-sec5-contact-title" class="font-headline-md text-headline-md md:font-headline-lg md:text-headline-lg text-primary">Kom langs bij onze boerderij</h2>
+                        </div>
+                        <div class="space-y-md">
+                            <div class="p-margin-mobile md:p-lg bg-white rounded-xl artisanal-border premium-shadow">
+                                <p data-cms-id="home-sec5-contact-addr1" class="font-headline-md text-on-surface">Heuvelweg 15</p>
+                                <p data-cms-id="home-sec5-contact-addr2" class="font-body-lg text-on-surface-variant">3245 LN Sommelsdijk</p>
+                                <div class="mt-md pt-md border-t border-outline-variant/20 flex flex-wrap gap-md">
+                                    <a class="flex items-center gap-xs text-primary font-bold hover:opacity-80 transition-opacity" href="tel:0187482321" data-cms-id="auto-2-a-36">
+                                        <span class="material-symbols-outlined">phone</span> 0187 482 321
+                                    </a>
+                                    <a class="flex items-center gap-xs text-primary font-bold hover:opacity-80 transition-opacity" href="mailto:info@westplaat.nl" data-cms-id="auto-2-a-37">
+                                        <span class="material-symbols-outlined">mail</span> info@westplaat.nl
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="h-[280px] rounded-xl overflow-hidden premium-shadow relative"><iframe 
+                                    allowfullscreen="" class="" height="100%" loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade"
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2469.0223811778487!2d4.163814694029461!3d51.76919801903032!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c4455d42166405%3A0x47b080fb87f141e9!2sHeuvelweg%2015%2C%203245%20LN%20Sommelsdijk%2C%20Netherlands!5e0!3m2!1sen!2sin!4v1780684618646!5m2!1sen!2sin"
+                                    style="border: 0px;" width="100%"></iframe></div>
+                            <div class="flex flex-wrap gap-md mt-md">
+                                <button data-cms-id="home-sec5-contact-btn1"
+                                    onclick="window.open('https://maps.google.com/?q=Heuvelweg+15+Sommelsdijk', '_blank')"
+                                    class="flex-1 justify-center flex items-center gap-xs bg-primary text-on-primary px-md py-sm rounded-lg font-label-lg hover:bg-primary-container transition-all">
+                                    <span class="material-symbols-outlined">directions</span>
+                                    Route plannen
+                                </button>
+                                <button data-cms-id="home-sec5-contact-btn2" onclick="window.location.href='9.html'"
+                                    class="flex-1 justify-center flex items-center gap-xs border-2 border-primary text-primary px-md py-sm rounded-lg font-label-lg hover:bg-primary/5 transition-all">
+                                    <span class="material-symbols-outlined">mail</span>
+                                    Contact opnemen
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="w-full leading-none bg-surface-container-low" style="margin-top: -1px;"><svg 
+                class="w-full h-12 text-background fill-current" preserveAspectRatio="none" viewBox="0 0 1440 48">
+                <path d="M0 0c211.507 27.307 451.507 41 720 41s508.493-13.693 720-41v48H0V0z"></path>
+            </svg></div>
+        <section class="py-xl bg-background relative overflow-hidden border-t border-outline-variant/10">
+            <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop text-center relative z-10">
+                <div class="space-y-lg">
+                    <h2 data-cms-id="home-sec6-title" class="font-headline-xl text-headline-xl text-primary">Onze producten in de regio</h2>
+                    <p data-cms-id="home-sec6-desc" class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl mx-auto">
+                        Onze ambachtelijke producten zijn niet alleen verkrijgbaar in onze eigen boerderijwinkel, maar
+                        ook bij diverse kwaliteitswinkels en supermarkten in de regio Goeree-Overflakkee.
+                    </p>
+                    <div class="pt-md">
+                        <button data-cms-id="home-sec6-btn" onclick="window.location.href='8.html'"
+                            class="bg-primary text-on-primary px-lg py-md rounded-lg font-headline-md text-headline-md hover:bg-primary-container transition-all premium-shadow btn-hover-effect">
+                            Bekijk verkooppunten
+                        </button>
+                    </div>
+                    <div class="flex flex-wrap justify-center gap-lg pt-xl">
+                        <div 
+                            class="flex items-center gap-xs bg-surface-container-low px-md py-sm rounded-full artisanal-border">
+                            <span class="material-symbols-outlined text-primary">verified</span>
+                            <span data-cms-id="home-sec6-badge1" class="font-label-lg text-label-lg text-on-surface">100% Boerenkaas</span>
+                        </div>
+                        <div 
+                            class="flex items-center gap-xs bg-surface-container-low px-md py-sm rounded-full artisanal-border">
+                            <span class="material-symbols-outlined text-primary">eco</span>
+                            <span data-cms-id="home-sec6-badge2" class="font-label-lg text-label-lg text-on-surface">Weidemelk</span>
+                        </div>
+                        <div 
+                            class="flex items-center gap-xs bg-surface-container-low px-md py-sm rounded-full artisanal-border">
+                            <span class="material-symbols-outlined text-primary">location_on</span>
+                            <span data-cms-id="home-sec6-badge3" class="font-label-lg text-label-lg text-on-surface">Lokaal Product</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+    
+            <footer class="bg-black text-white relative py-4">
+        <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-md">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-lg">
+                
+                <div class="lg:col-span-4 space-y-md">
+                    <div class="flex items-center gap-sm">
+                        <img alt="Logo" class="h-12 w-12 object-contain" src="./images/img_002.jpg" data-cms-id="auto-2-img-13">
+                        <span class="font-headline-md text-headline-md font-extrabold text-white" data-cms-id="auto-2-span-67">De Westplaat</span>
+                    </div>
+                    <p class="font-body-md text-body-md max-w-sm text-white" data-cms-id="auto-2-p-3">Ambachtelijke producten van eigen land. Met passie gemaakt op onze familieboerderij in Sommelsdijk.</p>
+                    <div class="flex gap-md pt-sm">
+                        <a class="w-10 h-10 flex items-center justify-center bg-white text-primary-container rounded-full hover:bg-white/90 transition-all hover:scale-110" href="https://facebook.com" target="_blank" data-cms-id="auto-2-a-38">
+                            <span class="material-symbols-outlined">face_nod</span>
+                        </a>
+                        <a class="w-10 h-10 flex items-center justify-center bg-white text-primary-container rounded-full hover:bg-white/90 transition-all hover:scale-110" href="https://instagram.com" target="_blank" data-cms-id="auto-2-a-39">
+                            <span class="material-symbols-outlined">camera_alt</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="lg:col-span-4 space-y-md">
+                    <h4 class="font-headline-sm text-headline-sm text-on-primary" data-cms-id="auto-2-h4-1">Navigatie &amp; Service</h4>
+                    <div class="space-y-xs">
+                        <a class="block px-md py-sm rounded-lg hover:bg-white/10 transition-colors text-white" href="2.html" data-cms-id="auto-2-a-40">Home</a>
+                        <a class="block px-md py-sm rounded-lg hover:bg-white/10 transition-colors text-white" href="3.html" data-cms-id="auto-2-a-41">Over Ons</a>
+                        <a class="block px-md py-sm rounded-lg hover:bg-white/10 transition-colors text-white" href="4.html" data-cms-id="auto-2-a-42">Kaas</a>
+                        <a class="block px-md py-sm rounded-lg hover:bg-white/10 transition-colors text-white" href="5.html" data-cms-id="auto-2-a-43">Zuivel</a>
+                        <a class="block px-md py-sm rounded-lg hover:bg-white/10 transition-colors text-white" href="6.html" data-cms-id="auto-2-a-44">IJs</a>
+                        <a class="block px-md py-sm rounded-lg hover:bg-white/10 transition-colors text-white" href="7.html" data-cms-id="auto-2-a-45">Vlees</a>
+                        <a class="block px-md py-sm rounded-lg hover:bg-white/10 transition-colors text-white" href="8.html" data-cms-id="auto-2-a-46">Verkooppunten</a>
+                        <a class="block px-md py-sm rounded-lg hover:bg-white/10 transition-colors text-white" href="9.html" data-cms-id="auto-2-a-47">Contact &amp; Route</a>
+                    </div>
+                </div>
+                
+                <div class="lg:col-span-4 space-y-md">
+                    <h4 class="font-headline-sm text-headline-sm text-on-primary" data-cms-id="auto-2-h4-2">Contact &amp; Openingstijden</h4>
+                    <div class="space-y-sm text-body-md text-white">
+                        <p class="flex items-start gap-xs" data-cms-id="auto-2-p-4">
+                            <span class="material-symbols-outlined text-on-primary text-sm">location_on</span>Heuvelweg 15, Sommelsdijk
+                        </p>
+                        <p class="flex items-center gap-xs" data-cms-id="auto-2-p-5">
+                            <span class="material-symbols-outlined text-on-primary text-sm">phone</span>0187 482 321
+                        </p>
+                        <p class="flex items-center gap-xs" data-cms-id="auto-2-p-6">
+                            <span class="material-symbols-outlined text-on-primary text-sm">mail</span>info@westplaat.nl
+                        </p>
+                        <div class="mt-md pt-md border-t border-white/10">
+                            <p class="font-bold text-on-primary" data-cms-id="auto-2-p-7">Openingstijden:</p>
+                            <p class data-cms-id="auto-2-p-8">Di - Za: 09:00 - 17:00</p>
+                            <p class="text-error-container" data-cms-id="auto-2-p-9">Zo &amp; Ma: Gesloten</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/10 text-center mt-md pt-md">
+                <p class="text-white/60 text-sm font-medium" data-cms-id="auto-2-p-10">&copy; 2024 Kaasboerderij De Westplaat. Eerlijk en heerlijk van Goeree-Overflakkee.</p>
+            </div>
+        </div>
+    </footer>
+    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+    <script src="premium-motion.js"></script>
+    <script src="background-audio.js"></script>
+</body>
+
+</html>
