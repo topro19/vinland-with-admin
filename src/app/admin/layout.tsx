@@ -2,6 +2,8 @@ import { ReactNode } from 'react'
 import '../globals.css'
 import Link from 'next/link'
 
+export const dynamic = 'force-dynamic'
+
 export const metadata = {
   title: 'Secure Admin CMS',
   description: 'Production-Ready Visual CMS',

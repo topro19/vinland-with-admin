@@ -153,12 +153,30 @@
                 <a href="7.html" class="text-on-surface hover:text-primary font-label-lg transition-colors" data-cms-id="auto-5-a-49">Vlees</a>
                 <a href="8.html" class="text-on-surface hover:text-primary font-label-lg transition-colors" data-cms-id="auto-5-a-50">Verkooppunten</a>
                 <a href="9.html" class="bg-primary text-on-primary px-4 py-2 rounded-lg font-label-lg hover:bg-primary-container transition-colors shadow-sm btn-hover-effect" data-cms-id="auto-5-a-51">Contact</a>
+                <button type="button" class="sound-toggle-btn flex items-center justify-center w-10 h-10 rounded-full border border-outline-variant/40 bg-surface-container-low hover:bg-surface-container hover:border-primary/50 text-on-surface hover:text-primary transition-all duration-200 shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/40" aria-label="Geluid inschakelen" title="Geluid inschakelen" aria-pressed="false">
+                    <span class="material-symbols-outlined sound-icon text-[20px]">volume_off</span>
+                </button>
             </div>
-            <button id="mobile-menu-btn" class="lg:hidden text-on-surface p-2 rounded-md hover:bg-surface-container transition-colors" data-cms-id="auto-5-button-42">
+            <div class="flex items-center gap-2 lg:hidden">
+                <button type="button" class="sound-toggle-btn flex items-center justify-center w-10 h-10 rounded-full border border-outline-variant/40 bg-surface-container-low hover:bg-surface-container text-on-surface hover:text-primary transition-all duration-200 shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/40" aria-label="Geluid inschakelen" title="Geluid inschakelen" aria-pressed="false">
+                    <span class="material-symbols-outlined sound-icon text-[20px]">volume_off</span>
+                </button>
+                <button id="mobile-menu-btn" class="lg:hidden text-on-surface p-2 rounded-md hover:bg-surface-container transition-colors" data-cms-id="auto-5-button-42">
                 <span class="material-symbols-outlined">menu</span>
             </button>
+            </div>
         </div>
         <div id="mobile-menu" class="hidden lg:hidden bg-surface border-t border-outline-variant/20 flex flex-col absolute w-full shadow-lg">
+            <div class="px-margin-mobile py-3 flex items-center justify-between border-b border-outline-variant/10 text-on-surface">
+                <span class="font-label-lg flex items-center gap-2">
+                    <span class="material-symbols-outlined text-primary text-xl">music_note</span>
+                    Achtergrondgeluid
+                </span>
+                <button type="button" class="sound-toggle-btn flex items-center gap-2 px-3 py-1.5 rounded-full border border-outline-variant/40 bg-surface-container-low text-xs font-semibold text-on-surface transition-all" aria-label="Geluid inschakelen" aria-pressed="false">
+                    <span class="material-symbols-outlined sound-icon text-sm">volume_off</span>
+                    <span class="sound-label">Uit</span>
+                </button>
+            </div>
             <a href="2.html" class="px-margin-mobile py-4 text-on-surface hover:bg-surface-container font-label-lg border-b border-outline-variant/10" data-cms-id="auto-5-a-52">Home</a>
             <a href="3.html" class="px-margin-mobile py-4 text-on-surface hover:bg-surface-container font-label-lg border-b border-outline-variant/10" data-cms-id="auto-5-a-53">Over Ons</a>
             <a href="4.html" class="px-margin-mobile py-4 text-on-surface hover:bg-surface-container font-label-lg border-b border-outline-variant/10" data-cms-id="auto-5-a-54">Kaas</a>
@@ -298,80 +316,288 @@
     
     <section class="py-xl px-margin-mobile md:px-margin-desktop bg-surface-container-low" id="assortiment">
         <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-lg">
-                <h2 class="font-headline-xl text-headline-xl text-heading-green" data-cms-id="auto-5-h2-4">Ons Assortiment</h2>
-                <p class="font-body-lg text-body-lg text-on-surface-variant mt-2" data-cms-id="auto-5-p-29">Ontdek alle verse zuivelproducten uit
-                    onze eigen boerderijwinkel.</p>
+            <div class="text-center mb-10">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold mb-3">
+                    <span class="material-symbols-outlined text-sm">verified</span>
+                    Compleet assortiment van 22 dagverse zuivelproducten
+                </div>
+                <h2 class="font-headline-xl text-headline-xl text-heading-green" data-cms-id="auto-5-h2-4">Ons Zuivelassortiment</h2>
+                <p class="font-body-lg text-body-lg text-on-surface-variant mt-2 max-w-2xl mx-auto" data-cms-id="auto-5-p-29">
+                    Ontdek alle 22 verse zuivelproducten uit eigen boerderijmakerij. Bereid met dagverse melk van onze eigen koeien.
+                </p>
+                <div class="mt-4 p-4 max-w-3xl mx-auto rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-950 text-xs text-left flex items-start gap-3">
+                    <span class="material-symbols-outlined text-amber-700 text-lg flex-shrink-0 mt-0.5">info</span>
+                    <div>
+                        <span class="font-bold">Fotografie &amp; assortimentstatus:</span>
+                        De fotograaf heeft circa 20 van onze 22 zuivelproducten in beeld gebracht. Voor 2 producten (Karnedrank framboos en Abrikozen kwark) ontbreekt momenteel een afzonderlijke studiofoto. Deze producten zijn hieronder gemarkeerd en volledig verkrijgbaar in onze boerderijwinkel.
+                    </div>
+                </div>
             </div>
+
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                
-                <div 
-                    class="bg-surface p-8 rounded-3xl shadow-sm shadow-heading-green/5 flex flex-col h-full border border-surface-container-highest">
-                    <div class="flex items-center gap-3 mb-6">
-                        <div class="w-12 h-12 rounded-full bg-secondary-container/20 flex items-center justify-center">
-                            <span class="material-symbols-outlined text-secondary">water_full</span>
+                <!-- 1. Karnemelk & Boter (3 producten) -->
+                <div class="bg-surface p-7 rounded-3xl shadow-sm shadow-heading-green/5 flex flex-col h-full border border-surface-container-highest">
+                    <div class="flex items-center justify-between mb-5">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 rounded-full bg-secondary-container/20 flex items-center justify-center">
+                                <span class="material-symbols-outlined text-secondary">water_full</span>
+                            </div>
+                            <div>
+                                <h3 class="font-headline-lg text-headline-lg text-primary">Karnemelk &amp; Boter</h3>
+                                <span class="text-xs text-on-surface-variant font-medium">3 producten</span>
+                            </div>
                         </div>
-                        <h3 class="font-headline-lg text-headline-lg text-primary" data-cms-id="auto-5-h3-13">Karnemelk</h3>
                     </div>
                     <ul class="flex flex-col gap-3 font-body-md text-body-md text-on-surface-variant flex-grow">
-                        <li class="flex items-center gap-2" data-cms-id="auto-5-li-78"><span 
-                                class="material-symbols-outlined text-secondary-container text-sm">check_circle</span>Ambachtelijke
-                            Karnemelk</li>
-                        <li class="flex items-center gap-2" data-cms-id="auto-5-li-79"><span 
-                                class="material-symbols-outlined text-secondary-container text-sm">check_circle</span>Vruchtenkarnemelk
+                        <li class="flex items-start gap-2.5 pb-2.5 border-b border-surface-container/40">
+                            <span class="material-symbols-outlined text-secondary-container text-sm mt-1">check_circle</span>
+                            <div class="flex-grow">
+                                <span class="font-semibold text-on-surface">Ambachtelijke Karnemelk</span>
+                                <p class="text-xs text-on-surface-variant mt-0.5">Traditioneel 36 uur verzuurd en gekarnd (1L en 0,5L fles)</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-2.5 pb-2.5 border-b border-surface-container/40">
+                            <span class="material-symbols-outlined text-secondary-container text-sm mt-1">check_circle</span>
+                            <div class="flex-grow">
+                                <div class="flex items-center justify-between flex-wrap gap-1">
+                                    <span class="font-semibold text-on-surface">Karnedrank Framboos</span>
+                                    <span class="text-[10px] uppercase font-bold bg-amber-500/15 text-amber-800 px-2 py-0.5 rounded">Foto ontbreekt</span>
+                                </div>
+                                <p class="text-xs text-on-surface-variant mt-0.5">Frisse zachte karnemelkdrank met natuurlijke frambozensmaak</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <span class="material-symbols-outlined text-secondary-container text-sm mt-1">check_circle</span>
+                            <div class="flex-grow">
+                                <span class="font-semibold text-on-surface">Boerenroomboter Ongezouten</span>
+                                <p class="text-xs text-on-surface-variant mt-0.5">Puur gekarnde roomboter van dagverse room in authentieke rol</p>
+                            </div>
                         </li>
                     </ul>
                 </div>
-                
-                <div 
-                    class="bg-surface p-8 rounded-3xl shadow-sm shadow-heading-green/5 flex flex-col h-full border border-surface-container-highest">
-                    <div class="flex items-center gap-3 mb-6">
-                        <div class="w-12 h-12 rounded-full bg-secondary-container/20 flex items-center justify-center">
-                            <span class="material-symbols-outlined text-secondary">icecream</span>
+
+                <!-- 2. Melk, Room & Gefermenteerd (6 producten) -->
+                <div class="bg-surface p-7 rounded-3xl shadow-sm shadow-heading-green/5 flex flex-col h-full border border-surface-container-highest">
+                    <div class="flex items-center justify-between mb-5">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 rounded-full bg-secondary-container/20 flex items-center justify-center">
+                                <span class="material-symbols-outlined text-secondary">water_drop</span>
+                            </div>
+                            <div>
+                                <h3 class="font-headline-lg text-headline-lg text-primary">Melk &amp; Room</h3>
+                                <span class="text-xs text-on-surface-variant font-medium">6 producten</span>
+                            </div>
                         </div>
-                        <h3 class="font-headline-lg text-headline-lg text-primary" data-cms-id="auto-5-h3-14">Yoghurt</h3>
                     </div>
-                    <ul class="flex flex-col gap-3 font-body-md text-body-md text-on-surface-variant flex-grow">
-                        <li class="flex items-center gap-2" data-cms-id="auto-5-li-80"><span 
-                                class="material-symbols-outlined text-secondary-container text-sm">check_circle</span>Volle
-                            yoghurt</li>
-                        <li class="flex items-center gap-2" data-cms-id="auto-5-li-81"><span 
-                                class="material-symbols-outlined text-secondary-container text-sm">check_circle</span>Halfvolle
-                            yoghurt</li>
-                        <li class="flex items-center gap-2" data-cms-id="auto-5-li-82"><span 
-                                class="material-symbols-outlined text-secondary-container text-sm">check_circle</span>Magere
-                            yoghurt</li>
-                        <li class="flex items-center gap-2" data-cms-id="auto-5-li-83"><span 
-                                class="material-symbols-outlined text-secondary-container text-sm">check_circle</span>Standyoghurt
+                    <ul class="flex flex-col gap-2.5 font-body-md text-body-md text-on-surface-variant flex-grow">
+                        <li class="flex items-start gap-2.5 pb-2 border-b border-surface-container/40">
+                            <span class="material-symbols-outlined text-secondary-container text-sm mt-1">check_circle</span>
+                            <div class="flex-grow">
+                                <span class="font-semibold text-on-surface">Volle Melk</span>
+                                <p class="text-xs text-on-surface-variant mt-0.5">Dagvers gepasteuriseerd, puur en volromig van smaak</p>
+                            </div>
                         </li>
-                        <li class="flex items-center gap-2" data-cms-id="auto-5-li-84"><span 
-                                class="material-symbols-outlined text-secondary-container text-sm">check_circle</span>Bulgaarse
-                            yoghurt</li>
-                        <li class="flex items-center gap-2" data-cms-id="auto-5-li-85"><span 
-                                class="material-symbols-outlined text-secondary-container text-sm">check_circle</span>Vruchtenyoghurt
-                            (div. smaken)</li>
+                        <li class="flex items-start gap-2.5 pb-2 border-b border-surface-container/40">
+                            <span class="material-symbols-outlined text-secondary-container text-sm mt-1">check_circle</span>
+                            <div class="flex-grow">
+                                <span class="font-semibold text-on-surface">Halfvolle Melk</span>
+                                <p class="text-xs text-on-surface-variant mt-0.5">Gepasteuriseerd, lichter alternatief voor dagelijks gebruik</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-2.5 pb-2 border-b border-surface-container/40">
+                            <span class="material-symbols-outlined text-secondary-container text-sm mt-1">check_circle</span>
+                            <div class="flex-grow">
+                                <span class="font-semibold text-on-surface">Rauwe Melk (Melktap)</span>
+                                <p class="text-xs text-on-surface-variant mt-0.5">Onbewerkt rechtstreeks uit de gekoelde tap in de winkel</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-2.5 pb-2 border-b border-surface-container/40">
+                            <span class="material-symbols-outlined text-secondary-container text-sm mt-1">check_circle</span>
+                            <div class="flex-grow">
+                                <span class="font-semibold text-on-surface">Ongeklopte Slagroom</span>
+                                <p class="text-xs text-on-surface-variant mt-0.5">Ongezoet en rijk, perfect op te kloppen voor gebak</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-2.5 pb-2 border-b border-surface-container/40">
+                            <span class="material-symbols-outlined text-secondary-container text-sm mt-1">check_circle</span>
+                            <div class="flex-grow">
+                                <span class="font-semibold text-on-surface">Crème Fraîche</span>
+                                <p class="text-xs text-on-surface-variant mt-0.5">Romige, lichtzure room voor verfijnde warme en koude gerechten</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <span class="material-symbols-outlined text-secondary-container text-sm mt-1">check_circle</span>
+                            <div class="flex-grow">
+                                <span class="font-semibold text-on-surface">Ambachtelijke Kefir</span>
+                                <p class="text-xs text-on-surface-variant mt-0.5">Fris-tintelende gefermenteerde melkdrank met levende culturen</p>
+                            </div>
+                        </li>
                     </ul>
                 </div>
-                
-                <div 
-                    class="bg-surface p-8 rounded-3xl shadow-sm shadow-heading-green/5 flex flex-col h-full border border-surface-container-highest">
-                    <div class="flex items-center gap-3 mb-6">
-                        <div class="w-12 h-12 rounded-full bg-secondary-container/20 flex items-center justify-center">
-                            <span class="material-symbols-outlined text-secondary">water_drop</span>
+
+                <!-- 3. Boerderijyoghurt (8 producten) -->
+                <div class="bg-surface p-7 rounded-3xl shadow-sm shadow-heading-green/5 flex flex-col h-full border border-surface-container-highest">
+                    <div class="flex items-center justify-between mb-5">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 rounded-full bg-secondary-container/20 flex items-center justify-center">
+                                <span class="material-symbols-outlined text-secondary">icecream</span>
+                            </div>
+                            <div>
+                                <h3 class="font-headline-lg text-headline-lg text-primary">Boerderijyoghurt</h3>
+                                <span class="text-xs text-on-surface-variant font-medium">8 producten</span>
+                            </div>
                         </div>
-                        <h3 class="font-headline-lg text-headline-lg text-primary" data-cms-id="auto-5-h3-15">Melk</h3>
+                    </div>
+                    <ul class="flex flex-col gap-2 font-body-md text-body-md text-on-surface-variant flex-grow">
+                        <li class="flex items-start gap-2 pb-1.5 border-b border-surface-container/40">
+                            <span class="material-symbols-outlined text-secondary-container text-sm mt-1">check_circle</span>
+                            <div class="flex-grow">
+                                <span class="font-semibold text-on-surface">Volle Yoghurt</span>
+                                <span class="text-xs text-on-surface-variant block">Vol en romig van verse weidemelk</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-2 pb-1.5 border-b border-surface-container/40">
+                            <span class="material-symbols-outlined text-secondary-container text-sm mt-1">check_circle</span>
+                            <div class="flex-grow">
+                                <span class="font-semibold text-on-surface">Halfvolle Yoghurt</span>
+                                <span class="text-xs text-on-surface-variant block">Evenwichtig fris met lichte structuur</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-2 pb-1.5 border-b border-surface-container/40">
+                            <span class="material-symbols-outlined text-secondary-container text-sm mt-1">check_circle</span>
+                            <div class="flex-grow">
+                                <span class="font-semibold text-on-surface">Magere Yoghurt</span>
+                                <span class="text-xs text-on-surface-variant block">Heerlijk fris en vetarm</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-2 pb-1.5 border-b border-surface-container/40">
+                            <span class="material-symbols-outlined text-secondary-container text-sm mt-1">check_circle</span>
+                            <div class="flex-grow">
+                                <span class="font-semibold text-on-surface">Standyoghurt</span>
+                                <span class="text-xs text-on-surface-variant block">In de pot gerijpt met stevige lepelbare structuur</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-2 pb-1.5 border-b border-surface-container/40">
+                            <span class="material-symbols-outlined text-secondary-container text-sm mt-1">check_circle</span>
+                            <div class="flex-grow">
+                                <span class="font-semibold text-on-surface">Bulgaarse Yoghurt</span>
+                                <span class="text-xs text-on-surface-variant block">Extra dikke, milde yoghurt naar familierecept</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-2 pb-1.5 border-b border-surface-container/40">
+                            <span class="material-symbols-outlined text-secondary-container text-sm mt-1">check_circle</span>
+                            <div class="flex-grow">
+                                <span class="font-semibold text-on-surface">Aardbeienyoghurt</span>
+                                <span class="text-xs text-on-surface-variant block">Romige yoghurt met echte Hollandse aardbeien</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-2 pb-1.5 border-b border-surface-container/40">
+                            <span class="material-symbols-outlined text-secondary-container text-sm mt-1">check_circle</span>
+                            <div class="flex-grow">
+                                <span class="font-semibold text-on-surface">Abrikozenyoghurt</span>
+                                <span class="text-xs text-on-surface-variant block">Zachte vruchtenyoghurt met zoete abrikozenstukjes</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="material-symbols-outlined text-secondary-container text-sm mt-1">check_circle</span>
+                            <div class="flex-grow">
+                                <span class="font-semibold text-on-surface">Vanille Yoghurt</span>
+                                <span class="text-xs text-on-surface-variant block">Met authentiek natuurlijk Bourbon-vanille extract</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 4. Stevige Kwark (3 producten) -->
+                <div class="bg-surface p-7 rounded-3xl shadow-sm shadow-heading-green/5 flex flex-col h-full border border-surface-container-highest">
+                    <div class="flex items-center justify-between mb-5">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 rounded-full bg-secondary-container/20 flex items-center justify-center">
+                                <span class="material-symbols-outlined text-secondary">bakery_dining</span>
+                            </div>
+                            <div>
+                                <h3 class="font-headline-lg text-headline-lg text-primary">Stevige Kwark</h3>
+                                <span class="text-xs text-on-surface-variant font-medium">3 producten</span>
+                            </div>
+                        </div>
                     </div>
                     <ul class="flex flex-col gap-3 font-body-md text-body-md text-on-surface-variant flex-grow">
-                        <li class="flex items-center gap-2" data-cms-id="auto-5-li-86"><span 
-                                class="material-symbols-outlined text-secondary-container text-sm">check_circle</span>Volle
-                            melk</li>
-                        <li class="flex items-center gap-2" data-cms-id="auto-5-li-87"><span 
-                                class="material-symbols-outlined text-secondary-container text-sm">check_circle</span>Halfvolle
-                            melk</li>
-                        <li class="flex items-center gap-2" data-cms-id="auto-5-li-88"><span 
-                                class="material-symbols-outlined text-secondary-container text-sm">check_circle</span>Rauwe
-                            melk (tap)</li>
+                        <li class="flex items-start gap-2.5 pb-2.5 border-b border-surface-container/40">
+                            <span class="material-symbols-outlined text-secondary-container text-sm mt-1">check_circle</span>
+                            <div class="flex-grow">
+                                <span class="font-semibold text-on-surface">Volle Kwark Naturel</span>
+                                <p class="text-xs text-on-surface-variant mt-0.5">Stevige, ambachtelijke kwark met zachte smaak en hoog eiwitgehalte</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-2.5 pb-2.5 border-b border-surface-container/40">
+                            <span class="material-symbols-outlined text-secondary-container text-sm mt-1">check_circle</span>
+                            <div class="flex-grow">
+                                <span class="font-semibold text-on-surface">Aardbeien Kwark</span>
+                                <p class="text-xs text-on-surface-variant mt-0.5">Eiwitrijke kwark verrijkt met malse stukjes verse aardbei</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <span class="material-symbols-outlined text-secondary-container text-sm mt-1">check_circle</span>
+                            <div class="flex-grow">
+                                <div class="flex items-center justify-between flex-wrap gap-1">
+                                    <span class="font-semibold text-on-surface">Abrikozen Kwark</span>
+                                    <span class="text-[10px] uppercase font-bold bg-amber-500/15 text-amber-800 px-2 py-0.5 rounded">Foto ontbreekt</span>
+                                </div>
+                                <p class="text-xs text-on-surface-variant mt-0.5">Romige kwark met zongerijpte abrikozenstukjes</p>
+                            </div>
+                        </li>
                     </ul>
+                </div>
+
+                <!-- 5. Traditionele Vla (2 producten) -->
+                <div class="bg-surface p-7 rounded-3xl shadow-sm shadow-heading-green/5 flex flex-col h-full border border-surface-container-highest">
+                    <div class="flex items-center justify-between mb-5">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 rounded-full bg-secondary-container/20 flex items-center justify-center">
+                                <span class="material-symbols-outlined text-secondary">soup_kitchen</span>
+                            </div>
+                            <div>
+                                <h3 class="font-headline-lg text-headline-lg text-primary">Traditionele Vla</h3>
+                                <span class="text-xs text-on-surface-variant font-medium">2 producten</span>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="flex flex-col gap-3 font-body-md text-body-md text-on-surface-variant flex-grow">
+                        <li class="flex items-start gap-2.5 pb-2.5 border-b border-surface-container/40">
+                            <span class="material-symbols-outlined text-secondary-container text-sm mt-1">check_circle</span>
+                            <div class="flex-grow">
+                                <span class="font-semibold text-on-surface">Vanille Vla</span>
+                                <p class="text-xs text-on-surface-variant mt-0.5">Ouderwets lekkere, dikke vla bereid volgens ambachtelijk familierecept</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <span class="material-symbols-outlined text-secondary-container text-sm mt-1">check_circle</span>
+                            <div class="flex-grow">
+                                <span class="font-semibold text-on-surface">Chocolade Vla</span>
+                                <p class="text-xs text-on-surface-variant mt-0.5">Rijke vla met echte volle cacao en dagverse boerderijmelk</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Overzicht & Samenvatting Kaart -->
+                <div class="bg-primary/5 p-7 rounded-3xl border border-primary/20 flex flex-col justify-between h-full">
+                    <div>
+                        <div class="flex items-center gap-2 text-primary font-bold mb-2">
+                            <span class="material-symbols-outlined">storefront</span>
+                            Direct van de Bron
+                        </div>
+                        <h4 class="font-headline-md text-primary mb-3">Vers uit eigen Makerij</h4>
+                        <p class="text-xs text-on-surface-variant leading-relaxed">
+                            Al onze 22 zuivelproducten worden wekelijks vers bereid. We gebruiken uitsluitend de melk van onze eigen koeien, zonder kunstmatige geur- of smaakstoffen.
+                        </p>
+                    </div>
+                    <div class="pt-4 mt-4 border-t border-primary/15 flex items-center justify-between">
+                        <span class="text-xs font-semibold text-primary">22 variëteiten verkrijgbaar</span>
+                        <a href="9.html" class="inline-flex items-center gap-1 text-xs font-bold text-primary hover:underline">
+                            Winkelinfo <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

@@ -147,12 +147,30 @@
                 <a href="7.html" class="text-on-surface hover:text-primary font-label-lg transition-colors" data-cms-id="auto-4-a-58">Vlees</a>
                 <a href="8.html" class="text-on-surface hover:text-primary font-label-lg transition-colors" data-cms-id="auto-4-a-59">Verkooppunten</a>
                 <a href="9.html" class="bg-primary text-on-primary px-4 py-2 rounded-lg font-label-lg hover:bg-primary-container transition-colors shadow-sm btn-hover-effect" data-cms-id="auto-4-a-60">Contact</a>
+                <button type="button" class="sound-toggle-btn flex items-center justify-center w-10 h-10 rounded-full border border-outline-variant/40 bg-surface-container-low hover:bg-surface-container hover:border-primary/50 text-on-surface hover:text-primary transition-all duration-200 shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/40" aria-label="Geluid inschakelen" title="Geluid inschakelen" aria-pressed="false">
+                    <span class="material-symbols-outlined sound-icon text-[20px]">volume_off</span>
+                </button>
             </div>
-            <button id="mobile-menu-btn" class="lg:hidden text-on-surface p-2 rounded-md hover:bg-surface-container transition-colors" data-cms-id="auto-4-button-51">
+            <div class="flex items-center gap-2 lg:hidden">
+                <button type="button" class="sound-toggle-btn flex items-center justify-center w-10 h-10 rounded-full border border-outline-variant/40 bg-surface-container-low hover:bg-surface-container text-on-surface hover:text-primary transition-all duration-200 shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/40" aria-label="Geluid inschakelen" title="Geluid inschakelen" aria-pressed="false">
+                    <span class="material-symbols-outlined sound-icon text-[20px]">volume_off</span>
+                </button>
+                <button id="mobile-menu-btn" class="lg:hidden text-on-surface p-2 rounded-md hover:bg-surface-container transition-colors" data-cms-id="auto-4-button-51">
                 <span class="material-symbols-outlined">menu</span>
             </button>
+            </div>
         </div>
         <div id="mobile-menu" class="hidden lg:hidden bg-surface border-t border-outline-variant/20 flex flex-col absolute w-full shadow-lg">
+            <div class="px-margin-mobile py-3 flex items-center justify-between border-b border-outline-variant/10 text-on-surface">
+                <span class="font-label-lg flex items-center gap-2">
+                    <span class="material-symbols-outlined text-primary text-xl">music_note</span>
+                    Achtergrondgeluid
+                </span>
+                <button type="button" class="sound-toggle-btn flex items-center gap-2 px-3 py-1.5 rounded-full border border-outline-variant/40 bg-surface-container-low text-xs font-semibold text-on-surface transition-all" aria-label="Geluid inschakelen" aria-pressed="false">
+                    <span class="material-symbols-outlined sound-icon text-sm">volume_off</span>
+                    <span class="sound-label">Uit</span>
+                </button>
+            </div>
             <a href="2.html" class="px-margin-mobile py-4 text-on-surface hover:bg-surface-container font-label-lg border-b border-outline-variant/10" data-cms-id="auto-4-a-61">Home</a>
             <a href="3.html" class="px-margin-mobile py-4 text-on-surface hover:bg-surface-container font-label-lg border-b border-outline-variant/10" data-cms-id="auto-4-a-62">Over Ons</a>
             <a href="4.html" class="px-margin-mobile py-4 text-on-surface hover:bg-surface-container font-label-lg border-b border-outline-variant/10" data-cms-id="auto-4-a-63">Kaas</a>
@@ -397,55 +415,280 @@
     
     <section id="assortiment" class="py-xl px-margin-mobile md:px-margin-desktop">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-headline-xl font-headline-xl text-heading-green text-center mb-lg" data-cms-id="auto-4-h2-6">Ons Kaasassortiment</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
-                
-                <div class="bg-surface-cream rounded-xl p-lg shadow-ambient border border-outline-variant/10">
-                    <h3 class="text-headline-md font-headline-md text-heading-green mb-md pb-xs border-b border-outline-variant/20" data-cms-id="auto-4-h3-11">
-                        Natuurkazen</h3>
-                    <ul class="space-y-sm text-body-md font-body-md text-on-surface-variant">
-                        <li class="flex items-center gap-2 before:content-[''] before:w-2 before:h-2 before:bg-primary before:rounded-full" data-cms-id="auto-4-li-100">
-                            Jong</li>
-                        <li class="flex items-center gap-2 before:content-[''] before:w-2 before:h-2 before:bg-primary before:rounded-full" data-cms-id="auto-4-li-101">
-                            Jong-belegen</li>
-                        <li class="flex items-center gap-2 before:content-[''] before:w-2 before:h-2 before:bg-primary before:rounded-full" data-cms-id="auto-4-li-102">
-                            Belegen</li>
-                        <li class="flex items-center gap-2 before:content-[''] before:w-2 before:h-2 before:bg-primary before:rounded-full" data-cms-id="auto-4-li-103">
-                            Extra Belegen</li>
-                        <li class="flex items-center gap-2 before:content-[''] before:w-2 before:h-2 before:bg-primary before:rounded-full" data-cms-id="auto-4-li-104">
-                            Oud</li>
-                        <li class="flex items-center gap-2 before:content-[''] before:w-2 before:h-2 before:bg-primary before:rounded-full" data-cms-id="auto-4-li-105">
-                            Overjarig</li>
-                    </ul>
+            <div class="text-center mb-xl">
+                <span class="inline-block px-sm py-xs bg-secondary-container text-on-secondary-container font-label-lg rounded-full mb-xs uppercase tracking-wider">
+                    Grote Boerenkazen (22 variëteiten)
+                </span>
+                <h2 class="text-headline-xl font-headline-xl text-heading-green mb-sm" data-cms-id="auto-4-h2-6">Ons Assortiment Grote Kazen</h2>
+                <p class="text-body-lg font-body-lg text-on-surface-variant max-w-2xl mx-auto">
+                    Op onze boerderij maken we 22 verschillende variëteiten grote boerenkazen van rauwe melk, van jong en romig tot intens overjarig en rijk gekruid.
+                </p>
+            </div>
+
+            <!-- 22 Large Cheeses Assortment Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter mb-xl">
+                <!-- 1. Natuurkazen (7) -->
+                <div class="bg-surface-cream rounded-xl p-lg shadow-ambient border border-outline-variant/10 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-md pb-xs border-b border-outline-variant/20">
+                            <h3 class="text-headline-md font-headline-md text-heading-green" data-cms-id="auto-4-h3-11">Natuurkazen</h3>
+                            <span class="text-label-sm font-semibold px-2 py-0.5 bg-primary/10 text-primary rounded-full">7 variëteiten</span>
+                        </div>
+                        <ul class="space-y-sm text-body-md font-body-md text-on-surface-variant">
+                            <li class="flex items-start gap-2 before:content-[''] before:w-2 before:h-2 before:bg-primary before:rounded-full before:mt-2 shrink-0">
+                                <div><strong class="text-heading-green">Jong</strong> <span class="text-sm block text-on-surface-variant/80">4 weken gerijpt — Mild, zacht en romig van smaak</span></div>
+                            </li>
+                            <li class="flex items-start gap-2 before:content-[''] before:w-2 before:h-2 before:bg-primary before:rounded-full before:mt-2 shrink-0">
+                                <div><strong class="text-heading-green">Jong-belegen</strong> <span class="text-sm block text-on-surface-variant/80">8-10 weken gerijpt — Rijk en soepel van structuur</span></div>
+                            </li>
+                            <li class="flex items-start gap-2 before:content-[''] before:w-2 before:h-2 before:bg-primary before:rounded-full before:mt-2 shrink-0">
+                                <div><strong class="text-heading-green">Belegen</strong> <span class="text-sm block text-on-surface-variant/80">4 maanden gerijpt — Vol van smaak met een lichte pit</span></div>
+                            </li>
+                            <li class="flex items-start gap-2 before:content-[''] before:w-2 before:h-2 before:bg-primary before:rounded-full before:mt-2 shrink-0">
+                                <div><strong class="text-heading-green">Extra Belegen</strong> <span class="text-sm block text-on-surface-variant/80">6-7 maanden gerijpt — Pittig en vol karakter</span></div>
+                            </li>
+                            <li class="flex items-start gap-2 before:content-[''] before:w-2 before:h-2 before:bg-primary before:rounded-full before:mt-2 shrink-0">
+                                <div><strong class="text-heading-green">Oud</strong> <span class="text-sm block text-on-surface-variant/80">10-12 maanden gerijpt — Pikant met rijpingskristallen</span></div>
+                            </li>
+                            <li class="flex items-start gap-2 before:content-[''] before:w-2 before:h-2 before:bg-primary before:rounded-full before:mt-2 shrink-0">
+                                <div><strong class="text-heading-green">Overjarig</strong> <span class="text-sm block text-on-surface-variant/80">1+ jaar gerijpt — Zeer intens, brokkelig en complex</span></div>
+                            </li>
+                            <li class="flex items-start gap-2 before:content-[''] before:w-2 before:h-2 before:bg-primary before:rounded-full before:mt-2 shrink-0">
+                                <div><strong class="text-heading-green">Gatenkaas</strong> <span class="text-sm block text-on-surface-variant/80">Boerengatenkaas met karakteristieke ronde ogen en nootachtige smaak</span></div>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-                
-                <div class="bg-surface-cream rounded-xl p-lg shadow-ambient border border-outline-variant/10">
-                    <h3 class="text-headline-md font-headline-md text-heading-green mb-md pb-xs border-b border-outline-variant/20" data-cms-id="auto-4-h3-12">
-                        Kruidenkazen</h3>
-                    <ul class="space-y-sm text-body-md font-body-md text-on-surface-variant">
-                        <li class="flex items-center gap-2 before:content-[''] before:w-2 before:h-2 before:bg-accent-brown before:rounded-full" data-cms-id="auto-4-li-106">
-                            Komijn</li>
-                        <li class="flex items-center gap-2 before:content-[''] before:w-2 before:h-2 before:bg-accent-brown before:rounded-full" data-cms-id="auto-4-li-107">
-                            Fenegriek</li>
-                        <li class="flex items-center gap-2 before:content-[''] before:w-2 before:h-2 before:bg-accent-brown before:rounded-full" data-cms-id="auto-4-li-108">
-                            Tomaat-knoflook</li>
-                        <li class="flex items-center gap-2 before:content-[''] before:w-2 before:h-2 before:bg-accent-brown before:rounded-full" data-cms-id="auto-4-li-109">
-                            Brandnetel</li>
-                        <li class="flex items-center gap-2 before:content-[''] before:w-2 before:h-2 before:bg-accent-brown before:rounded-full" data-cms-id="auto-4-li-110">
-                            Piri-piri</li>
-                    </ul>
+
+                <!-- 2. Grote Kruidenkazen (10) -->
+                <div class="bg-surface-cream rounded-xl p-lg shadow-ambient border border-outline-variant/10 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-md pb-xs border-b border-outline-variant/20">
+                            <h3 class="text-headline-md font-headline-md text-heading-green" data-cms-id="auto-4-h3-12">Grote Kruidenkazen</h3>
+                            <span class="text-label-sm font-semibold px-2 py-0.5 bg-accent-brown/10 text-accent-brown rounded-full">10 variëteiten</span>
+                        </div>
+                        <ul class="space-y-sm text-body-md font-body-md text-on-surface-variant">
+                            <li class="flex items-center gap-2 before:content-[''] before:w-2 before:h-2 before:bg-accent-brown before:rounded-full"><strong class="text-heading-green">Fenegriek</strong> <span class="text-xs text-on-surface-variant/80">(Warme, nootachtige smaak)</span></li>
+                            <li class="flex items-center gap-2 before:content-[''] before:w-2 before:h-2 before:bg-accent-brown before:rounded-full"><strong class="text-heading-green">Brandnetel</strong> <span class="text-xs text-on-surface-variant/80">(Fris en natuurlijk aroma)</span></li>
+                            <li class="flex items-center gap-2 before:content-[''] before:w-2 before:h-2 before:bg-accent-brown before:rounded-full"><strong class="text-heading-green">Tomaat-knoflook</strong> <span class="text-xs text-on-surface-variant/80">(Hartige mediterrane combinatie)</span></li>
+                            <li class="flex items-center gap-2 before:content-[''] before:w-2 before:h-2 before:bg-accent-brown before:rounded-full"><strong class="text-heading-green">Bieslook</strong> <span class="text-xs text-on-surface-variant/80">(Verfijnde tuinkruidentoets)</span></li>
+                            <li class="flex items-center gap-2 before:content-[''] before:w-2 before:h-2 before:bg-accent-brown before:rounded-full"><strong class="text-heading-green">Tuinkruiden</strong> <span class="text-xs text-on-surface-variant/80">(Klassieke polderkruidenmelange)</span></li>
+                            <li class="flex items-center gap-2 before:content-[''] before:w-2 before:h-2 before:bg-accent-brown before:rounded-full"><strong class="text-heading-green">Piri-piri</strong> <span class="text-xs text-on-surface-variant/80">(Vurig en pikant)</span></li>
+                            <li class="flex items-center gap-2 before:content-[''] before:w-2 before:h-2 before:bg-accent-brown before:rounded-full"><strong class="text-heading-green">Zwarte peper</strong> <span class="text-xs text-on-surface-variant/80">(Met gebroken peperkorrels)</span></li>
+                            <li class="flex items-center gap-2 before:content-[''] before:w-2 before:h-2 before:bg-accent-brown before:rounded-full"><strong class="text-heading-green">Knoflook</strong> <span class="text-xs text-on-surface-variant/80">(Rijk en volmondig)</span></li>
+                            <li class="flex items-center gap-2 before:content-[''] before:w-2 before:h-2 before:bg-accent-brown before:rounded-full"><strong class="text-heading-green">Mosterd</strong> <span class="text-xs text-on-surface-variant/80">(Pikant met mosterdzaad)</span></li>
+                            <li class="flex items-center gap-2 before:content-[''] before:w-2 before:h-2 before:bg-accent-brown before:rounded-full"><strong class="text-heading-green">Honing-klaver</strong> <span class="text-xs text-on-surface-variant/80">(Zachtzoete bloemige toets)</span></li>
+                        </ul>
+                    </div>
                 </div>
-                
-                <div class="bg-surface-cream rounded-xl p-lg shadow-ambient border border-outline-variant/10">
-                    <h3 class="text-headline-md font-headline-md text-heading-green mb-md pb-xs border-b border-outline-variant/20" data-cms-id="auto-4-h3-13">
-                        Magere Kaas</h3>
-                    <ul class="space-y-sm text-body-md font-body-md text-on-surface-variant">
-                        <li class="flex items-center gap-2 before:content-[''] before:w-2 before:h-2 before:bg-outline-sage before:rounded-full" data-cms-id="auto-4-li-111">
-                            Magere kaas ±25+</li>
-                    </ul>
-                    <div class="mt-lg p-md bg-surface-container rounded-lg">
-                        <p class="text-body-sm text-on-surface-variant italic text-center" data-cms-id="auto-4-p-34">Voor speciale wensen of grote
-                            bestellingen, neem gerust contact op.</p>
+
+                <!-- 3. Komijnekazen & Magere Kazen 25+ (5) -->
+                <div class="bg-surface-cream rounded-xl p-lg shadow-ambient border border-outline-variant/10 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-md pb-xs border-b border-outline-variant/20">
+                            <h3 class="text-headline-md font-headline-md text-heading-green" data-cms-id="auto-4-h3-13">Komijn & Magere Kazen</h3>
+                            <span class="text-label-sm font-semibold px-2 py-0.5 bg-outline-sage/20 text-heading-green rounded-full">5 variëteiten</span>
+                        </div>
+                        <ul class="space-y-sm text-body-md font-body-md text-on-surface-variant">
+                            <li class="flex items-start gap-2 before:content-[''] before:w-2 before:h-2 before:bg-outline-sage before:rounded-full before:mt-2 shrink-0">
+                                <div><strong class="text-heading-green">Jonge komijnekaas</strong> <span class="text-sm block text-on-surface-variant/80">Zachte boerenkaas met geurige komijnzaadjes</span></div>
+                            </li>
+                            <li class="flex items-start gap-2 before:content-[''] before:w-2 before:h-2 before:bg-outline-sage before:rounded-full before:mt-2 shrink-0">
+                                <div><strong class="text-heading-green">Belegen komijnekaas</strong> <span class="text-sm block text-on-surface-variant/80">Voller gerijpte komijnekaas met krachtige smaak</span></div>
+                            </li>
+                            <li class="flex items-start gap-2 before:content-[''] before:w-2 before:h-2 before:bg-outline-sage before:rounded-full before:mt-2 shrink-0">
+                                <div><strong class="text-heading-green">Magere jonge kaas (±25+)</strong> <span class="text-sm block text-on-surface-variant/80">Lager vetgehalte met behoud van milde boerensmaak</span></div>
+                            </li>
+                            <li class="flex items-start gap-2 before:content-[''] before:w-2 before:h-2 before:bg-outline-sage before:rounded-full before:mt-2 shrink-0">
+                                <div><strong class="text-heading-green">Magere jonge komijnekaas (±25+)</strong> <span class="text-sm block text-on-surface-variant/80">Verantwoorde magere kaas verrijkt met komijn</span></div>
+                            </li>
+                            <li class="flex items-start gap-2 before:content-[''] before:w-2 before:h-2 before:bg-outline-sage before:rounded-full before:mt-2 shrink-0">
+                                <div><strong class="text-heading-green">Magere Italiaanse kruiden (±25+)</strong> <span class="text-sm block text-on-surface-variant/80">Magere kaas met zongedroogde mediterrane kruiden</span></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mt-lg p-sm bg-surface-container rounded-lg border border-outline-variant/20">
+                        <p class="text-xs text-on-surface-variant text-center">
+                            Totaal 22 variëteiten grote kaas, dagelijks vers versneden in onze winkel.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5 Representative Photographs Gallery -->
+            <div class="bg-surface-container-low rounded-2xl p-lg border border-outline-variant/20 mb-xl">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-md gap-sm">
+                    <div>
+                        <h3 class="text-headline-md font-headline-md text-heading-green">Fotoreportage Grote Kazen</h3>
+                        <p class="text-body-md text-on-surface-variant text-sm">
+                            * Toelichting fotograaf: Er zijn 5 representatieve foto's gemaakt. Jonge (jong) en jong-belegen kazen zijn visueel nauw verwant; onderstaande foto's tonen de verschillende rijpingsstadia en kruidenwielen.
+                        </p>
+                    </div>
+                    <span class="px-sm py-1 bg-secondary-container text-on-secondary-container text-label-sm rounded-full shrink-0">5 Representatieve Foto's</span>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-5 gap-md">
+                    <div class="flex flex-col space-y-1">
+                        <div class="h-36 rounded-lg overflow-hidden border border-outline-variant/30">
+                            <img src="./images/img_006.jpg" alt="Milde boerenkaas wiel" class="w-full h-full object-cover">
+                        </div>
+                        <span class="text-xs font-bold text-heading-green">1. Milde Kazen</span>
+                        <span class="text-[11px] text-on-surface-variant">Jong & Jong-belegen stadia</span>
+                    </div>
+                    <div class="flex flex-col space-y-1">
+                        <div class="h-36 rounded-lg overflow-hidden border border-outline-variant/30">
+                            <img src="./images/img_013.jpg" alt="Kazen op rijpingsplanken" class="w-full h-full object-cover">
+                        </div>
+                        <span class="text-xs font-bold text-heading-green">2. Belegen Kazen</span>
+                        <span class="text-[11px] text-on-surface-variant">Rijping in het kaasruim</span>
+                    </div>
+                    <div class="flex flex-col space-y-1">
+                        <div class="h-36 rounded-lg overflow-hidden border border-outline-variant/30">
+                            <img src="./images/img_042.jpg" alt="Oude boerenkaas" class="w-full h-full object-cover">
+                        </div>
+                        <span class="text-xs font-bold text-heading-green">3. Oude Kazen</span>
+                        <span class="text-[11px] text-on-surface-variant">Oud & Overjarig karakter</span>
+                    </div>
+                    <div class="flex flex-col space-y-1">
+                        <div class="h-36 rounded-lg overflow-hidden border border-outline-variant/30">
+                            <img src="./images/img_009.jpg" alt="Kruidenkaas selectie" class="w-full h-full object-cover">
+                        </div>
+                        <span class="text-xs font-bold text-heading-green">4. Kruidenkazen</span>
+                        <span class="text-[11px] text-on-surface-variant">Grote wielen met kruiden</span>
+                    </div>
+                    <div class="flex flex-col space-y-1">
+                        <div class="h-36 rounded-lg overflow-hidden border border-outline-variant/30">
+                            <img src="./images/img_010.jpg" alt="Wrongel en komijnekaas bereiding" class="w-full h-full object-cover">
+                        </div>
+                        <span class="text-xs font-bold text-heading-green">5. Komijn & Magere</span>
+                        <span class="text-[11px] text-on-surface-variant">Specialiteiten & Komijn</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Distinct Section: 14 Cheese Balls (Kruidenkaasjes ca. 900g) -->
+            <div id="kaasbolletjes" class="pt-lg border-t border-outline-variant/30">
+                <div class="text-center mb-lg">
+                    <span class="inline-block px-sm py-xs bg-primary/10 text-primary font-label-lg rounded-full mb-xs uppercase tracking-wider">
+                        Kruidenkaasjes (14 variëteiten)
+                    </span>
+                    <h2 class="text-headline-xl font-headline-xl text-heading-green mb-sm">Ambachtelijke Kaasbolletjes</h2>
+                    <p class="text-body-lg font-body-lg text-on-surface-variant max-w-2xl mx-auto">
+                        Naast onze grote kazen maken we 14 verschillende handzame ronde kaasbolletjes van circa 900 gram. Rijkelijk gevuld met pure kruiden en specerijen — ideaal voor op de borrelplank of als geschenk.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-sm">
+                    <!-- 1 -->
+                    <div class="bg-surface-cream rounded-xl p-md border border-outline-variant/20 shadow-sm flex flex-col justify-between text-center hover:border-primary/40 transition-colors">
+                        <div>
+                            <span class="material-symbols-outlined text-primary text-2xl mb-1">restaurant</span>
+                            <h4 class="font-headline-sm text-sm font-bold text-heading-green">Italiaanse kruiden</h4>
+                        </div>
+                        <span class="text-[11px] font-semibold text-secondary-container bg-secondary/10 py-0.5 px-1.5 rounded-full mt-2">±900g bol</span>
+                    </div>
+                    <!-- 2 -->
+                    <div class="bg-surface-cream rounded-xl p-md border border-outline-variant/20 shadow-sm flex flex-col justify-between text-center hover:border-primary/40 transition-colors">
+                        <div>
+                            <span class="material-symbols-outlined text-accent-brown text-2xl mb-1">spa</span>
+                            <h4 class="font-headline-sm text-sm font-bold text-heading-green">Brandnetel</h4>
+                        </div>
+                        <span class="text-[11px] font-semibold text-secondary-container bg-secondary/10 py-0.5 px-1.5 rounded-full mt-2">±900g bol</span>
+                    </div>
+                    <!-- 3 -->
+                    <div class="bg-surface-cream rounded-xl p-md border border-outline-variant/20 shadow-sm flex flex-col justify-between text-center hover:border-primary/40 transition-colors">
+                        <div>
+                            <span class="material-symbols-outlined text-accent-brown text-2xl mb-1">grass</span>
+                            <h4 class="font-headline-sm text-sm font-bold text-heading-green">Fenegriek</h4>
+                        </div>
+                        <span class="text-[11px] font-semibold text-secondary-container bg-secondary/10 py-0.5 px-1.5 rounded-full mt-2">±900g bol</span>
+                    </div>
+                    <!-- 4 -->
+                    <div class="bg-surface-cream rounded-xl p-md border border-outline-variant/20 shadow-sm flex flex-col justify-between text-center hover:border-primary/40 transition-colors">
+                        <div>
+                            <span class="material-symbols-outlined text-accent-brown text-2xl mb-1">eco</span>
+                            <h4 class="font-headline-sm text-sm font-bold text-heading-green">Bieslook</h4>
+                        </div>
+                        <span class="text-[11px] font-semibold text-secondary-container bg-secondary/10 py-0.5 px-1.5 rounded-full mt-2">±900g bol</span>
+                    </div>
+                    <!-- 5 -->
+                    <div class="bg-surface-cream rounded-xl p-md border border-outline-variant/20 shadow-sm flex flex-col justify-between text-center hover:border-primary/40 transition-colors">
+                        <div>
+                            <span class="material-symbols-outlined text-accent-brown text-2xl mb-1">yard</span>
+                            <h4 class="font-headline-sm text-sm font-bold text-heading-green">Tuinkruiden</h4>
+                        </div>
+                        <span class="text-[11px] font-semibold text-secondary-container bg-secondary/10 py-0.5 px-1.5 rounded-full mt-2">±900g bol</span>
+                    </div>
+                    <!-- 6 -->
+                    <div class="bg-surface-cream rounded-xl p-md border border-outline-variant/20 shadow-sm flex flex-col justify-between text-center hover:border-primary/40 transition-colors">
+                        <div>
+                            <span class="material-symbols-outlined text-secondary text-2xl mb-1">hive</span>
+                            <h4 class="font-headline-sm text-sm font-bold text-heading-green">Honing-klaver</h4>
+                        </div>
+                        <span class="text-[11px] font-semibold text-secondary-container bg-secondary/10 py-0.5 px-1.5 rounded-full mt-2">±900g bol</span>
+                    </div>
+                    <!-- 7 -->
+                    <div class="bg-surface-cream rounded-xl p-md border border-outline-variant/20 shadow-sm flex flex-col justify-between text-center hover:border-primary/40 transition-colors">
+                        <div>
+                            <span class="material-symbols-outlined text-primary text-2xl mb-1">local_florist</span>
+                            <h4 class="font-headline-sm text-sm font-bold text-heading-green">Pesto</h4>
+                        </div>
+                        <span class="text-[11px] font-semibold text-secondary-container bg-secondary/10 py-0.5 px-1.5 rounded-full mt-2">±900g bol</span>
+                    </div>
+                    <!-- 8 -->
+                    <div class="bg-surface-cream rounded-xl p-md border border-outline-variant/20 shadow-sm flex flex-col justify-between text-center hover:border-primary/40 transition-colors">
+                        <div>
+                            <span class="material-symbols-outlined text-error text-2xl mb-1">local_fire_department</span>
+                            <h4 class="font-headline-sm text-sm font-bold text-heading-green">Piri-piri</h4>
+                        </div>
+                        <span class="text-[11px] font-semibold text-secondary-container bg-secondary/10 py-0.5 px-1.5 rounded-full mt-2">±900g bol</span>
+                    </div>
+                    <!-- 9 -->
+                    <div class="bg-surface-cream rounded-xl p-md border border-outline-variant/20 shadow-sm flex flex-col justify-between text-center hover:border-primary/40 transition-colors">
+                        <div>
+                            <span class="material-symbols-outlined text-accent-brown text-2xl mb-1">kitchen</span>
+                            <h4 class="font-headline-sm text-sm font-bold text-heading-green">Knoflook-ui</h4>
+                        </div>
+                        <span class="text-[11px] font-semibold text-secondary-container bg-secondary/10 py-0.5 px-1.5 rounded-full mt-2">±900g bol</span>
+                    </div>
+                    <!-- 10 -->
+                    <div class="bg-surface-cream rounded-xl p-md border border-outline-variant/20 shadow-sm flex flex-col justify-between text-center hover:border-primary/40 transition-colors">
+                        <div>
+                            <span class="material-symbols-outlined text-accent-brown text-2xl mb-1">scatter_plot</span>
+                            <h4 class="font-headline-sm text-sm font-bold text-heading-green">Komijn</h4>
+                        </div>
+                        <span class="text-[11px] font-semibold text-secondary-container bg-secondary/10 py-0.5 px-1.5 rounded-full mt-2">±900g bol</span>
+                    </div>
+                    <!-- 11 -->
+                    <div class="bg-surface-cream rounded-xl p-md border border-outline-variant/20 shadow-sm flex flex-col justify-between text-center hover:border-primary/40 transition-colors">
+                        <div>
+                            <span class="material-symbols-outlined text-accent-brown text-2xl mb-1">hub</span>
+                            <h4 class="font-headline-sm text-sm font-bold text-heading-green">Komijn-kruidnagel</h4>
+                        </div>
+                        <span class="text-[11px] font-semibold text-secondary-container bg-secondary/10 py-0.5 px-1.5 rounded-full mt-2">±900g bol</span>
+                    </div>
+                    <!-- 12 -->
+                    <div class="bg-surface-cream rounded-xl p-md border border-outline-variant/20 shadow-sm flex flex-col justify-between text-center hover:border-primary/40 transition-colors">
+                        <div>
+                            <span class="material-symbols-outlined text-secondary text-2xl mb-1">adjust</span>
+                            <h4 class="font-headline-sm text-sm font-bold text-heading-green">Mosterd</h4>
+                        </div>
+                        <span class="text-[11px] font-semibold text-secondary-container bg-secondary/10 py-0.5 px-1.5 rounded-full mt-2">±900g bol</span>
+                    </div>
+                    <!-- 13 -->
+                    <div class="bg-surface-cream rounded-xl p-md border border-outline-variant/20 shadow-sm flex flex-col justify-between text-center hover:border-primary/40 transition-colors">
+                        <div>
+                            <span class="material-symbols-outlined text-text-charcoal text-2xl mb-1">grain</span>
+                            <h4 class="font-headline-sm text-sm font-bold text-heading-green">Zwarte peper</h4>
+                        </div>
+                        <span class="text-[11px] font-semibold text-secondary-container bg-secondary/10 py-0.5 px-1.5 rounded-full mt-2">±900g bol</span>
+                    </div>
+                    <!-- 14 -->
+                    <div class="bg-surface-cream rounded-xl p-md border border-outline-variant/20 shadow-sm flex flex-col justify-between text-center hover:border-primary/40 transition-colors">
+                        <div>
+                            <span class="material-symbols-outlined text-error text-2xl mb-1">whatshot</span>
+                            <h4 class="font-headline-sm text-sm font-bold text-heading-green">Sambal</h4>
+                        </div>
+                        <span class="text-[11px] font-semibold text-secondary-container bg-secondary/10 py-0.5 px-1.5 rounded-full mt-2">±900g bol</span>
                     </div>
                 </div>
             </div>
