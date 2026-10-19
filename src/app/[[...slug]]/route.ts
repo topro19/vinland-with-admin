@@ -31,7 +31,13 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
     const { parse } = require('node-html-parser');
     const root = parse(rawHtml);
 
-    const settings = await prisma.themeSettings.findUnique({ where: { id: 'global' } })
+    let settings: any = null
+    try {
+      settings = await prisma.themeSettings.findUnique({ where: { id: 'global' } })
+    } catch {
+      // Offline fallback
+    }
+
     if (settings) {
       const customStyles = `
         <style>
@@ -53,22 +59,24 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
       }
     }
 
-    const siteContent = await prisma.siteContent.findMany()
-    siteContent.forEach(el => {
-      if (el.content) {
-        const node = root.querySelector(`[data-cms-id="${el.id}"]`);
+    const { contentStore } = await import('@/lib/contentStore')
+    const contentMap = await contentStore.getContentMap()
+    
+    for (const [id, content] of Object.entries(contentMap)) {
+      if (content) {
+        const node = root.querySelector(`[data-cms-id="${id}"]`);
         if (node) {
           if (node.tagName.toLowerCase() === 'img') {
-            node.setAttribute('src', el.content);
+            node.setAttribute('src', content);
+          } else if (node.getAttribute('style') && node.getAttribute('style').includes('background-image')) {
+            const currentStyle = node.getAttribute('style');
+            node.setAttribute('style', currentStyle.replace(/url\([^)]+\)/, `url("${content}")`));
           } else {
-            // For text elements, preserve whitespace by setting innerHTML, but converting \n to <br> if needed,
-            // or just directly setting innerText/innerHTML.
-            // Since the admin uses innerText which strips <br>, we set innerHTML and encode newlines.
-            node.innerHTML = el.content.replace(/\n/g, '<br>');
+            node.innerHTML = content.replace(/\n/g, '<br>');
           }
         }
       }
-    })
+    }
     
     rawHtml = root.toString();
   } catch(e) {

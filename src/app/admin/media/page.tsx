@@ -11,14 +11,8 @@ export default async function MediaPage() {
     redirect('/admin/login')
   }
 
-  let media: any[] = []
-  try {
-    media = await prisma.mediaLibrary.findMany({
-      orderBy: { createdAt: 'desc' }
-    })
-  } catch (err) {
-    console.warn('Prisma query skipped in media page:', err)
-  }
+  const { contentStore } = await import('@/lib/contentStore')
+  const media = await contentStore.getAllMedia()
 
   return (
     <div className="space-y-6">

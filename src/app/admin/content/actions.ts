@@ -1,7 +1,8 @@
 'use server'
 
-import { prisma } from '@/lib/prisma'
+import { contentStore } from '@/lib/contentStore'
 import { getSession } from '@/lib/auth'
+import { prisma } from '@/lib/prisma'
 import { revalidatePath } from 'next/cache'
 
 export async function updateSiteContent(formData: FormData) {
@@ -15,23 +16,24 @@ export async function updateSiteContent(formData: FormData) {
   if (!id || !content) return
 
   try {
-    await prisma.siteContent.upsert({
-      where: { id },
-      update: { content, description },
-      create: { id, content, description }
-    })
+    await contentStore.saveContent(id, content, description)
 
-    await prisma.activityLog.create({
-      data: {
-        adminId: session.id,
-        action: 'UPDATE_CONTENT',
-        details: `Updated text content for ID: ${id}`
-      }
-    })
+    try {
+      await prisma.activityLog.create({
+        data: {
+          adminId: session.id,
+          action: 'UPDATE_CONTENT',
+          details: `Updated text content for ID: ${id}`
+        }
+      })
+    } catch {
+      // Activity log offline fallback
+    }
 
     revalidatePath('/')
+    revalidatePath('/admin/content')
   } catch (e: any) {
-    console.error(e)
+    console.error('[UpdateSiteContent Error]:', e)
   }
 }
 
@@ -42,9 +44,10 @@ export async function deleteSiteContent(formData: FormData) {
   const id = formData.get('id') as string
 
   try {
-    await prisma.siteContent.delete({ where: { id } })
+    await contentStore.deleteContent(id)
     revalidatePath('/')
+    revalidatePath('/admin/content')
   } catch (e: any) {
-    console.error(e)
+    console.error('[DeleteSiteContent Error]:', e)
   }
 }

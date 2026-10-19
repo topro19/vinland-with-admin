@@ -204,7 +204,14 @@
           <img src="${el.src}" class="cms-img-preview" id="cms-img-preview" />
           <input type="file" accept="image/*" class="cms-file-input" id="cms-file-input" />
         </div>
+        <div class="cms-form-group" style="margin-top: 14px;">
+          <label>Or Image URL</label>
+          <input type="text" class="cms-textarea" id="cms-img-url-input" style="height: 42px; font-family: monospace; font-size: 13px;" placeholder="https://... or /images/..." />
+        </div>
       `;
+      const urlInput = document.getElementById('cms-img-url-input');
+      urlInput.value = el.getAttribute('src') || el.src || '';
+
       // Handle local image preview & live DOM update
       document.getElementById('cms-file-input').onchange = (e) => {
         const file = e.target.files[0];
@@ -212,22 +219,39 @@
           pendingFile = file;
           const url = URL.createObjectURL(file);
           document.getElementById('cms-img-preview').src = url;
-          el.src = url; // Live update the website preview immediately!
+          el.src = url;
+          urlInput.value = '';
+        }
+      };
+
+      // Handle direct URL change
+      urlInput.oninput = (e) => {
+        const newUrl = e.target.value.trim();
+        if (newUrl) {
+          pendingFile = null;
+          document.getElementById('cms-img-preview').src = newUrl;
+          el.src = newUrl;
         }
       };
     } else {
-      // Assume text content
-      const content = el.innerText || el.innerHTML;
+      // Text content
+      const content = el.innerText || el.textContent || '';
       editorContent.innerHTML = `
         <span class="cms-pill">Text ID: ${cmsId}</span>
         <div class="cms-form-group">
-          <label>Content</label>
-          <textarea class="cms-textarea" id="cms-textarea-input">${content.trim()}</textarea>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+            <label style="margin: 0;">Content</label>
+            <span style="font-size: 11px; color: #6b7280;">Supports text & line breaks</span>
+          </div>
+          <textarea class="cms-textarea" id="cms-textarea-input"></textarea>
         </div>
       `;
+      const textarea = document.getElementById('cms-textarea-input');
+      textarea.value = content.trim();
+
       // Live DOM update on type
-      document.getElementById('cms-textarea-input').oninput = (e) => {
-        el.innerText = e.target.value; // Live update the website preview immediately!
+      textarea.oninput = (e) => {
+        el.innerHTML = e.target.value.replace(/\n/g, '<br>');
       };
     }
   }
@@ -242,8 +266,19 @@
     const cmsId = activeElement.getAttribute('data-cms-id');
     const formData = new FormData();
 
-    if (activeType === 'image' && pendingFile) {
-      formData.append(`image_${cmsId}`, pendingFile);
+    if (activeType === 'image') {
+      if (pendingFile) {
+        formData.append(`image_${cmsId}`, pendingFile);
+      } else {
+        const urlVal = document.getElementById('cms-img-url-input')?.value;
+        if (urlVal) {
+          formData.append('texts', JSON.stringify({ [cmsId]: urlVal.trim() }));
+        } else {
+          saveBtn.innerText = 'Save to Database';
+          saveBtn.disabled = false;
+          return;
+        }
+      }
     } else if (activeType === 'text') {
       const textVal = document.getElementById('cms-textarea-input').value;
       formData.append('texts', JSON.stringify({ [cmsId]: textVal }));
@@ -257,20 +292,20 @@
       const res = await fetch('/api/admin/save-inline', { method: 'POST', body: formData });
       const data = await res.json();
       if (data.success) {
-        saveBtn.innerText = 'Successfully Saved!';
-        saveBtn.style.background = '#10b981'; // Green success color
+        saveBtn.innerText = 'Saved Successfully!';
+        saveBtn.style.background = '#10b981';
         setTimeout(() => {
           saveBtn.innerText = 'Save to Database';
           saveBtn.style.background = '';
           saveBtn.disabled = false;
         }, 2000);
       } else {
-        alert('Error saving to database: ' + data.error);
+        alert('Error saving: ' + (data.error || 'Server error'));
         saveBtn.innerText = 'Save to Database';
         saveBtn.disabled = false;
       }
     } catch (e) {
-      alert('Network error while saving.');
+      alert('Network error while saving. Please check your connection.');
       saveBtn.innerText = 'Save to Database';
       saveBtn.disabled = false;
     }

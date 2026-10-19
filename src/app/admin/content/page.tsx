@@ -11,25 +11,28 @@ export default async function ContentPage() {
     redirect('/admin/login')
   }
 
-  let contents: any[] = []
-  try {
-    contents = await prisma.siteContent.findMany({
-      orderBy: { updatedAt: 'desc' },
-    })
-  } catch (err) {
-    console.warn('Prisma query skipped in content page:', err)
-  }
+  const { contentStore } = await import('@/lib/contentStore')
+  const contents = await contentStore.getAllContent()
 
   return (
     <div className="space-y-6">
       <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
-        <div className="px-8 py-6 border-b border-gray-100 bg-gray-50/50 flex justify-between items-center">
+        <div className="px-8 py-6 border-b border-gray-100 bg-gray-50/50 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
           <div>
             <h2 className="text-xl font-bold text-gray-900">Text Content Management</h2>
             <p className="mt-1 text-sm text-gray-500">
-              Update text blocks globally. These map directly to `data-cms-id` tags in your HTML.
+              Update text blocks globally. These map directly to `data-cms-id` tags in your HTML pages.
             </p>
           </div>
+          <a
+            href="/?edit_mode=true"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-700 text-white text-xs font-semibold rounded-lg hover:bg-emerald-800 transition-colors shadow-sm"
+          >
+            <span className="material-symbols-outlined text-sm">edit_note</span>
+            Open Visual Editor
+          </a>
         </div>
 
         <div className="p-8 border-b border-gray-100">

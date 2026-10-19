@@ -16,8 +16,16 @@ export default async function AdminDashboard() {
   let recentLogs: any[] = []
 
   try {
-    contentCount = await prisma.siteContent.count()
-    mediaCount = await prisma.mediaLibrary.count()
+    const { contentStore } = await import('@/lib/contentStore')
+    const allContent = await contentStore.getAllContent()
+    const allMedia = await contentStore.getAllMedia()
+    contentCount = allContent.length
+    mediaCount = allMedia.length
+  } catch (e) {
+    // Fallback
+  }
+
+  try {
     recentLogs = await prisma.activityLog.findMany({
       take: 5,
       orderBy: { createdAt: 'desc' },

@@ -1,13 +1,9 @@
 'use server'
 
+import { contentStore } from '@/lib/contentStore'
 import { prisma } from '@/lib/prisma'
 import { getSession } from '@/lib/auth'
-import { createClient } from '@supabase/supabase-js'
 import { revalidatePath } from 'next/cache'
-
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://placeholder.supabase.co'
-const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY || 'placeholder-key'
-const supabase = createClient(supabaseUrl, supabaseKey)
 
 export async function uploadMedia(formData: FormData) {
   const session = await getSession()
@@ -16,40 +12,28 @@ export async function uploadMedia(formData: FormData) {
   const file = formData.get('file') as File
   const altText = formData.get('altText') as string
 
-  if (!file) return
+  if (!file || !(file instanceof Blob)) return
   if (!file.type.startsWith('image/')) return
   if (file.size > 5 * 1024 * 1024) return
 
   try {
-    const filename = `${Date.now()}-${file.name.replace(/[^a-zA-Z0-9.-]/g, '_')}`
-    const { data, error } = await supabase.storage.from('media').upload(filename, file)
+    const { filename } = await contentStore.processUpload(file, altText)
 
-    if (error) throw error
+    try {
+      await prisma.activityLog.create({
+        data: {
+          adminId: session.id,
+          action: 'UPLOAD_MEDIA',
+          details: `Uploaded image: ${filename}`
+        }
+      })
+    } catch {
+      // Offline fallback
+    }
 
-    const { data: publicUrlData } = supabase.storage.from('media').getPublicUrl(filename)
-
-    await prisma.mediaLibrary.create({
-      data: {
-        url: publicUrlData.publicUrl,
-        filename,
-        fileType: file.type,
-        size: file.size,
-        altText
-      }
-    })
-
-    await prisma.activityLog.create({
-      data: {
-        adminId: session.id,
-        action: 'UPLOAD_MEDIA',
-        details: `Uploaded image: ${filename}`
-      }
-    })
-
-    revalidatePath('/admin/media')
     revalidatePath('/admin/media')
   } catch (e: any) {
-    console.error('Supabase upload error:', e)
+    console.error('[UploadMedia Error]:', e)
   }
 }
 
@@ -61,22 +45,22 @@ export async function deleteMedia(formData: FormData) {
   const filename = formData.get('filename') as string
 
   try {
-    const { error } = await supabase.storage.from('media').remove([filename])
-    if (error) throw error
+    await contentStore.deleteMedia(id, filename)
 
-    await prisma.mediaLibrary.delete({ where: { id } })
+    try {
+      await prisma.activityLog.create({
+        data: {
+          adminId: session.id,
+          action: 'DELETE_MEDIA',
+          details: `Deleted image: ${filename}`
+        }
+      })
+    } catch {
+      // Offline fallback
+    }
 
-    await prisma.activityLog.create({
-      data: {
-        adminId: session.id,
-        action: 'DELETE_MEDIA',
-        details: `Deleted image: ${filename}`
-      }
-    })
-
-    revalidatePath('/admin/media')
     revalidatePath('/admin/media')
   } catch (e: any) {
-    console.error(e)
+    console.error('[DeleteMedia Error]:', e)
   }
 }
