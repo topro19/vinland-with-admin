@@ -1,10 +1,24 @@
 import { prisma } from '@/lib/prisma'
+import { getSession } from '@/lib/auth'
+import { redirect } from 'next/navigation'
 import { updateSiteContent, deleteSiteContent } from './actions'
 
+export const dynamic = 'force-dynamic'
+
 export default async function ContentPage() {
-  const contents = await prisma.siteContent.findMany({
-    orderBy: { updatedAt: 'desc' }
-  })
+  const session = await getSession()
+  if (!session) {
+    redirect('/admin/login')
+  }
+
+  let contents: any[] = []
+  try {
+    contents = await prisma.siteContent.findMany({
+      orderBy: { updatedAt: 'desc' },
+    })
+  } catch (err) {
+    console.warn('Prisma query skipped in content page:', err)
+  }
 
   return (
     <div className="space-y-6">
@@ -30,23 +44,21 @@ export default async function ContentPage() {
               <input type="text" name="description" className="w-full border border-gray-300 rounded-md py-2 px-3 text-sm focus:ring-gray-900 focus:border-gray-900" placeholder="e.g. Main headline on homepage" />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Content Value</label>
-              <textarea name="content" required className="w-full border border-gray-300 rounded-md py-2 px-3 text-sm h-32 focus:ring-gray-900 focus:border-gray-900" placeholder="Enter the text..." />
+              <label className="block text-sm font-medium text-gray-700 mb-1">Content (HTML or Text)</label>
+              <textarea name="content" required className="w-full border border-gray-300 rounded-md py-2 px-3 text-sm focus:ring-gray-900 focus:border-gray-900 min-h-[100px]" placeholder="Content..." />
             </div>
-            <div className="flex justify-end">
-              <button type="submit" className="bg-gray-900 text-white px-5 py-2 rounded-md text-sm font-medium hover:bg-gray-800">
-                Save Content Block
-              </button>
-            </div>
+            <button type="submit" className="bg-gray-900 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-800">
+              Save Content Block
+            </button>
           </form>
         </div>
 
         <div className="p-8">
-          <h3 className="text-lg font-semibold mb-6">Existing Content Blocks</h3>
+          <h3 className="text-lg font-semibold mb-4">Existing Content Blocks</h3>
           {contents.length === 0 ? (
-            <p className="text-sm text-gray-500 italic">No content blocks found.</p>
+            <p className="text-gray-500 text-sm">No content blocks saved in the database yet.</p>
           ) : (
-            <div className="space-y-6">
+            <div className="space-y-4">
               {contents.map(item => (
                 <div key={item.id} className="border border-gray-200 rounded-lg p-6 hover:shadow-sm transition-shadow">
                   <form action={updateSiteContent} className="space-y-4">

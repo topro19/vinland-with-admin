@@ -1,10 +1,24 @@
 import { prisma } from '@/lib/prisma'
+import { getSession } from '@/lib/auth'
+import { redirect } from 'next/navigation'
 import { uploadMedia, deleteMedia } from './actions'
 
+export const dynamic = 'force-dynamic'
+
 export default async function MediaPage() {
-  const media = await prisma.mediaLibrary.findMany({
-    orderBy: { createdAt: 'desc' }
-  })
+  const session = await getSession()
+  if (!session) {
+    redirect('/admin/login')
+  }
+
+  let media: any[] = []
+  try {
+    media = await prisma.mediaLibrary.findMany({
+      orderBy: { createdAt: 'desc' }
+    })
+  } catch (err) {
+    console.warn('Prisma query skipped in media page:', err)
+  }
 
   return (
     <div className="space-y-6">

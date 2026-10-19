@@ -1,8 +1,17 @@
 import { prisma } from '@/lib/prisma'
+import { getSession } from '@/lib/auth'
+import { redirect } from 'next/navigation'
 import { updateThemeSettings } from './actions'
 
+export const dynamic = 'force-dynamic'
+
 export default async function ThemePage() {
-  const settings = await prisma.themeSettings.findUnique({ where: { id: 'global' } }) || {
+  const session = await getSession()
+  if (!session) {
+    redirect('/admin/login')
+  }
+
+  const defaultSettings = {
     primaryColor: '#00461a',
     secondaryColor: '#755b00',
     accentColor: '#ffdad6',
@@ -12,6 +21,14 @@ export default async function ThemePage() {
     headingFont: 'Nunito',
     bodyFont: 'Nunito Sans',
     headingWeight: '800'
+  }
+
+  let settings = defaultSettings
+  try {
+    const fetched = await prisma.themeSettings.findUnique({ where: { id: 'global' } })
+    if (fetched) settings = fetched
+  } catch (err) {
+    console.warn('Prisma query skipped in theme settings:', err)
   }
 
   return (
