@@ -35,6 +35,8 @@ export default async function AdminLayout({ children }: { children: ReactNode })
     ? 'Google SSO' 
     : session.provider === 'github' 
     ? 'GitHub SSO' 
+    : session.provider === 'demo'
+    ? 'Client Demo'
     : 'Password'
 
   return (

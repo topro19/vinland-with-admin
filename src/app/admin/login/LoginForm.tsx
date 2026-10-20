@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
-import { login } from './actions'
+import { login, demoLogin } from './actions'
 
 interface LoginFormProps {
   googleConfigured: boolean
@@ -24,6 +24,9 @@ export default function LoginForm({
 }: LoginFormProps) {
   const [error, setError] = useState(initialError || '')
   const [loading, setLoading] = useState(false)
+  const [demoLoading, setDemoLoading] = useState(false)
+  const [emailInput, setEmailInput] = useState('')
+  const [passwordInput, setPasswordInput] = useState('')
   const [showSetupGuide, setShowSetupGuide] = useState(false)
   const router = useRouter()
 
@@ -43,6 +46,29 @@ export default function LoginForm({
       default:
         return code
     }
+  }
+
+  async function handleDemoLogin() {
+    setDemoLoading(true)
+    setError('')
+    try {
+      const result = await demoLogin()
+      if (result.error || !result.success) {
+        setError(result.error || 'Failed to start demo session')
+      } else {
+        router.push(callbackUrl)
+        router.refresh()
+      }
+    } catch (err: any) {
+      setError(err?.message || 'Failed to start demo session')
+    } finally {
+      setDemoLoading(false)
+    }
+  }
+
+  function handleAutoFillDemo() {
+    setEmailInput('demo@dewestplaat.nl')
+    setPasswordInput('admin123')
   }
 
   async function handleSubmit(formData: FormData) {
@@ -73,8 +99,33 @@ export default function LoginForm({
           </div>
           <h2 className="text-2xl font-black text-gray-900 tracking-tight">Admin Authentication</h2>
           <p className="mt-1 text-xs text-gray-500">
-            Secure Single Sign-On (IdP) for De Westplaat Visual CMS
+            Secure Visual CMS &amp; Panel Access
           </p>
+        </div>
+
+        {/* Client Demo Banner & 1-Click Launch */}
+        <div className="mb-6 p-4 rounded-xl bg-gradient-to-r from-emerald-50 via-emerald-50/60 to-teal-50 border border-emerald-200 shadow-sm">
+          <div className="flex items-center justify-between mb-1.5">
+            <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-900 flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+              Client Demo Access
+            </span>
+            <span className="text-[10px] font-bold bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full border border-emerald-300">
+              Full Admin
+            </span>
+          </div>
+          <p className="text-[11px] text-emerald-800/80 mb-3 leading-relaxed">
+            Instant showcase access to the Admin Dashboard &amp; Visual Editor. No setup or passwords needed.
+          </p>
+          <button
+            type="button"
+            onClick={handleDemoLogin}
+            disabled={demoLoading || loading}
+            className="w-full flex items-center justify-center gap-2 py-2.5 px-4 bg-emerald-700 hover:bg-emerald-800 active:scale-[0.99] text-white rounded-xl text-xs font-bold transition-all shadow hover:shadow-md disabled:opacity-50"
+          >
+            <span className="material-symbols-outlined text-sm">rocket_launch</span>
+            <span>{demoLoading ? 'Launching Demo Session...' : '🚀 1-Click Client Demo Login'}</span>
+          </button>
         </div>
 
         {/* Error Alert */}
@@ -163,22 +214,33 @@ export default function LoginForm({
             <div className="w-full border-t border-gray-200" />
           </div>
           <span className="relative px-3 bg-white text-[11px] uppercase tracking-wider text-gray-400 font-semibold">
-            or password credentials
+            or credentials login
           </span>
         </div>
 
         {/* Password Form */}
         <form action={handleSubmit} className="space-y-4">
           <div>
-            <label className="block text-xs font-semibold text-gray-700 mb-1" htmlFor="email">
-              Admin Email
-            </label>
+            <div className="flex items-center justify-between mb-1">
+              <label className="block text-xs font-semibold text-gray-700" htmlFor="email">
+                Admin Email
+              </label>
+              <button
+                type="button"
+                onClick={handleAutoFillDemo}
+                className="text-[10px] text-emerald-700 hover:text-emerald-900 font-bold underline cursor-pointer"
+              >
+                Auto-fill Demo
+              </button>
+            </div>
             <input
               id="email"
               name="email"
-              type="email"
+              type="text"
               required
-              placeholder="admin@dewestplaat.nl"
+              value={emailInput}
+              onChange={(e) => setEmailInput(e.target.value)}
+              placeholder="demo@dewestplaat.nl"
               className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 text-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
             />
           </div>
@@ -192,15 +254,17 @@ export default function LoginForm({
               name="password"
               type="password"
               required
-              placeholder="••••••••••••"
+              value={passwordInput}
+              onChange={(e) => setPasswordInput(e.target.value)}
+              placeholder="admin123"
               className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 text-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
             />
           </div>
 
           <button
             type="submit"
-            disabled={loading}
-            className="w-full py-2.5 px-4 bg-primary text-on-primary rounded-xl text-xs font-bold hover:bg-primary-container transition-all shadow hover:shadow-md disabled:opacity-50"
+            disabled={loading || demoLoading}
+            className="w-full py-2.5 px-4 bg-gray-900 hover:bg-black text-white rounded-xl text-xs font-bold transition-all shadow hover:shadow-md disabled:opacity-50"
           >
             {loading ? 'Authenticating...' : 'Sign in with Password'}
           </button>
@@ -246,7 +310,7 @@ export default function LoginForm({
 
               <div>
                 <span className="font-bold text-gray-800 block">3. Access Whitelist (Optional):</span>
-                <p className="text-[10px] text-gray-500">Set <code className="text-gray-700">ADMIN_ALLOWED_EMAILS</code> to restrict access to specific emails (e.g. <code className="text-gray-700">admin@dewestplaat.nl,topro19@gmail.com</code>).</p>
+                <p className="text-[10px] text-gray-500">Set <code className="text-gray-700">ADMIN_ALLOWED_EMAILS</code> to restrict access to specific emails.</p>
               </div>
             </div>
           )}
