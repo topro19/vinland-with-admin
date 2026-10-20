@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGradMeat" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fbf7f0"/>
+      <stop offset="100%" stop-color="#f0e6d6"/>
+    </linearGradient>
+    <radialGradient id="circleGradMeat" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#e8decb" stop-opacity="0.6"/>
+    </radialGradient>
+  </defs>
+  <rect width="400" height="400" fill="url(#bgGradMeat)"/>
+  <rect x="12" y="12" width="376" height="376" rx="16" fill="none" stroke="#d6c6af" stroke-width="2" stroke-dasharray="6 6"/>
+  
+  <!-- Center circle -->
+  <circle cx="200" cy="180" r="76" fill="url(#circleGradMeat)" stroke="#c4b299" stroke-width="1.5"/>
+  
+  <!-- Steak / Meat Cut Vector Art -->
+  <g transform="translate(152, 132)">
+    <path d="M72 16 C88 28, 96 48, 88 66 C80 82, 54 86, 32 84 C12 82, 2 68, 6 48 C10 26, 48 4, 72 16 Z" fill="#b94a3b" opacity="0.9"/>
+    <!-- Marbling / Bone -->
+    <path d="M58 24 C68 34, 72 48, 66 60 C62 68, 48 70, 36 68 C22 66, 16 56, 18 44 C22 28, 46 14, 58 24 Z" fill="#c95a4a" opacity="0.8"/>
+    <circle cx="34" cy="48" r="9" fill="#fdfbf7" stroke="#e0d5c1" stroke-width="2"/>
+    <path d="M42 42 Q52 38 62 44" stroke="#fdfbf7" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.85"/>
+    <path d="M38 56 Q50 62 58 54" stroke="#fdfbf7" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.8"/>
+  </g>
+  
+  <!-- Text Label -->
+  <text x="200" y="292" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="700" fill="#2d4a22" text-anchor="middle" letter-spacing="0.5">AMBACHTELIJK RUNDVLEES</text>
+  <text x="200" y="316" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="500" fill="#8c7355" text-anchor="middle">De Westplaat • Klik om foto te plaatsen</text>
+  
+  <!-- Camera icon badge -->
+  <g transform="translate(186, 332)">
+    <rect width="28" height="20" rx="4" fill="#2d4a22" opacity="0.12"/>
+    <circle cx="14" cy="10" r="4.5" fill="none" stroke="#2d4a22" stroke-width="1.5"/>
+    <circle cx="19" cy="7" r="1" fill="#2d4a22"/>
+  </g>
+</svg>

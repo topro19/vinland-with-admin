@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGradCheese" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fffdf5"/>
+      <stop offset="100%" stop-color="#f5ecdb"/>
+    </linearGradient>
+    <radialGradient id="circleGradCheese" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#ede2c8" stop-opacity="0.6"/>
+    </radialGradient>
+  </defs>
+  <rect width="400" height="400" fill="url(#bgGradCheese)"/>
+  <rect x="12" y="12" width="376" height="376" rx="16" fill="none" stroke="#e0d1b6" stroke-width="2" stroke-dasharray="6 6"/>
+  
+  <!-- Center circle -->
+  <circle cx="200" cy="180" r="76" fill="url(#circleGradCheese)" stroke="#d9c39d" stroke-width="1.5"/>
+  
+  <!-- Cheese Wedge / Wheel Art -->
+  <g transform="translate(148, 134)">
+    <!-- Cheese wheel wedge -->
+    <path d="M12 70 L92 70 L80 20 L24 20 Z" fill="#e5a823"/>
+    <path d="M24 20 L80 20 L98 42 L42 42 Z" fill="#f4c442"/>
+    <path d="M42 42 L98 42 L92 70 L36 70 Z" fill="#d49b1a"/>
+    <ellipse cx="60" cy="62" rx="38" ry="12" fill="#c68c12" opacity="0.3"/>
+    <!-- Cheese holes -->
+    <circle cx="50" cy="54" r="5" fill="#c68c12" opacity="0.6"/>
+    <circle cx="70" cy="46" r="4" fill="#c68c12" opacity="0.5"/>
+    <circle cx="34" cy="50" r="3.5" fill="#c68c12" opacity="0.5"/>
+    <circle cx="64" cy="30" r="3" fill="#e5a823" opacity="0.8"/>
+    <circle cx="48" cy="28" r="2.5" fill="#e5a823" opacity="0.8"/>
+  </g>
+  
+  <!-- Text Label -->
+  <text x="200" y="292" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="700" fill="#2d4a22" text-anchor="middle" letter-spacing="0.5">AMBACHTELIJKE BOERENKAAS</text>
+  <text x="200" y="316" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="500" fill="#8c7355" text-anchor="middle">De Westplaat • Klik om foto te plaatsen</text>
+  
+  <!-- Camera icon badge -->
+  <g transform="translate(186, 332)">
+    <rect width="28" height="20" rx="4" fill="#2d4a22" opacity="0.12"/>
+    <circle cx="14" cy="10" r="4.5" fill="none" stroke="#2d4a22" stroke-width="1.5"/>
+    <circle cx="19" cy="7" r="1" fill="#2d4a22"/>
+  </g>
+</svg>

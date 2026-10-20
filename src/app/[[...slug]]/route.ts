@@ -68,6 +68,8 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
         if (node) {
           if (node.tagName.toLowerCase() === 'img') {
             node.setAttribute('src', content);
+          } else if (node.querySelector('img')) {
+            node.querySelector('img').setAttribute('src', content);
           } else if (node.getAttribute('style') && node.getAttribute('style').includes('background-image')) {
             const currentStyle = node.getAttribute('style');
             node.setAttribute('style', currentStyle.replace(/url\([^)]+\)/, `url("${content}")`));

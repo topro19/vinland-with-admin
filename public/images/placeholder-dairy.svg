@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGradDairy" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f8faf7"/>
+      <stop offset="100%" stop-color="#ebf2ea"/>
+    </linearGradient>
+    <radialGradient id="circleGradDairy" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#dfeada" stop-opacity="0.6"/>
+    </radialGradient>
+  </defs>
+  <rect width="400" height="400" fill="url(#bgGradDairy)"/>
+  <rect x="12" y="12" width="376" height="376" rx="16" fill="none" stroke="#cedece" stroke-width="2" stroke-dasharray="6 6"/>
+  
+  <!-- Center circle -->
+  <circle cx="200" cy="180" r="76" fill="url(#circleGradDairy)" stroke="#b8ceb8" stroke-width="1.5"/>
+  
+  <!-- Milk Bottle & Cream Art -->
+  <g transform="translate(160, 126)">
+    <!-- Traditional Dutch glass bottle -->
+    <path d="M26 12 L54 12 L54 26 C54 36, 68 44, 70 56 L70 98 C70 102, 66 106, 62 106 L18 106 C14 106, 10 102, 10 98 L10 56 C12 44, 26 36, 26 26 Z" fill="#ffffff" stroke="#2d4a22" stroke-width="3"/>
+    <!-- Bottle Cap -->
+    <rect x="22" y="6" width="36" height="8" rx="2" fill="#c49a45" stroke="#2d4a22" stroke-width="2"/>
+    <!-- Milk Level & Wave -->
+    <path d="M12 66 Q25 62 40 66 T68 64 L68 98 C68 101, 65 104, 62 104 L18 104 C15 104, 12 101, 12 98 Z" fill="#ebf4eb"/>
+    <!-- Cow / Farm emblem on bottle -->
+    <circle cx="40" cy="80" r="10" fill="#2d4a22" opacity="0.12"/>
+    <path d="M35 80 Q40 76 45 80" stroke="#2d4a22" stroke-width="1.5" fill="none"/>
+  </g>
+  
+  <!-- Text Label -->
+  <text x="200" y="292" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="700" fill="#2d4a22" text-anchor="middle" letter-spacing="0.5">DAGVERSE BOERDERIJZUIVEL</text>
+  <text x="200" y="316" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="500" fill="#587955" text-anchor="middle">De Westplaat • Klik om foto te plaatsen</text>
+  
+  <!-- Camera icon badge -->
+  <g transform="translate(186, 332)">
+    <rect width="28" height="20" rx="4" fill="#2d4a22" opacity="0.12"/>
+    <circle cx="14" cy="10" r="4.5" fill="none" stroke="#2d4a22" stroke-width="1.5"/>
+    <circle cx="19" cy="7" r="1" fill="#2d4a22"/>
+  </g>
+</svg>
