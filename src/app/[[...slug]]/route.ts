@@ -62,8 +62,20 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
     const { contentStore } = await import('@/lib/contentStore')
     const contentMap = await contentStore.getContentMap()
     
+    // 1. Inject custom saved catalogue grids
     for (const [id, content] of Object.entries(contentMap)) {
-      if (content) {
+      if (id.startsWith('grid_') && content) {
+        const gridId = id.replace('grid_', '');
+        const gridNode = root.querySelector(`[data-cms-catalog-grid="${gridId}"]`);
+        if (gridNode) {
+          gridNode.innerHTML = content;
+        }
+      }
+    }
+
+    // 2. Inject individual element overrides
+    for (const [id, content] of Object.entries(contentMap)) {
+      if (content && !id.startsWith('grid_')) {
         const node = root.querySelector(`[data-cms-id="${id}"]`);
         if (node) {
           if (node.tagName.toLowerCase() === 'img') {

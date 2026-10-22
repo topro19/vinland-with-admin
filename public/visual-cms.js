@@ -2,7 +2,7 @@
   if (window.__visualCMSReady) return;
   window.__visualCMSReady = true;
 
-  // 1. Inject CSS for the top admin navigation bar, floating panel, and editing states
+  // 1. Inject CSS for the top admin navigation bar, floating panel, editing states, dynamic cards, and modal
   const style = document.createElement('style');
   style.innerHTML = `
     /* Disable the cheese cursor globally in edit mode */
@@ -44,6 +44,13 @@
       cursor: pointer;
     }
     
+    /* Hide editor-only elements in NAVIGATE mode */
+    body.cms-mode-nav .cms-card-delete-btn,
+    body.cms-mode-nav .cms-add-card-slot,
+    body.cms-mode-nav .cms-header-add-btn {
+      display: none !important;
+    }
+
     /* Top Admin Navigation Bar */
     #cms-admin-bar {
       position: fixed;
@@ -123,82 +130,91 @@
       align-items: center;
       gap: 4px;
       overflow-x: auto;
-      white-space: nowrap;
       scrollbar-width: none;
-      -ms-overflow-style: none;
       padding: 2px 0;
     }
-    .cms-page-tabs::-webkit-scrollbar {
-      display: none;
-    }
+    .cms-page-tabs::-webkit-scrollbar { display: none; }
 
     .cms-page-tab {
-      padding: 5px 11px;
+      padding: 5px 10px;
       border-radius: 6px;
       font-size: 12px;
       font-weight: 500;
       color: #94a3b8;
       text-decoration: none;
-      transition: all 0.15s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
       white-space: nowrap;
+      transition: all 0.15s ease;
       border: 1px solid transparent;
     }
     .cms-page-tab:hover {
-      background: rgba(255, 255, 255, 0.08);
       color: #ffffff;
+      background: rgba(255, 255, 255, 0.08);
     }
     .cms-page-tab.active {
-      background: #059669;
       color: #ffffff;
-      font-weight: 700;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-      border-color: rgba(52, 211, 153, 0.4);
-    }
-    .cms-page-tab.active::after {
-      content: 'Editing';
-      font-size: 9px;
+      background: rgba(16, 185, 129, 0.2);
+      border-color: rgba(16, 185, 129, 0.4);
       font-weight: 600;
-      background: rgba(0, 0, 0, 0.25);
-      padding: 1px 4px;
-      border-radius: 3px;
-      letter-spacing: 0.2px;
-      text-transform: uppercase;
     }
 
-    /* Interactive Mode Switcher */
+    /* Mode Switcher Buttons */
     .cms-mode-switch {
       display: inline-flex;
-      align-items: center;
-      background: #1e293b;
-      padding: 3px;
+      background: rgba(255, 255, 255, 0.08);
       border-radius: 8px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 2px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
       flex-shrink: 0;
     }
+
     .cms-mode-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
       padding: 4px 10px;
+      border-radius: 6px;
       font-size: 11px;
       font-weight: 600;
-      border-radius: 6px;
       border: none;
-      cursor: pointer;
-      transition: all 0.15s ease;
       background: transparent;
       color: #94a3b8;
-    }
-    .cms-mode-btn:hover {
-      color: #ffffff;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      white-space: nowrap;
     }
     .cms-mode-btn.active {
       background: #2563eb;
       color: #ffffff;
       box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Top Save Button */
+    .cms-top-save-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      background: #059669;
+      color: #ffffff;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+      flex-shrink: 0;
+      box-shadow: 0 2px 4px rgba(5, 150, 105, 0.3);
+    }
+    .cms-top-save-btn:hover {
+      background: #047857;
+      transform: translateY(-1px);
+    }
+    .cms-top-save-btn.has-changes {
+      background: #d97706;
+      box-shadow: 0 0 12px rgba(217, 119, 6, 0.5);
+      animation: cmsPulseAmber 1.8s infinite;
+    }
+    @keyframes cmsPulseAmber {
+      0%, 100% { box-shadow: 0 0 8px rgba(217, 119, 6, 0.6); }
+      50% { box-shadow: 0 0 16px rgba(245, 158, 11, 0.9); }
     }
 
     /* Shortcut buttons */
@@ -290,6 +306,150 @@
     .cms-btn:disabled { background: #94a3b8; cursor: not-allowed; box-shadow: none; }
     
     .cms-pill { display: inline-block; padding: 3px 8px; background: #e0e7ff; color: #3730a3; border-radius: 9999px; font-size: 11px; font-weight: 600; margin-bottom: 14px; }
+
+    /* Delete Card Button */
+    .cms-card-delete-btn {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      z-index: 35;
+      width: 30px;
+      height: 30px;
+      border-radius: 9999px;
+      background: #ef4444;
+      color: #ffffff;
+      border: 2px solid #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.22);
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      opacity: 0.9;
+    }
+    .cms-card-delete-btn:hover {
+      background: #dc2626;
+      transform: scale(1.15);
+      opacity: 1;
+      box-shadow: 0 6px 14px rgba(220, 38, 38, 0.45);
+    }
+
+    /* Dashed Add Card Slot in Grids */
+    .cms-add-card-slot {
+      border: 2px dashed rgba(16, 185, 129, 0.5);
+      background: rgba(16, 185, 129, 0.04);
+      border-radius: 12px;
+      min-height: 260px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      padding: 24px;
+      text-align: center;
+      box-sizing: border-box;
+      user-select: none;
+    }
+    .cms-add-card-slot:hover {
+      border-color: #059669;
+      background: rgba(16, 185, 129, 0.09);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(5, 150, 105, 0.15);
+    }
+    .cms-add-card-circle {
+      width: 46px;
+      height: 46px;
+      border-radius: 9999px;
+      background: rgba(16, 185, 129, 0.15);
+      color: #047857;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+      transition: all 0.2s ease;
+    }
+    .cms-add-card-slot:hover .cms-add-card-circle {
+      transform: scale(1.12) rotate(90deg);
+      background: #059669;
+      color: #ffffff;
+    }
+    .cms-add-card-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: #065f46;
+      margin-bottom: 3px;
+    }
+    .cms-add-card-sub {
+      font-size: 11px;
+      color: #047857;
+      opacity: 0.8;
+    }
+
+    /* Section Header Add Button */
+    .cms-header-add-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 4px 10px;
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      color: #047857;
+      border-radius: 9999px;
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      margin-left: 8px;
+    }
+    .cms-header-add-btn:hover {
+      background: #059669;
+      color: #ffffff;
+      transform: translateY(-1px);
+      box-shadow: 0 2px 6px rgba(5, 150, 105, 0.25);
+    }
+
+    /* Modal for Deleting Cards */
+    #cms-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.65);
+      backdrop-filter: blur(3px);
+      z-index: 10000000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-family: ui-sans-serif, system-ui, sans-serif;
+    }
+    #cms-modal-box {
+      background: #ffffff;
+      border-radius: 14px;
+      width: 90%;
+      max-width: 420px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      padding: 24px;
+      box-sizing: border-box;
+      transform: scale(0.95);
+      opacity: 0;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    #cms-modal-backdrop.open {
+      display: flex;
+    }
+    #cms-modal-backdrop.open #cms-modal-box {
+      transform: scale(1);
+      opacity: 1;
+    }
+
+    /* Newly added card animation */
+    @keyframes cmsCardSpawn {
+      0% { opacity: 0; transform: scale(0.9) translateY(12px); }
+      100% { opacity: 1; transform: scale(1) translateY(0); }
+    }
+    .cms-card-spawning {
+      animation: cmsCardSpawn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      outline: 3px solid #10b981 !important;
+    }
   `;
   document.head.appendChild(style);
 
@@ -340,6 +500,7 @@
         <button type="button" id="cms-mode-edit-btn" class="cms-mode-btn active">✏️ Edit Mode</button>
         <button type="button" id="cms-mode-nav-btn" class="cms-mode-btn">🧭 Navigate Site</button>
       </div>
+      <button type="button" id="cms-top-save-btn" class="cms-top-save-btn" title="Opslaan naar database en live website">💾 Opslaan</button>
       <div class="cms-bar-sep"></div>
       <a href="/admin" target="_blank" class="cms-admin-link" title="Open Admin CMS Dashboard">📊 Dashboard</a>
       <a href="/admin/media" target="_blank" class="cms-admin-link" title="Open Media Library">🖼️ Media</a>
@@ -370,11 +531,36 @@
   `;
   document.body.appendChild(panel);
 
-  // 5. State Management
+  // 5. Inject Confirmation Modal
+  const modalBackdrop = document.createElement('div');
+  modalBackdrop.id = 'cms-modal-backdrop';
+  modalBackdrop.innerHTML = `
+    <div id="cms-modal-box">
+      <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 14px;">
+        <div style="width: 38px; height: 38px; border-radius: 9999px; background: #fee2e2; color: #ef4444; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+        </div>
+        <div>
+          <h3 style="margin: 0; font-size: 16px; font-weight: 700; color: #0f172a;">Product Verwijderen</h3>
+          <p style="margin: 2px 0 0; font-size: 12px; color: #64748b;">Weet u zeker dat u dit product wilt verwijderen?</p>
+        </div>
+      </div>
+      <p id="cms-modal-card-name" style="font-size: 13px; font-weight: 600; color: #334155; background: #f8fafc; border: 1px solid #e2e8f0; padding: 10px 14px; border-radius: 8px; margin: 0 0 18px 0;"></p>
+      <div style="display: flex; justify-content: flex-end; gap: 8px;">
+        <button type="button" id="cms-modal-cancel" style="padding: 8px 16px; border: 1px solid #cbd5e1; background: white; color: #475569; border-radius: 6px; font-size: 13px; font-weight: 600; cursor: pointer;">Annuleren</button>
+        <button type="button" id="cms-modal-confirm" style="padding: 8px 16px; border: none; background: #dc2626; color: white; border-radius: 6px; font-size: 13px; font-weight: 600; cursor: pointer;">Ja, Verwijderen</button>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(modalBackdrop);
+
+  // 6. State Management
   let activeElement = null;
   let activeType = 'text'; // 'text' | 'image'
   let pendingFile = null;
   let editorMode = 'edit'; // 'edit' | 'navigate'
+  const dirtyGrids = new Set();
+  let hasPendingChanges = false;
 
   // DOM Elements mapping
   const closeBtn = document.getElementById('cms-close');
@@ -382,9 +568,31 @@
   const editorContent = document.getElementById('cms-editor-content');
   const footer = document.getElementById('cms-footer');
   const saveBtn = document.getElementById('cms-save-btn');
+  const topSaveBtn = document.getElementById('cms-top-save-btn');
   const editModeBtn = document.getElementById('cms-mode-edit-btn');
   const navModeBtn = document.getElementById('cms-mode-nav-btn');
   const exitBtn = document.getElementById('cms-exit-btn');
+  const modalCancel = document.getElementById('cms-modal-cancel');
+  const modalConfirm = document.getElementById('cms-modal-confirm');
+  const modalCardName = document.getElementById('cms-modal-card-name');
+  let pendingDeleteAction = null;
+
+  function markChangesPending(gridId) {
+    if (gridId) dirtyGrids.add(gridId);
+    hasPendingChanges = true;
+    topSaveBtn.classList.add('has-changes');
+    topSaveBtn.innerText = '💾 Opslaan (1*)';
+  }
+
+  function markChangesClean() {
+    dirtyGrids.clear();
+    hasPendingChanges = false;
+    topSaveBtn.classList.remove('has-changes');
+    topSaveBtn.innerText = '✓ Alles Opgeslagen';
+    setTimeout(() => {
+      topSaveBtn.innerText = '💾 Opslaan';
+    }, 2500);
+  }
 
   // Mode Switch Handlers
   editModeBtn.onclick = () => {
@@ -407,28 +615,432 @@
     activeElement = null;
   };
 
-  // Exit button handler
   exitBtn.onclick = () => {
     const url = new URL(window.location.href);
     url.searchParams.delete('edit_mode');
     window.location.href = url.toString();
   };
 
-  // Close panel handler
   closeBtn.onclick = () => {
     panel.classList.remove('open');
     if (activeElement) activeElement.classList.remove('cms-active-element');
     activeElement = null;
   };
 
-  // 6. Global Click Interceptor (Capture Phase)
+  // Modal Handlers
+  modalCancel.onclick = () => {
+    modalBackdrop.classList.remove('open');
+    pendingDeleteAction = null;
+  };
+  modalConfirm.onclick = () => {
+    if (pendingDeleteAction) {
+      pendingDeleteAction();
+    }
+    modalBackdrop.classList.remove('open');
+    pendingDeleteAction = null;
+  };
+
+  // 7. Preset Farm Media Library for 1-click photo selection
+  const farmMediaPresets = [
+    { label: 'Kaaswiel (Jong)', url: './images/img_006.jpg', cat: 'Kaas' },
+    { label: 'Kaasruim (Rijping)', url: './images/img_013.jpg', cat: 'Kaas' },
+    { label: 'Oude Boerenkaas', url: './images/img_042.jpg', cat: 'Kaas' },
+    { label: 'Kruidenkaas Wiel', url: './images/img_009.jpg', cat: 'Kaas' },
+    { label: 'Komijnekaas Bereiding', url: './images/img_010.jpg', cat: 'Kaas' },
+    { label: 'Ambachtelijke Karnemelk', url: './images/img_015.jpg', cat: 'Zuivel' },
+    { label: 'Verse Melk Flessen', url: './images/img_016.jpg', cat: 'Zuivel' },
+    { label: 'Boerderijyoghurt', url: './images/img_017.jpg', cat: 'Zuivel' },
+    { label: 'Zuivel Flessen & Potten', url: './images/img_014.jpg', cat: 'Zuivel' },
+    { label: 'Aardbeien Zuivel/Kwark', url: './images/img_043.jpg', cat: 'Zuivel' },
+    { label: 'Vanille Vla', url: './images/img_044.jpg', cat: 'Zuivel' },
+    { label: 'Chocolade Vla', url: './images/img_045.jpg', cat: 'Zuivel' },
+    { label: 'Stoofvlees / Riblap', url: './images/img_029.jpg', cat: 'Vlees' },
+    { label: 'Entrecote / Biefstuk', url: './images/img_030.jpg', cat: 'Vlees' },
+    { label: 'Ambachtelijke Burgers', url: './images/img_031.jpg', cat: 'Vlees' },
+    { label: 'Ambachtelijke Braadworst', url: './images/img_032.jpg', cat: 'Vlees' },
+    { label: 'Weidekoeien Grasland', url: './images/img_033.jpg', cat: 'Boerderij' },
+    { label: 'Vlees Placeholder', url: '/images/placeholder-meat.svg', cat: 'Placeholder' },
+    { label: 'Kaas Placeholder', url: '/images/placeholder-cheese.svg', cat: 'Placeholder' },
+    { label: 'Zuivel Placeholder', url: '/images/placeholder-dairy.svg', cat: 'Placeholder' },
+    { label: 'Kaasbol Placeholder', url: '/images/placeholder-cheeseball.svg', cat: 'Placeholder' }
+  ];
+
+  // 8. Dynamic Product Card Templates
+  function generateCardMarkup(gridId, uid) {
+    if (gridId === 'kaas-bolletjes') {
+      return `
+        <div data-cms-card="true" class="product-card bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 group flex flex-col justify-between border border-surface-variant/20 relative">
+          <div class="h-48 overflow-hidden relative bg-surface-container">
+            <img src="/images/placeholder-cheeseball.svg" alt="Nieuw Kaasbolletje" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-cms-id="${uid}-img">
+            <span class="absolute top-2 right-2 text-[10px] bg-secondary-container/90 text-on-secondary-container px-2 py-0.5 rounded font-medium shadow-sm" data-cms-id="${uid}-badge">Ca. 900g</span>
+          </div>
+          <div class="p-md text-center flex-grow flex flex-col justify-between">
+            <div>
+              <h3 class="font-headline-md text-headline-md text-heading-green" data-cms-id="${uid}-title">Nieuw Kaasbolletje</h3>
+              <p class="text-xs text-on-surface-variant mt-1.5" data-cms-id="${uid}-desc">Handzaam boerenkruidenkaasje van ca. 900 gram — heerlijk voor op de borrelplank</p>
+            </div>
+            <div class="mt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <span class="px-sm py-1 bg-secondary-fixed text-on-secondary-fixed text-label-sm rounded-full" data-cms-id="${uid}-tag">900g Bolletje</span>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    if (gridId.startsWith('kaas-')) {
+      return `
+        <div data-cms-card="true" class="product-card bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 group flex flex-col justify-between border border-surface-variant/20 relative">
+          <div class="h-48 overflow-hidden relative bg-surface-container">
+            <img src="/images/placeholder-cheese.svg" alt="Nieuwe Boerenkaas" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-cms-id="${uid}-img">
+            <span class="absolute top-2 right-2 text-[10px] bg-secondary-container/90 text-on-secondary-container px-2 py-0.5 rounded font-medium shadow-sm" data-cms-id="${uid}-badge">Nieuw</span>
+          </div>
+          <div class="p-md text-center flex-grow flex flex-col justify-between">
+            <div>
+              <h3 class="font-headline-md text-headline-md text-heading-green" data-cms-id="${uid}-title">Nieuwe Kaassoort</h3>
+              <p class="text-xs text-on-surface-variant mt-1.5" data-cms-id="${uid}-desc">Ambachtelijk bereid van dagverse rauwe weidemelk — vol en romig van smaak</p>
+            </div>
+            <div class="mt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <span class="px-sm py-1 bg-secondary-fixed text-on-secondary-fixed text-label-sm rounded-full" data-cms-id="${uid}-tag">Boerenkaas</span>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    if (gridId.startsWith('zuivel-')) {
+      return `
+        <div data-cms-card="true" class="product-card bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 group flex flex-col justify-between border border-surface-variant/20 relative">
+          <div class="h-48 overflow-hidden relative bg-surface-container">
+            <img src="/images/placeholder-dairy.svg" alt="Nieuw Zuivelproduct" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-cms-id="${uid}-img">
+            <span class="absolute top-2 right-2 text-[10px] bg-secondary-container/90 text-on-secondary-container px-2 py-0.5 rounded font-medium shadow-sm" data-cms-id="${uid}-badge">Dagvers</span>
+          </div>
+          <div class="p-md text-center flex-grow flex flex-col justify-between">
+            <div>
+              <h3 class="font-headline-md text-headline-md text-heading-green" data-cms-id="${uid}-title">Nieuw Zuivelproduct</h3>
+              <p class="text-xs text-on-surface-variant mt-1.5" data-cms-id="${uid}-desc">Traditioneel bereid van dagverse boerderijmelk (1L fles of beker)</p>
+            </div>
+            <div class="mt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <span class="px-sm py-1 bg-secondary-fixed text-on-secondary-fixed text-label-sm rounded-full" data-cms-id="${uid}-tag">Dagvers</span>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    if (gridId.startsWith('ijs-')) {
+      return `
+        <div data-cms-card="true" class="ice-cream-card bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 group flex flex-col justify-between border border-surface-variant/20 relative">
+          <div class="h-48 overflow-hidden relative bg-surface-container">
+            <img src="./images/img_026.jpg" alt="Nieuwe IJssmaak" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-cms-id="${uid}-img">
+            <span class="absolute top-2 right-2 text-[10px] bg-secondary-container/90 text-on-secondary-container px-2 py-0.5 rounded font-medium shadow-sm" data-cms-id="${uid}-badge">Nieuw</span>
+          </div>
+          <div class="p-md text-center flex-grow flex flex-col justify-between">
+            <div>
+              <h3 class="font-headline-md text-headline-md text-heading-green" data-cms-id="${uid}-title">Nieuwe IJssmaak</h3>
+              <p class="text-xs text-on-surface-variant mt-1.5" data-cms-id="${uid}-desc">Ambachtelijk bereid met verse volle melk, slagroom en natuurlijke ingrediënten</p>
+            </div>
+            <div class="mt-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <span class="px-sm py-1 bg-secondary-fixed text-on-secondary-fixed text-label-sm rounded-full" data-cms-id="${uid}-tag">Proef de boerderij</span>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    if (gridId === 'vlees-bewerkt') {
+      return `
+        <div data-cms-card="true" class="group bg-white rounded-xl overflow-hidden border border-surface-variant hover:border-primary transition-all duration-300 shadow-sm relative">
+          <div class="aspect-square bg-surface-container overflow-hidden relative">
+            <img src="./images/img_031.jpg" alt="Nieuwe Vleesspecialiteit" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-cms-id="${uid}-img">
+            <span class="absolute top-2 right-2 text-[10px] bg-primary/90 text-white px-2 py-0.5 rounded font-medium shadow-sm" data-cms-id="${uid}-badge">Nieuw</span>
+          </div>
+          <div class="p-md text-center">
+            <h4 class="font-label-lg text-label-lg uppercase tracking-wider text-heading-green font-bold" data-cms-id="${uid}-title">Nieuwe Specialiteit</h4>
+            <p class="text-xs text-on-surface-variant mt-1" data-cms-id="${uid}-desc">Ambachtelijk gekruid van eigen rundvlees</p>
+          </div>
+        </div>
+      `;
+    }
+
+    // Default meat cut
+    return `
+      <div data-cms-card="true" class="group bg-white rounded-xl overflow-hidden border border-surface-variant hover:border-primary transition-all duration-300 hover:shadow-md flex flex-col justify-between relative">
+        <div class="aspect-square bg-surface-container overflow-hidden relative group/img">
+          <img src="/images/placeholder-meat.svg" alt="Nieuwe Snede" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-cms-id="${uid}-img">
+          <span class="absolute top-2 right-2 text-[10px] bg-amber-600/90 text-white px-2 py-0.5 rounded font-medium shadow-sm" data-cms-id="${uid}-badge">Nieuw</span>
+        </div>
+        <div class="p-sm text-center bg-white border-t border-surface-variant/20 flex-grow flex flex-col justify-between">
+          <div>
+            <h4 class="font-label-lg text-label-lg text-heading-green uppercase tracking-wider" data-cms-id="${uid}-title">Nieuwe Snede</h4>
+            <p class="text-[11px] text-on-surface-variant mt-0.5" data-cms-id="${uid}-desc">Puur rundvlees van eigen weiderunderen</p>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  // Helper to attach Delete button to a card
+  function attachDeleteButtonToCard(card, grid, gridId) {
+    if (card.querySelector('.cms-card-delete-btn')) return;
+
+    // Ensure parent is relative
+    if (!card.style.position || card.style.position === 'static') {
+      card.classList.add('relative');
+    }
+
+    const delBtn = document.createElement('button');
+    delBtn.type = 'button';
+    delBtn.className = 'cms-card-delete-btn';
+    delBtn.title = 'Verwijder dit product uit de catalogus';
+    delBtn.innerHTML = `
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="3 6 5 6 21 6"></polyline>
+        <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+        <line x1="10" y1="11" x2="10" y2="17"></line>
+        <line x1="14" y1="11" x2="14" y2="17"></line>
+      </svg>
+    `;
+
+    delBtn.onclick = (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+
+      // Find product name
+      const titleEl = card.querySelector('h3, h4, [data-cms-id*="title"], [data-cms-id*="h3"], [data-cms-id*="h4"]');
+      const titleText = titleEl ? titleEl.innerText.trim() : 'dit product';
+
+      modalCardName.innerText = `Product: "${titleText}"`;
+      modalBackdrop.classList.add('open');
+
+      pendingDeleteAction = () => {
+        card.style.transition = 'all 0.25s cubic-bezier(0.4, 0, 0.2, 1)';
+        card.style.transform = 'scale(0.85)';
+        card.style.opacity = '0';
+        setTimeout(() => {
+          card.remove();
+          updateCategoryCount(grid);
+          markChangesPending(gridId);
+        }, 250);
+      };
+    };
+
+    card.appendChild(delBtn);
+  }
+
+  // Update category count badge in section header if present
+  function updateCategoryCount(grid) {
+    const parentSection = grid.closest('div') ? grid.closest('div').parentElement : null;
+    const header = (parentSection ? parentSection.querySelector('.flex.items-center.justify-between') : null) || grid.previousElementSibling;
+    if (header) {
+      const badge = header.querySelector('span[class*="rounded-full"], span[class*="text-xs"]');
+      if (badge) {
+        const count = grid.querySelectorAll('[data-cms-card="true"], .product-card, .ice-cream-card').length;
+        if (badge.innerText.includes('variëteit') || badge.innerText.includes('product') || badge.innerText.includes('snede')) {
+          const suffix = badge.innerText.includes('variëteit') ? 'variëteiten' : (badge.innerText.includes('product') ? 'producten' : 'sneden');
+          badge.innerText = `${count} ${suffix}`;
+        }
+      }
+    }
+  }
+
+  // 9. Initialize All Product Catalogue Grids
+  function initCatalogGrids() {
+    const grids = document.querySelectorAll('[data-cms-catalog-grid]');
+    grids.forEach(grid => {
+      const gridId = grid.getAttribute('data-cms-catalog-grid');
+
+      // 1. Tag existing cards and attach delete buttons
+      const cards = Array.from(grid.children).filter(child => !child.classList.contains('cms-add-card-slot'));
+      cards.forEach(card => {
+        card.setAttribute('data-cms-card', 'true');
+        attachDeleteButtonToCard(card, grid, gridId);
+      });
+
+      // 2. Append Dashed Add Card Slot if not already present
+      if (!grid.querySelector('.cms-add-card-slot')) {
+        const addSlot = document.createElement('div');
+        addSlot.className = 'cms-add-card-slot';
+        addSlot.title = 'Klik om een nieuw product toe te voegen';
+        addSlot.innerHTML = `
+          <div class="cms-add-card-circle">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+          </div>
+          <span class="cms-add-card-title">+ Nieuw product toevoegen</span>
+          <span class="cms-add-card-sub">Klik om een kaart toe te voegen</span>
+        `;
+
+        addSlot.onclick = (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          addNewProductToGrid(grid, gridId, addSlot);
+        };
+
+        grid.appendChild(addSlot);
+      }
+
+      // 3. Add Header Button if section header is found
+      const prevEl = grid.previousElementSibling;
+      const headerContainer = (prevEl && prevEl.classList.contains('flex') && prevEl.classList.contains('justify-between'))
+        ? prevEl
+        : (grid.parentElement ? grid.parentElement.querySelector('.flex.items-center.justify-between') : null);
+
+      if (headerContainer && !headerContainer.querySelector('.cms-header-add-btn')) {
+        const headerBtn = document.createElement('button');
+        headerBtn.type = 'button';
+        headerBtn.className = 'cms-header-add-btn';
+        headerBtn.title = 'Voeg een product toe aan deze categorie';
+        headerBtn.innerHTML = `
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+          </svg>
+          Product toevoegen
+        `;
+        headerBtn.onclick = (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          const slot = grid.querySelector('.cms-add-card-slot');
+          addNewProductToGrid(grid, gridId, slot);
+        };
+        headerContainer.appendChild(headerBtn);
+      }
+    });
+  }
+
+  // Function to create and insert a new card
+  function addNewProductToGrid(grid, gridId, addSlot) {
+    const uid = 'custom-' + activeSlug + '-' + Date.now().toString(36) + Math.random().toString(36).substring(2, 5);
+    const cardHtml = generateCardMarkup(gridId, uid);
+    
+    // Parse to element
+    const temp = document.createElement('div');
+    temp.innerHTML = cardHtml.trim();
+    const newCard = temp.firstElementChild;
+    newCard.classList.add('cms-card-spawning');
+
+    // Attach delete button
+    attachDeleteButtonToCard(newCard, grid, gridId);
+
+    // Insert before the dashed slot
+    if (addSlot && addSlot.parentElement === grid) {
+      grid.insertBefore(newCard, addSlot);
+    } else {
+      grid.appendChild(newCard);
+    }
+
+    // Scroll into view gently
+    setTimeout(() => {
+      newCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      setTimeout(() => {
+        newCard.classList.remove('cms-card-spawning');
+      }, 1000);
+    }, 50);
+
+    updateCategoryCount(grid);
+    markChangesPending(gridId);
+  }
+
+  // 10. Clean Grid HTML Generator for Saving
+  function getCleanGridHtml(grid) {
+    const clone = grid.cloneNode(true);
+    // Remove CMS editor artifacts
+    clone.querySelectorAll('.cms-card-delete-btn').forEach(btn => btn.remove());
+    clone.querySelectorAll('.cms-add-card-slot').forEach(slot => slot.remove());
+    clone.querySelectorAll('.cms-card-spawning').forEach(c => c.classList.remove('cms-card-spawning'));
+    clone.querySelectorAll('.cms-active-element').forEach(c => c.classList.remove('cms-active-element'));
+    return clone.innerHTML.trim();
+  }
+
+  // 11. Save All Pending Changes (Grids and Elements)
+  async function saveAllChanges() {
+    topSaveBtn.innerText = 'Opslaan...';
+    topSaveBtn.disabled = true;
+
+    const formData = new FormData();
+    formData.append('pageSlug', activeSlug);
+
+    // Collect all grids on this page
+    const gridsPayload = {};
+    const allGrids = document.querySelectorAll('[data-cms-catalog-grid]');
+    allGrids.forEach(grid => {
+      const gid = grid.getAttribute('data-cms-catalog-grid');
+      gridsPayload[gid] = getCleanGridHtml(grid);
+    });
+    formData.append('grids', JSON.stringify(gridsPayload));
+
+    // Also collect active element edit if pending in sidebar
+    if (activeElement) {
+      const isImg = activeType === 'image';
+      const childImg = activeElement.querySelector ? activeElement.querySelector('img') : null;
+      const targetNode = (isImg && activeElement.tagName.toLowerCase() !== 'img' && childImg) ? childImg : activeElement;
+      const cmsId = targetNode.getAttribute('data-cms-id') || activeElement.getAttribute('data-cms-id');
+
+      if (cmsId) {
+        if (activeType === 'image') {
+          if (pendingFile) {
+            formData.append(`image_${cmsId}`, pendingFile);
+          } else {
+            const urlVal = document.getElementById('cms-img-url-input')?.value;
+            if (urlVal) {
+              formData.append('texts', JSON.stringify({ [cmsId]: urlVal.trim() }));
+            }
+          }
+        } else if (activeType === 'text') {
+          const textInput = document.getElementById('cms-textarea-input');
+          if (textInput) {
+            formData.append('texts', JSON.stringify({ [cmsId]: textInput.value }));
+          }
+        }
+      }
+    }
+
+    try {
+      const res = await fetch('/api/admin/save-inline', { method: 'POST', body: formData });
+      const data = await res.json();
+      if (data.success) {
+        markChangesClean();
+        if (saveBtn) {
+          saveBtn.innerText = 'Saved Successfully!';
+          saveBtn.style.background = '#059669';
+          setTimeout(() => {
+            saveBtn.innerText = 'Save to Database';
+            saveBtn.style.background = '';
+            saveBtn.disabled = false;
+          }, 2000);
+        }
+      } else {
+        alert('Fout bij opslaan: ' + (data.error || 'Server error'));
+        topSaveBtn.innerText = '💾 Opslaan (Opnieuw)';
+        topSaveBtn.disabled = false;
+      }
+    } catch {
+      alert('Netwerkfout bij opslaan. Controleer de verbinding.');
+      topSaveBtn.innerText = '💾 Opslaan (Opnieuw)';
+      topSaveBtn.disabled = false;
+    }
+  }
+
+  topSaveBtn.onclick = saveAllChanges;
+  saveBtn.onclick = saveAllChanges;
+
+  // 12. Global Click Interceptor (Capture Phase)
   document.addEventListener('click', (e) => {
-    // 1. Ignore any click inside the CMS panel or the top admin navigation bar
-    if (e.target.closest('#cms-panel') || e.target.closest('#cms-admin-bar')) {
+    // 1. Ignore clicks inside CMS panels, modals, delete buttons, add cards, or top admin bar
+    if (
+      e.target.closest('#cms-panel') ||
+      e.target.closest('#cms-admin-bar') ||
+      e.target.closest('#cms-modal-backdrop') ||
+      e.target.closest('.cms-card-delete-btn') ||
+      e.target.closest('.cms-add-card-slot') ||
+      e.target.closest('.cms-header-add-btn')
+    ) {
       return;
     }
 
-    // 2. In NAVIGATE mode: let user browse the site normally with edit_mode preserved
+    // 2. In NAVIGATE mode: let user browse normally with edit_mode preserved
     if (editorMode === 'navigate') {
       const link = e.target.closest('a');
       if (link && link.href) {
@@ -479,7 +1091,7 @@
       openEditorFor(target);
       panel.classList.add('open');
     } else {
-      // If clicking a normal link (without data-cms-id), append edit_mode=true and allow navigation
+      // Normal links in edit mode
       const link = e.target.closest('a');
       if (link && link.href) {
         e.preventDefault();
@@ -498,32 +1110,7 @@
     }
   }, true);
 
-  // Preset Farm Media Library for 1-click photo selection
-  const farmMediaPresets = [
-    { label: 'Kaaswiel (Jong)', url: './images/img_006.jpg', cat: 'Kaas' },
-    { label: 'Kaasruim (Rijping)', url: './images/img_013.jpg', cat: 'Kaas' },
-    { label: 'Oude Boerenkaas', url: './images/img_042.jpg', cat: 'Kaas' },
-    { label: 'Kruidenkaas Wiel', url: './images/img_009.jpg', cat: 'Kaas' },
-    { label: 'Komijnekaas Bereiding', url: './images/img_010.jpg', cat: 'Kaas' },
-    { label: 'Ambachtelijke Karnemelk', url: './images/img_015.jpg', cat: 'Zuivel' },
-    { label: 'Verse Melk Flessen', url: './images/img_016.jpg', cat: 'Zuivel' },
-    { label: 'Boerderijyoghurt', url: './images/img_017.jpg', cat: 'Zuivel' },
-    { label: 'Zuivel Flessen & Potten', url: './images/img_014.jpg', cat: 'Zuivel' },
-    { label: 'Aardbeien Zuivel/Kwark', url: './images/img_043.jpg', cat: 'Zuivel' },
-    { label: 'Vanille Vla', url: './images/img_044.jpg', cat: 'Zuivel' },
-    { label: 'Chocolade Vla', url: './images/img_045.jpg', cat: 'Zuivel' },
-    { label: 'Stoofvlees / Riblap', url: './images/img_029.jpg', cat: 'Vlees' },
-    { label: 'Entrecote / Biefstuk', url: './images/img_030.jpg', cat: 'Vlees' },
-    { label: 'Ambachtelijke Burgers', url: './images/img_031.jpg', cat: 'Vlees' },
-    { label: 'Ambachtelijke Braadworst', url: './images/img_032.jpg', cat: 'Vlees' },
-    { label: 'Weidekoeien Grasland', url: './images/img_033.jpg', cat: 'Boerderij' },
-    { label: 'Vlees Placeholder', url: '/images/placeholder-meat.svg', cat: 'Placeholder' },
-    { label: 'Kaas Placeholder', url: '/images/placeholder-cheese.svg', cat: 'Placeholder' },
-    { label: 'Zuivel Placeholder', url: '/images/placeholder-dairy.svg', cat: 'Placeholder' },
-    { label: 'Kaasbol Placeholder', url: '/images/placeholder-cheeseball.svg', cat: 'Placeholder' }
-  ];
-
-  // 7. Populate Editor UI based on element type
+  // 13. Populate Editor UI based on element type
   function openEditorFor(el) {
     emptyState.style.display = 'none';
     editorContent.style.display = 'block';
@@ -547,7 +1134,7 @@
     if (isImage) {
       const currentSrc = targetImg.getAttribute('src') || targetImg.src || '';
       
-      const presetHtml = farmMediaPresets.map((p, idx) => `
+      const presetHtml = farmMediaPresets.map((p) => `
         <button type="button" class="cms-preset-chip" data-preset-url="${p.url}" title="${p.label}" style="display: flex; flex-direction: column; align-items: center; padding: 4px; border: 1px solid #e2e8f0; border-radius: 6px; background: white; cursor: pointer; transition: all 0.15s; font-size: 10px; color: #334155;">
           <div style="width: 100%; height: 38px; border-radius: 4px; overflow: hidden; background: #f8fafc; margin-bottom: 2px;">
             <img src="${p.url}" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none'" />
@@ -590,10 +1177,10 @@
       urlInput.value = currentSrc;
 
       function updateCardBadgeIfPresent() {
-        const card = targetImg.closest('.group') || targetImg.closest('li') || targetImg.parentElement;
+        const card = targetImg.closest('.group') || targetImg.closest('[data-cms-card="true"]') || targetImg.parentElement;
         if (card) {
           const badge = card.querySelector('[data-cms-id*="span"], [data-cms-id*="badge"]');
-          if (badge && badge.innerText.toLowerCase().includes('ontbreekt')) {
+          if (badge && (badge.innerText.toLowerCase().includes('ontbreekt') || badge.innerText.toLowerCase().includes('nieuw'))) {
             badge.innerText = 'Foto geplaatst';
             badge.style.backgroundColor = '#105223';
             badge.style.color = '#ffffff';
@@ -613,6 +1200,7 @@
           }
           urlInput.value = '';
           updateCardBadgeIfPresent();
+          markChangesPending();
         }
       };
 
@@ -626,6 +1214,7 @@
             targetImg.src = newUrl;
           }
           updateCardBadgeIfPresent();
+          markChangesPending();
         }
       };
 
@@ -641,6 +1230,7 @@
             }
             urlInput.value = selectedUrl;
             updateCardBadgeIfPresent();
+            markChangesPending();
           }
         };
       });
@@ -663,67 +1253,13 @@
       // Live DOM update on type
       textarea.oninput = (e) => {
         el.innerHTML = e.target.value.replace(/\n/g, '<br>');
+        markChangesPending();
       };
     }
   }
 
-  // 8. Save handler (POST to API)
-  saveBtn.onclick = async () => {
-    if (!activeElement) return;
-    
-    saveBtn.innerText = 'Saving...';
-    saveBtn.disabled = true;
+  // 14. Initialize catalog grids now
+  initCatalogGrids();
 
-    const isImg = activeType === 'image';
-    const childImg = activeElement.querySelector ? activeElement.querySelector('img') : null;
-    const targetNode = (isImg && activeElement.tagName.toLowerCase() !== 'img' && childImg) ? childImg : activeElement;
-    const cmsId = targetNode.getAttribute('data-cms-id') || activeElement.getAttribute('data-cms-id');
-    const formData = new FormData();
-
-    if (activeType === 'image') {
-      if (pendingFile) {
-        formData.append(`image_${cmsId}`, pendingFile);
-      } else {
-        const urlVal = document.getElementById('cms-img-url-input')?.value;
-        if (urlVal) {
-          formData.append('texts', JSON.stringify({ [cmsId]: urlVal.trim() }));
-        } else {
-          saveBtn.innerText = 'Save to Database';
-          saveBtn.disabled = false;
-          return;
-        }
-      }
-    } else if (activeType === 'text') {
-      const textVal = document.getElementById('cms-textarea-input').value;
-      formData.append('texts', JSON.stringify({ [cmsId]: textVal }));
-    } else {
-      saveBtn.innerText = 'Save to Database';
-      saveBtn.disabled = false;
-      return;
-    }
-
-    try {
-      const res = await fetch('/api/admin/save-inline', { method: 'POST', body: formData });
-      const data = await res.json();
-      if (data.success) {
-        saveBtn.innerText = 'Saved Successfully!';
-        saveBtn.style.background = '#059669';
-        setTimeout(() => {
-          saveBtn.innerText = 'Save to Database';
-          saveBtn.style.background = '';
-          saveBtn.disabled = false;
-        }, 2000);
-      } else {
-        alert('Error saving: ' + (data.error || 'Server error'));
-        saveBtn.innerText = 'Save to Database';
-        saveBtn.disabled = false;
-      }
-    } catch {
-      alert('Network error while saving. Please check your connection.');
-      saveBtn.innerText = 'Save to Database';
-      saveBtn.disabled = false;
-    }
-  };
-
-  console.log('Visual CMS Loaded with Admin Navigation Bar');
+  console.log('Visual CMS Loaded with Dynamic Catalogue Quantity Controls (+ Add & Delete)');
 })();

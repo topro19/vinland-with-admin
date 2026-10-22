@@ -1,3 +1,5 @@
+import fs from 'fs'
+import path from 'path'
 import { NextRequest, NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
 import { getSession } from '@/lib/auth'
@@ -21,6 +23,43 @@ export async function POST(request: NextRequest) {
       const texts = JSON.parse(textsStr)
       for (const [id, content] of Object.entries(texts)) {
         await contentStore.saveContent(id, content as string)
+      }
+    }
+
+    // Process catalogue grid updates (added/deleted cards)
+    const gridsStr = formData.get('grids') as string
+    const pageSlug = formData.get('pageSlug') as string
+    if (gridsStr) {
+      const grids = JSON.parse(gridsStr)
+      for (const [gridId, html] of Object.entries(grids)) {
+        await contentStore.saveContent(`grid_${gridId}`, html as string)
+      }
+
+      // Also persist directly into _html_source if writable
+      if (pageSlug) {
+        try {
+          // path imported at top
+          const targetFile = pageSlug.endsWith('.html') ? pageSlug : `${pageSlug}.html`
+          const filePath = path.join(process.cwd(), '_html_source', targetFile)
+          if (fs.existsSync(filePath)) {
+            const { parse } = await import('node-html-parser')
+            let fileHtml = fs.readFileSync(filePath, 'utf-8')
+            const root = parse(fileHtml)
+            let modified = false
+            for (const [gridId, html] of Object.entries(grids)) {
+              const gridNode = root.querySelector(`[data-cms-catalog-grid="${gridId}"]`)
+              if (gridNode) {
+                gridNode.innerHTML = html as string
+                modified = true
+              }
+            }
+            if (modified) {
+              fs.writeFileSync(filePath, root.toString(), 'utf-8')
+            }
+          }
+        } catch (fileErr) {
+          console.warn('[SaveInline] Local file write skipped or failed:', fileErr)
+        }
       }
     }
 
